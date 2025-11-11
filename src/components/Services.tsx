@@ -4,6 +4,7 @@ import { Palette, TrendingUp, Share2, ArrowRight } from "lucide-react";
 import designImg from "@/assets/service-design.jpg";
 import seoImg from "@/assets/service-seo.jpg";
 import socialImg from "@/assets/service-social.jpg";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -102,10 +103,12 @@ const Services = () => {
                     ))}
                   </ul>
 
-                  <Button variant="ghost" className="w-full group/btn">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-smooth" />
-                  </Button>
+                  <Link to="/services">
+                    <Button variant="ghost" className="w-full group/btn">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-smooth" />
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             );
@@ -121,10 +124,12 @@ const Services = () => {
             From content writing and email marketing to PPC advertising and brand strategy, 
             we offer comprehensive digital marketing solutions tailored to your needs.
           </p>
-          <Button variant="accent" size="lg">
-            View All Services
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <Link to="/services">
+            <Button variant="accent" size="lg">
+              View All Services
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </Card>
       </div>
     </section>

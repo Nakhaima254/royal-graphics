@@ -122,10 +122,12 @@ const BlogsPage = () => {
                   <p className="text-muted-foreground mb-4">
                     {post.excerpt}
                   </p>
-                  <Button variant="ghost" className="p-0 h-auto font-semibold group/btn">
-                    Read More 
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
-                  </Button>
+                  <Link to="/blogs">
+                    <Button variant="ghost" className="p-0 h-auto font-semibold group/btn">
+                      Read More 
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
+                    </Button>
+                  </Link>
                 </div>
               </article>
             ))}

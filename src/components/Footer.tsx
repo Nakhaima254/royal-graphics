@@ -10,12 +10,12 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 gradient-accent rounded-lg flex items-center justify-center">
                 <span className="text-xl font-bold text-accent-foreground">RG</span>
               </div>
               <span className="text-xl font-bold">Royal Graphics</span>
-            </div>
+            </Link>
             <p className="text-primary-foreground/80 text-sm mb-4">
               Your royal treatment in digital marketing. Elevating brands through expert design, SEO, and social media.
             </p>
