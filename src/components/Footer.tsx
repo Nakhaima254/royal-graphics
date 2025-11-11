@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -54,11 +55,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li><a href="#services" className="hover:text-accent transition-smooth">Graphic Design</a></li>
-              <li><a href="#services" className="hover:text-accent transition-smooth">SEO Services</a></li>
-              <li><a href="#services" className="hover:text-accent transition-smooth">Social Media Management</a></li>
-              <li><a href="#services" className="hover:text-accent transition-smooth">Content Writing</a></li>
-              <li><a href="#services" className="hover:text-accent transition-smooth">Email Marketing</a></li>
+              <li><Link to="/services" className="hover:text-accent transition-smooth">Graphic Design</Link></li>
+              <li><Link to="/services" className="hover:text-accent transition-smooth">SEO Services</Link></li>
+              <li><Link to="/services" className="hover:text-accent transition-smooth">Social Media Management</Link></li>
+              <li><Link to="/services" className="hover:text-accent transition-smooth">Content Writing</Link></li>
+              <li><Link to="/services" className="hover:text-accent transition-smooth">Email Marketing</Link></li>
             </ul>
           </div>
 
@@ -66,11 +67,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li><a href="#about" className="hover:text-accent transition-smooth">About Us</a></li>
-              <li><a href="#portfolio" className="hover:text-accent transition-smooth">Portfolio</a></li>
+              <li><Link to="/about" className="hover:text-accent transition-smooth">About Us</Link></li>
+              <li><Link to="/pricing" className="hover:text-accent transition-smooth">Pricing</Link></li>
               <li><a href="#" className="hover:text-accent transition-smooth">Careers</a></li>
-              <li><a href="#" className="hover:text-accent transition-smooth">Blog</a></li>
-              <li><a href="#contact" className="hover:text-accent transition-smooth">Contact</a></li>
+              <li><Link to="/blogs" className="hover:text-accent transition-smooth">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-accent transition-smooth">Contact</Link></li>
             </ul>
           </div>
 
