@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const BlogsPage = () => {
   const blogPosts = [
     {
+      slug: "10-essential-seo-tips-for-2025",
       title: "10 Essential SEO Tips for 2025",
       excerpt: "Discover the latest SEO strategies that will help your website rank higher in search results and drive more organic traffic to your business.",
       category: "SEO",
@@ -13,6 +14,7 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
     },
     {
+      slug: "the-power-of-brand-identity",
       title: "The Power of Brand Identity in Digital Marketing",
       excerpt: "Learn how a strong brand identity can transform your business and create lasting connections with your target audience.",
       category: "Design",
@@ -21,6 +23,7 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
     },
     {
+      slug: "social-media-trends-2025",
       title: "Social Media Trends to Watch This Year",
       excerpt: "Stay ahead of the curve with these emerging social media trends that will shape how brands connect with audiences in 2025.",
       category: "Social Media",
@@ -29,6 +32,7 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
     },
     {
+      slug: "how-to-create-engaging-visual-content",
       title: "How to Create Engaging Visual Content",
       excerpt: "Master the art of visual storytelling with these proven techniques for creating graphics that capture attention and drive engagement.",
       category: "Design",
@@ -37,6 +41,7 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80"
     },
     {
+      slug: "email-marketing-best-practices-2025",
       title: "Email Marketing Best Practices for 2025",
       excerpt: "Maximize your email campaign performance with these essential strategies and tactics that deliver real results.",
       category: "Marketing",
@@ -45,6 +50,7 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80"
     },
     {
+      slug: "local-seo-dominating-your-market",
       title: "Local SEO: Dominating Your Geographic Market",
       excerpt: "Learn how to optimize your online presence for local search and attract more customers in your area.",
       category: "SEO",
@@ -122,7 +128,7 @@ const BlogsPage = () => {
                   <p className="text-muted-foreground mb-4">
                     {post.excerpt}
                   </p>
-                  <Link to="/blogs">
+                  <Link to={`/blogs/${post.slug}`}>
                     <Button variant="ghost" className="p-0 h-auto font-semibold group/btn">
                       Read More 
                       <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
