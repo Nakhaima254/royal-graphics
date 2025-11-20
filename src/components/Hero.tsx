@@ -16,22 +16,22 @@ const Hero = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/95 via-primary/90 to-primary-light/85" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-dark/95 via-accent/90 to-accent-light/85" />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Your Royal Treatment in Digital Marketing</span>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Your Royal Treatment in Digital Marketing</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Elevating Your
-            <span className="block mt-2 bg-gradient-to-r from-accent-light to-accent bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">
               Digital Presence
             </span>
           </h1>
@@ -45,7 +45,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link to="/contact">
-              <Button variant="accent" size="lg" className="w-full sm:w-auto">
+              <Button variant="default" size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-primary-foreground shadow-premium">
                 Get Free Consultation
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -64,19 +64,19 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-primary-foreground/20">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">500+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">500+</div>
               <div className="text-sm text-primary-foreground/80">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">95%</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">95%</div>
               <div className="text-sm text-primary-foreground/80">Client Satisfaction</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">10+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">10+</div>
               <div className="text-sm text-primary-foreground/80">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">24/7</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">24/7</div>
               <div className="text-sm text-primary-foreground/80">Support Available</div>
             </div>
           </div>
