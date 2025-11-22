@@ -22,7 +22,7 @@ const Home = () => {
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center p-6">
-              <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Palette className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Graphic Design</h3>
@@ -30,7 +30,7 @@ const Home = () => {
             </div>
             
             <div className="text-center p-6">
-              <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">SEO Services</h3>
@@ -38,7 +38,7 @@ const Home = () => {
             </div>
             
             <div className="text-center p-6">
-              <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Share2 className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Social Media</h3>
@@ -57,7 +57,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-primary">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
             Ready to Elevate Your Brand?

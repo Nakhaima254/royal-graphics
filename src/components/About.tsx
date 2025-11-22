@@ -77,7 +77,7 @@ const About = () => {
                   key={index}
                   className="p-6 border-border hover:shadow-card transition-smooth text-center"
                 >
-                  <div className="w-14 h-14 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-card">
+                  <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-card">
                     <Icon className="w-7 h-7 text-primary-foreground" />
                   </div>
                   <h4 className="text-lg font-semibold text-card-foreground mb-2">
@@ -93,7 +93,7 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 gradient-hero rounded-2xl p-8 sm:p-12 text-center shadow-premium">
+        <div className="mt-16 bg-primary rounded-2xl p-8 sm:p-12 text-center shadow-premium">
           <h3 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-8">
             By The Numbers
           </h3>
