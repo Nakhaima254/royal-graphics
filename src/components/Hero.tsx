@@ -17,7 +17,7 @@ const Hero = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="absolute inset-0 bg-accent/80" />
+        <div className="absolute inset-0 bg-accent/60" />
       </div>
 
       {/* Animated Particles */}
