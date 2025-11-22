@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -17,6 +18,98 @@ const Hero = () => {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent-dark/95 via-accent/90 to-accent-light/85" />
+      </div>
+
+      {/* Animated Particles */}
+      <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none">
+        {/* Floating Circles */}
+        <motion.div
+          className="absolute w-64 h-64 rounded-full bg-primary/10 blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -100, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ top: "10%", left: "10%" }}
+        />
+        <motion.div
+          className="absolute w-96 h-96 rounded-full bg-accent-light/10 blur-3xl"
+          animate={{
+            x: [0, -120, 0],
+            y: [0, 100, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ top: "50%", right: "5%" }}
+        />
+        <motion.div
+          className="absolute w-48 h-48 rounded-full bg-primary-light/15 blur-2xl"
+          animate={{
+            x: [0, 80, 0],
+            y: [0, -80, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ bottom: "20%", left: "60%" }}
+        />
+
+        {/* Floating Geometric Shapes */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-primary/30 rounded-full"
+            animate={{
+              y: [0, -100, 0],
+              x: [0, Math.sin(i) * 50, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5,
+            }}
+            style={{
+              top: `${20 + i * 10}%`,
+              left: `${10 + i * 10}%`,
+            }}
+          />
+        ))}
+
+        {/* Sparkle Effects */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`sparkle-${i}`}
+            className="absolute"
+            animate={{
+              scale: [0, 1, 0],
+              rotate: [0, 180, 360],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.7,
+            }}
+            style={{
+              top: `${15 + i * 15}%`,
+              right: `${10 + i * 12}%`,
+            }}
+          >
+            <Sparkles className="w-4 h-4 text-primary" />
+          </motion.div>
+        ))}
       </div>
 
       {/* Content */}
