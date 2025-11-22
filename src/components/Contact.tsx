@@ -46,7 +46,7 @@ const Contact = () => {
           {/* Contact Info Cards */}
           <div className="space-y-6">
             <Card className="p-6 border-border hover:shadow-card transition-smooth">
-              <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Phone</h3>
@@ -55,7 +55,7 @@ const Contact = () => {
             </Card>
 
             <Card className="p-6 border-border hover:shadow-card transition-smooth">
-              <div className="w-12 h-12 gradient-accent rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6 text-accent-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Email</h3>
@@ -64,7 +64,7 @@ const Contact = () => {
             </Card>
 
             <Card className="p-6 border-border hover:shadow-card transition-smooth">
-              <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Location</h3>

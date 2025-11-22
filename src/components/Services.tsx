@@ -78,8 +78,8 @@ const Services = () => {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center shadow-premium">
+                  <div className="absolute inset-0 bg-card/80" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-premium">
                     <Icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                 </div>
@@ -116,7 +116,7 @@ const Services = () => {
         </div>
 
         {/* Additional Services Banner */}
-        <Card className="gradient-primary p-8 text-center shadow-premium">
+        <Card className="bg-primary p-8 text-center shadow-premium">
           <h3 className="text-2xl font-bold text-primary-foreground mb-3">
             And Many More Services...
           </h3>

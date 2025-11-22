@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 gradient-accent rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
                 <span className="text-xl font-bold text-accent-foreground">RG</span>
               </div>
               <span className="text-xl font-bold">Royal Graphics</span>
@@ -89,7 +89,7 @@ const Footer = () => {
               />
               <button 
                 aria-label="Subscribe"
-                className="w-10 h-10 rounded-lg gradient-accent flex items-center justify-center hover:scale-105 transition-bounce"
+                className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center hover:scale-105 transition-bounce"
               >
                 <Mail className="w-4 h-4 text-accent-foreground" />
               </button>
