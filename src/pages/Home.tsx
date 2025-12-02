@@ -2,13 +2,27 @@ import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Palette, TrendingUp, Share2, ArrowRight, Users, Award, Target, CheckCircle, Star, MessageSquare, Lightbulb, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
 const Home = () => {
   const stats = [
-    { number: "500+", label: "Projects Completed", icon: Target },
     { number: "150+", label: "Happy Clients", icon: Users },
     { number: "10+", label: "Years Experience", icon: Award },
     { number: "98%", label: "Client Satisfaction", icon: Star },
+    { number: "24/7", label: "Support Available", icon: Target },
   ];
 
   const process = [
@@ -24,13 +38,6 @@ const Home = () => {
     { name: "Emily Davis", role: "Marketing Director", content: "Best investment we made for our brand. The ROI has been incredible.", rating: 5 },
   ];
 
-  const portfolio = [
-    { title: "E-commerce Rebrand", category: "Graphic Design", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" },
-    { title: "SaaS SEO Campaign", category: "SEO Services", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" },
-    { title: "Restaurant Social", category: "Social Media", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop" },
-    { title: "Startup Branding", category: "Graphic Design", image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=400&h=300&fit=crop" },
-  ];
-
   return (
     <div>
       <Hero />
@@ -38,24 +45,36 @@ const Home = () => {
       {/* Stats Section */}
       <section className="py-16 bg-accent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <motion.div key={index} className="text-center" variants={fadeInUp} transition={{ duration: 0.5 }}>
                 <div className="w-12 h-12 bg-accent-foreground/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <stat.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-accent-foreground mb-1">{stat.number}</div>
                 <div className="text-accent-foreground/80 text-sm">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Preview */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">What We Do</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
               Our Core Services
@@ -63,10 +82,20 @@ const Home = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Comprehensive digital solutions to elevate your brand and drive measurable results
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8 mb-12"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.div 
+              className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+            >
               <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
                 <Palette className="w-8 h-8 text-primary-foreground" />
               </div>
@@ -77,9 +106,13 @@ const Home = () => {
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Marketing Materials</li>
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> UI/UX Design</li>
               </ul>
-            </div>
+            </motion.div>
             
-            <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <motion.div 
+              className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+            >
               <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-8 h-8 text-primary-foreground" />
               </div>
@@ -90,9 +123,13 @@ const Home = () => {
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> On-Page Optimization</li>
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Link Building</li>
               </ul>
-            </div>
+            </motion.div>
             
-            <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <motion.div 
+              className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+            >
               <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
                 <Share2 className="w-8 h-8 text-primary-foreground" />
               </div>
@@ -103,23 +140,35 @@ const Home = () => {
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Community Management</li>
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Paid Advertising</li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Link to="/services">
               <Button variant="accent" size="lg">
                 View All Services <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">How We Work</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
               Our Proven Process
@@ -127,11 +176,22 @@ const Home = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A streamlined approach to deliver results that exceed expectations
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {process.map((item, index) => (
-              <div key={index} className="relative text-center">
+              <motion.div 
+                key={index} 
+                className="relative text-center"
+                variants={fadeInUp}
+                transition={{ duration: 0.5 }}
+              >
                 <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
@@ -141,55 +201,22 @@ const Home = () => {
                 {index < process.length - 1 && (
                   <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-border" />
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Preview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Work</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A glimpse of our recent work and the results we've achieved for our clients
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {portfolio.map((project, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-xl">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-primary-foreground p-4">
-                  <span className="text-sm font-medium mb-2">{project.category}</span>
-                  <h3 className="text-xl font-bold text-center">{project.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Link to="/services">
-              <Button variant="outline" size="lg">
-                View All Projects <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Testimonials</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
               What Our Clients Say
@@ -197,11 +224,22 @@ const Home = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Don't just take our word for it - hear from our satisfied clients
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-card border border-border rounded-xl p-8">
+              <motion.div 
+                key={index} 
+                className="bg-card border border-border rounded-xl p-8"
+                variants={fadeInUp}
+                transition={{ duration: 0.5 }}
+              >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-accent text-accent" />
@@ -212,22 +250,46 @@ const Home = () => {
                   <div className="font-semibold text-foreground">{testimonial.name}</div>
                   <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
+      <motion.section 
+        className="py-20 bg-primary"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             Ready to Elevate Your Brand?
-          </h2>
-          <p className="text-primary-foreground/90 max-w-2xl mx-auto mb-8">
+          </motion.h2>
+          <motion.p 
+            className="text-primary-foreground/90 max-w-2xl mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             Get started with a free consultation and discover how we can help your business grow
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <Link to="/contact">
               <Button variant="secondary" size="lg">
                 Get Free Consultation
@@ -238,9 +300,9 @@ const Home = () => {
                 View Pricing
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
