@@ -1,9 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Palette, TrendingUp, Share2, ArrowRight } from "lucide-react";
-import designImg from "@/assets/service-design.jpg";
-import seoImg from "@/assets/service-seo.jpg";
-import socialImg from "@/assets/service-social.jpg";
+import { Palette, Share2, PenTool, Video, GraduationCap, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -11,7 +8,7 @@ const services = [
     icon: Palette,
     title: "Graphic Design",
     description: "From logos to complete brand identities, we create stunning visuals that capture your brand essence and leave lasting impressions.",
-    image: designImg,
+    link: "/services/graphic-design",
     features: [
       "Logo Design & Brand Identity",
       "Print & Digital Graphics",
@@ -20,27 +17,51 @@ const services = [
     ],
   },
   {
-    icon: TrendingUp,
-    title: "SEO Services",
-    description: "Data-driven SEO strategies that boost your search rankings, drive organic traffic, and deliver measurable results for your business.",
-    image: seoImg,
-    features: [
-      "On-Page SEO Optimization",
-      "Technical SEO Audits",
-      "Keyword Research & Strategy",
-      "Monthly Analytics Reports",
-    ],
-  },
-  {
     icon: Share2,
-    title: "Social Media Management",
+    title: "Social Media Marketing",
     description: "Build genuine community engagement with strategic social media management across all major platforms, creating content that resonates.",
-    image: socialImg,
+    link: "/services/social-media-marketing",
     features: [
       "Content Creation & Curation",
       "Community Management",
       "Social Advertising Campaigns",
       "Performance Analytics",
+    ],
+  },
+  {
+    icon: PenTool,
+    title: "Copywriting",
+    description: "Compelling copy that sells. From website content to ad campaigns, we craft words that connect and convert.",
+    link: "/services/copywriting",
+    features: [
+      "Website Copy & Landing Pages",
+      "Blog Posts & Articles",
+      "Email Marketing Campaigns",
+      "Ad Copy & Headlines",
+    ],
+  },
+  {
+    icon: Video,
+    title: "Video Editing",
+    description: "Professional video editing that tells your story. Transform raw footage into polished content that captivates your audience.",
+    link: "/services/video-editing",
+    features: [
+      "Promotional Videos",
+      "Social Media Content",
+      "Motion Graphics",
+      "Color Grading & Sound",
+    ],
+  },
+  {
+    icon: GraduationCap,
+    title: "Online Classes",
+    description: "Learn digital marketing skills from industry experts. Master design, marketing, and video editing at your own pace.",
+    link: "/services/online-classes",
+    features: [
+      "Graphic Design Courses",
+      "Social Media Mastery",
+      "Video Editing Training",
+      "1-on-1 Mentorship",
     ],
   },
 ];
@@ -71,21 +92,15 @@ const Services = () => {
                 key={index} 
                 className="overflow-hidden border-border hover:shadow-premium transition-smooth bg-card group"
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
-                  />
-                  <div className="absolute inset-0 bg-card/80" />
-                  <div className="absolute bottom-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-premium">
-                    <Icon className="w-6 h-6 text-primary-foreground" />
+                {/* Icon Header */}
+                <div className="p-6 pb-0">
+                  <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center shadow-premium mb-4">
+                    <Icon className="w-7 h-7 text-primary-foreground" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 pt-2">
                   <h3 className="text-2xl font-bold text-card-foreground mb-3">
                     {service.title}
                   </h3>
@@ -103,7 +118,7 @@ const Services = () => {
                     ))}
                   </ul>
 
-                  <Link to="/services">
+                  <Link to={service.link}>
                     <Button variant="ghost" className="w-full group/btn">
                       Learn More
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-smooth" />
@@ -115,18 +130,17 @@ const Services = () => {
           })}
         </div>
 
-        {/* Additional Services Banner */}
+        {/* CTA Banner */}
         <Card className="bg-primary p-8 text-center shadow-premium">
           <h3 className="text-2xl font-bold text-primary-foreground mb-3">
-            And Many More Services...
+            Ready to Transform Your Brand?
           </h3>
           <p className="text-primary-foreground/90 mb-6 max-w-2xl mx-auto">
-            From content writing and email marketing to PPC advertising and brand strategy, 
-            we offer comprehensive digital marketing solutions tailored to your needs.
+            Get in touch to discuss your project and discover how we can help you achieve your goals.
           </p>
-          <Link to="/services">
+          <Link to="/contact">
             <Button variant="accent" size="lg">
-              View All Services
+              Get a Free Quote
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
