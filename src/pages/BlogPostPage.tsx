@@ -15,10 +15,10 @@ const BlogPostPage = () => {
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
       author: {
-        name: "Sarah Johnson",
-        role: "SEO Specialist",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-        bio: "SEO expert with 8+ years of experience helping businesses rank higher and drive organic traffic."
+        name: "Isaac N.",
+        role: "Digital Marketing Expert",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+        bio: "Passionate about helping businesses grow through strategic digital marketing, SEO, and creative design solutions."
       },
       content: `
         <p>Search engine optimization continues to evolve, and staying ahead of the curve is crucial for maintaining visibility in search results. Here are the ten essential SEO strategies you need to implement in 2025.</p>
@@ -64,10 +64,10 @@ const BlogPostPage = () => {
       readTime: "7 min read",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80",
       author: {
-        name: "Michael Chen",
-        role: "Creative Director",
+        name: "Isaac N.",
+        role: "Digital Marketing Expert",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-        bio: "Award-winning designer specializing in brand identity and visual storytelling for digital platforms."
+        bio: "Passionate about helping businesses grow through strategic digital marketing, SEO, and creative design solutions."
       },
       content: `
         <p>In today's crowded digital marketplace, a strong brand identity is no longer optional—it's essential for business success. Your brand identity is the face of your business, and it plays a crucial role in how customers perceive and connect with your company.</p>
@@ -105,10 +105,10 @@ const BlogPostPage = () => {
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80",
       author: {
-        name: "Emily Rodriguez",
-        role: "Social Media Strategist",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-        bio: "Social media expert helping brands build engaged communities and drive conversions through strategic content."
+        name: "Isaac N.",
+        role: "Digital Marketing Expert",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+        bio: "Passionate about helping businesses grow through strategic digital marketing, SEO, and creative design solutions."
       },
       content: `
         <p>Social media is constantly evolving, and 2025 brings exciting new trends that will shape how brands connect with their audiences. Stay ahead of the curve by understanding and implementing these emerging strategies.</p>
