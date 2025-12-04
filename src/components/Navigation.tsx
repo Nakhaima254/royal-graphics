@@ -1,21 +1,37 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const serviceLinks = [
+  { label: "Graphic Design", href: "/services/graphic-design", icon: Palette },
+  { label: "Social Media Marketing", href: "/services/social-media-marketing", icon: Share2 },
+  { label: "Copywriting", href: "/services/copywriting", icon: PenTool },
+  { label: "Video Editing", href: "/services/video-editing", icon: Video },
+  { label: "Online Classes", href: "/services/online-classes", icon: GraduationCap },
+];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
     { label: "About", href: "/about" },
     { label: "Pricing", href: "/pricing" },
     { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const isServicesActive = location.pathname.startsWith("/services");
 
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border shadow-card">
@@ -28,7 +44,43 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            <Link
+              to="/"
+              className={`text-foreground hover:text-primary transition-smooth font-medium ${
+                location.pathname === "/" ? "text-primary" : ""
+              }`}
+            >
+              Home
+            </Link>
+
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`flex items-center gap-1 text-foreground hover:text-primary transition-smooth font-medium ${isServicesActive ? "text-primary" : ""}`}>
+                Services
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 bg-card border-border z-[100]">
+                <DropdownMenuItem asChild>
+                  <Link to="/services" className="flex items-center gap-2 cursor-pointer">
+                    View All Services
+                  </Link>
+                </DropdownMenuItem>
+                <div className="h-px bg-border my-1" />
+                {serviceLinks.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <Link to={service.href} className="flex items-center gap-2 cursor-pointer">
+                        <Icon className="w-4 h-4 text-primary" />
+                        {service.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  );
+                })}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {navItems.slice(1).map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
@@ -59,8 +111,54 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
+            <div className="flex flex-col gap-2">
+              <Link
+                to="/"
+                className={`text-foreground hover:text-primary transition-smooth font-medium py-2 ${
+                  location.pathname === "/" ? "text-primary" : ""
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+
+              {/* Mobile Services Accordion */}
+              <div>
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className={`flex items-center justify-between w-full text-foreground hover:text-primary transition-smooth font-medium py-2 ${isServicesActive ? "text-primary" : ""}`}
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                </button>
+                {servicesOpen && (
+                  <div className="pl-4 flex flex-col gap-1 bg-secondary/50 rounded-lg py-2 mt-1">
+                    <Link
+                      to="/services"
+                      className="text-muted-foreground hover:text-primary transition-smooth py-1.5 text-sm"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      View All Services
+                    </Link>
+                    {serviceLinks.map((service) => {
+                      const Icon = service.icon;
+                      return (
+                        <Link
+                          key={service.href}
+                          to={service.href}
+                          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth py-1.5 text-sm"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <Icon className="w-4 h-4" />
+                          {service.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {navItems.slice(1).map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
@@ -72,8 +170,8 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link to="/contact">
-                <Button variant="accent" size="default" className="w-full">
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button variant="accent" size="default" className="w-full mt-2">
                   Get Started
                 </Button>
               </Link>
