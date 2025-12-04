@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap } from "lucide-react";
+import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
@@ -15,6 +15,8 @@ const serviceLinks = [
   { label: "Social Media Marketing", href: "/services/social-media-marketing", icon: Share2 },
   { label: "Copywriting", href: "/services/copywriting", icon: PenTool },
   { label: "Video Editing", href: "/services/video-editing", icon: Video },
+  { label: "Email Marketing", href: "/services/email-marketing", icon: Mail },
+  { label: "SMS Marketing", href: "/services/sms-marketing", icon: MessageSquare },
   { label: "Online Classes", href: "/services/online-classes", icon: GraduationCap },
 ];
 
