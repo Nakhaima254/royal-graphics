@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Palette, Share2, PenTool, Video, GraduationCap, ArrowRight } from "lucide-react";
+import { Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -50,6 +50,30 @@ const services = [
       "Social Media Content",
       "Motion Graphics",
       "Color Grading & Sound",
+    ],
+  },
+  {
+    icon: Mail,
+    title: "Email Marketing",
+    description: "Strategic email campaigns that nurture leads and drive conversions with personalized messaging.",
+    link: "/services/email-marketing",
+    features: [
+      "Newsletter Design",
+      "Automated Sequences",
+      "A/B Testing",
+      "Analytics & Reporting",
+    ],
+  },
+  {
+    icon: MessageSquare,
+    title: "SMS Marketing",
+    description: "Instant reach with targeted SMS campaigns that get 98% open rates and drive immediate action.",
+    link: "/services/sms-marketing",
+    features: [
+      "Promotional Campaigns",
+      "Automated Messaging",
+      "Two-Way Communication",
+      "Delivery Analytics",
     ],
   },
   {

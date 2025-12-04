@@ -10,6 +10,8 @@ import SocialMediaMarketingPage from "./pages/services/SocialMediaMarketingPage"
 import CopywritingPage from "./pages/services/CopywritingPage";
 import VideoEditingPage from "./pages/services/VideoEditingPage";
 import OnlineClassesPage from "./pages/services/OnlineClassesPage";
+import EmailMarketingPage from "./pages/services/EmailMarketingPage";
+import SMSMarketingPage from "./pages/services/SMSMarketingPage";
 import AboutPage from "./pages/AboutPage";
 import PricingPage from "./pages/PricingPage";
 import BlogsPage from "./pages/BlogsPage";
@@ -40,6 +42,8 @@ const App = () => (
               <Route path="/services/copywriting" element={<CopywritingPage />} />
               <Route path="/services/video-editing" element={<VideoEditingPage />} />
               <Route path="/services/online-classes" element={<OnlineClassesPage />} />
+              <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
+              <Route path="/services/sms-marketing" element={<SMSMarketingPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/blogs" element={<BlogsPage />} />
