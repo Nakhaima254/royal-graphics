@@ -12,13 +12,13 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const serviceLinks = [
-  { label: "Graphic Design", href: "/services/graphic-design", icon: Palette },
-  { label: "Social Media Marketing", href: "/services/social-media-marketing", icon: Share2 },
-  { label: "Copywriting", href: "/services/copywriting", icon: PenTool },
-  { label: "Video Editing", href: "/services/video-editing", icon: Video },
-  { label: "Email Marketing", href: "/services/email-marketing", icon: Mail },
-  { label: "SMS Marketing", href: "/services/sms-marketing", icon: MessageSquare },
-  { label: "Online Classes", href: "/services/online-classes", icon: GraduationCap },
+  { label: "Graphic Design", href: "/services/graphic-design", icon: Palette, description: "Logos, branding & visual identity" },
+  { label: "Social Media Marketing", href: "/services/social-media-marketing", icon: Share2, description: "Grow your online presence" },
+  { label: "Copywriting", href: "/services/copywriting", icon: PenTool, description: "Compelling content that converts" },
+  { label: "Video Editing", href: "/services/video-editing", icon: Video, description: "Professional video production" },
+  { label: "Email Marketing", href: "/services/email-marketing", icon: Mail, description: "Targeted email campaigns" },
+  { label: "SMS Marketing", href: "/services/sms-marketing", icon: MessageSquare, description: "Direct mobile engagement" },
+  { label: "Online Classes", href: "/services/online-classes", icon: GraduationCap, description: "Learn digital marketing skills" },
 ];
 
 const Navigation = () => {
@@ -89,8 +89,11 @@ const Navigation = () => {
                                 <Icon className="w-5 h-5" />
                               </div>
                               <div>
-                                <span className="font-medium text-foreground group-hover:text-primary transition-smooth">
+                                <span className="font-medium text-foreground group-hover:text-primary transition-smooth block">
                                   {service.label}
+                                </span>
+                                <span className="text-xs text-muted-foreground">
+                                  {service.description}
                                 </span>
                               </div>
                             </Link>
