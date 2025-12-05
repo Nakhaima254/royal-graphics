@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 import {
   NavigationMenu,
@@ -84,25 +85,37 @@ const Navigation = () => {
                     <div className="w-[750px] p-6 bg-card border border-border rounded-lg shadow-lg">
                       <div className="flex gap-6">
                         {/* Featured Service - Rotating */}
-                        <Link 
-                          to={currentFeatured.href}
-                          className="w-[220px] shrink-0 p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 hover:border-primary/40 transition-smooth group relative overflow-hidden"
-                        >
-                          <div className="p-3 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
-                            <currentFeatured.icon className="w-6 h-6" />
-                          </div>
-                          <span className="text-xs font-semibold text-primary uppercase tracking-wider">Featured</span>
-                          <h3 className="font-bold text-foreground mt-1 group-hover:text-primary transition-smooth">
-                            {currentFeatured.label}
-                          </h3>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            {currentFeatured.highlight}
-                          </p>
-                          <span className="inline-flex items-center gap-1 text-sm font-medium text-primary mt-3">
-                            Learn more →
-                          </span>
+                        <div className="w-[220px] shrink-0 relative">
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={featuredIndex}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                              <Link 
+                                to={currentFeatured.href}
+                                className="block p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 hover:border-primary/40 transition-smooth group"
+                              >
+                                <div className="p-3 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                                  <currentFeatured.icon className="w-6 h-6" />
+                                </div>
+                                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Featured</span>
+                                <h3 className="font-bold text-foreground mt-1 group-hover:text-primary transition-smooth">
+                                  {currentFeatured.label}
+                                </h3>
+                                <p className="text-sm text-muted-foreground mt-2">
+                                  {currentFeatured.highlight}
+                                </p>
+                                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary mt-3">
+                                  Learn more →
+                                </span>
+                              </Link>
+                            </motion.div>
+                          </AnimatePresence>
                           {/* Progress indicators */}
-                          <div className="flex gap-1 mt-4">
+                          <div className="flex gap-1 mt-3 px-4">
                             {featuredServices.map((_, idx) => (
                               <div
                                 key={idx}
@@ -112,7 +125,7 @@ const Navigation = () => {
                               />
                             ))}
                           </div>
-                        </Link>
+                        </div>
 
                         {/* Services Grid */}
                         <div className="flex-1">
