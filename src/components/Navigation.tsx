@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import {
@@ -21,10 +21,27 @@ const serviceLinks = [
   { label: "Online Classes", href: "/services/online-classes", icon: GraduationCap, description: "Learn digital marketing skills" },
 ];
 
+const featuredServices = [
+  { ...serviceLinks[1], highlight: "Boost your brand visibility with our expert social media strategies and content creation." },
+  { ...serviceLinks[0], highlight: "Create stunning visuals that capture attention and elevate your brand identity." },
+  { ...serviceLinks[3], highlight: "Transform raw footage into compelling stories that engage your audience." },
+  { ...serviceLinks[4], highlight: "Drive conversions with targeted email campaigns that deliver results." },
+];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
   const location = useLocation();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % featuredServices.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentFeatured = featuredServices[featuredIndex];
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -66,24 +83,35 @@ const Navigation = () => {
                   <NavigationMenuContent>
                     <div className="w-[750px] p-6 bg-card border border-border rounded-lg shadow-lg">
                       <div className="flex gap-6">
-                        {/* Featured Service */}
+                        {/* Featured Service - Rotating */}
                         <Link 
-                          to="/services/social-media-marketing"
-                          className="w-[220px] shrink-0 p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 hover:border-primary/40 transition-smooth group"
+                          to={currentFeatured.href}
+                          className="w-[220px] shrink-0 p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 hover:border-primary/40 transition-smooth group relative overflow-hidden"
                         >
                           <div className="p-3 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
-                            <Share2 className="w-6 h-6" />
+                            <currentFeatured.icon className="w-6 h-6" />
                           </div>
                           <span className="text-xs font-semibold text-primary uppercase tracking-wider">Featured</span>
                           <h3 className="font-bold text-foreground mt-1 group-hover:text-primary transition-smooth">
-                            Social Media Marketing
+                            {currentFeatured.label}
                           </h3>
                           <p className="text-sm text-muted-foreground mt-2">
-                            Boost your brand visibility with our expert social media strategies and content creation.
+                            {currentFeatured.highlight}
                           </p>
                           <span className="inline-flex items-center gap-1 text-sm font-medium text-primary mt-3">
                             Learn more →
                           </span>
+                          {/* Progress indicators */}
+                          <div className="flex gap-1 mt-4">
+                            {featuredServices.map((_, idx) => (
+                              <div
+                                key={idx}
+                                className={`h-1 rounded-full transition-all duration-300 ${
+                                  idx === featuredIndex ? "w-4 bg-primary" : "w-1.5 bg-primary/30"
+                                }`}
+                              />
+                            ))}
+                          </div>
                         </Link>
 
                         {/* Services Grid */}
