@@ -64,41 +64,67 @@ const Navigation = () => {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[600px] p-6 bg-card border border-border rounded-lg shadow-lg">
-                      <div className="mb-4">
+                    <div className="w-[750px] p-6 bg-card border border-border rounded-lg shadow-lg">
+                      <div className="flex gap-6">
+                        {/* Featured Service */}
                         <Link 
-                          to="/services" 
-                          className="text-lg font-semibold text-primary hover:underline"
+                          to="/services/social-media-marketing"
+                          className="w-[220px] shrink-0 p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 hover:border-primary/40 transition-smooth group"
                         >
-                          View All Services →
+                          <div className="p-3 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                            <Share2 className="w-6 h-6" />
+                          </div>
+                          <span className="text-xs font-semibold text-primary uppercase tracking-wider">Featured</span>
+                          <h3 className="font-bold text-foreground mt-1 group-hover:text-primary transition-smooth">
+                            Social Media Marketing
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2">
+                            Boost your brand visibility with our expert social media strategies and content creation.
+                          </p>
+                          <span className="inline-flex items-center gap-1 text-sm font-medium text-primary mt-3">
+                            Learn more →
+                          </span>
                         </Link>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Explore our complete range of digital marketing solutions
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        {serviceLinks.map((service) => {
-                          const Icon = service.icon;
-                          return (
-                            <Link
-                              key={service.href}
-                              to={service.href}
-                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-smooth group"
+
+                        {/* Services Grid */}
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-4">
+                            <div>
+                              <h4 className="font-semibold text-foreground">Our Services</h4>
+                              <p className="text-xs text-muted-foreground">Complete digital marketing solutions</p>
+                            </div>
+                            <Link 
+                              to="/services" 
+                              className="text-sm font-medium text-primary hover:underline"
                             >
-                              <div className="p-2 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
-                                <Icon className="w-5 h-5" />
-                              </div>
-                              <div>
-                                <span className="font-medium text-foreground group-hover:text-primary transition-smooth block">
-                                  {service.label}
-                                </span>
-                                <span className="text-xs text-muted-foreground">
-                                  {service.description}
-                                </span>
-                              </div>
+                              View all →
                             </Link>
-                          );
-                        })}
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            {serviceLinks.map((service) => {
+                              const Icon = service.icon;
+                              return (
+                                <Link
+                                  key={service.href}
+                                  to={service.href}
+                                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-secondary/50 transition-smooth group"
+                                >
+                                  <div className="p-1.5 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                                    <Icon className="w-4 h-4" />
+                                  </div>
+                                  <div>
+                                    <span className="font-medium text-sm text-foreground group-hover:text-primary transition-smooth block">
+                                      {service.label}
+                                    </span>
+                                    <span className="text-xs text-muted-foreground line-clamp-1">
+                                      {service.description}
+                                    </span>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </NavigationMenuContent>
