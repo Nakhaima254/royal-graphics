@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const serviceLinks = [
   { label: "Graphic Design", href: "/services/graphic-design", icon: Palette },
@@ -55,32 +56,52 @@ const Navigation = () => {
               Home
             </Link>
 
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className={`flex items-center gap-1 text-foreground hover:text-primary transition-smooth font-medium ${isServicesActive ? "text-primary" : ""}`}>
-                Services
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-card border-border z-[100]">
-                <DropdownMenuItem asChild>
-                  <Link to="/services" className="flex items-center gap-2 cursor-pointer">
-                    View All Services
-                  </Link>
-                </DropdownMenuItem>
-                <div className="h-px bg-border my-1" />
-                {serviceLinks.map((service) => {
-                  const Icon = service.icon;
-                  return (
-                    <DropdownMenuItem key={service.href} asChild>
-                      <Link to={service.href} className="flex items-center gap-2 cursor-pointer">
-                        <Icon className="w-4 h-4 text-primary" />
-                        {service.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Services Mega Menu */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${isServicesActive ? "text-primary" : ""}`}>
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-[600px] p-6 bg-card border border-border rounded-lg shadow-lg">
+                      <div className="mb-4">
+                        <Link 
+                          to="/services" 
+                          className="text-lg font-semibold text-primary hover:underline"
+                        >
+                          View All Services →
+                        </Link>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Explore our complete range of digital marketing solutions
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {serviceLinks.map((service) => {
+                          const Icon = service.icon;
+                          return (
+                            <Link
+                              key={service.href}
+                              to={service.href}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-smooth group"
+                            >
+                              <div className="p-2 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                                <Icon className="w-5 h-5" />
+                              </div>
+                              <div>
+                                <span className="font-medium text-foreground group-hover:text-primary transition-smooth">
+                                  {service.label}
+                                </span>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
             {navItems.slice(1).map((item) => (
               <Link
