@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark text-primary-foreground">
+    <footer className="bg-footer text-footer-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -16,35 +16,35 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">Royal Graphics</span>
             </Link>
-            <p className="text-primary-foreground/80 text-sm mb-4">
+            <p className="text-footer-foreground/80 text-sm mb-4">
               Your royal treatment in digital marketing. Elevating brands through expert design, SEO, and social media.
             </p>
             <div className="flex gap-3">
               <a 
                 href="#" 
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="Twitter"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -54,7 +54,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li><Link to="/services" className="hover:text-accent transition-smooth">Graphic Design</Link></li>
               <li><Link to="/services" className="hover:text-accent transition-smooth">SEO Services</Link></li>
               <li><Link to="/services" className="hover:text-accent transition-smooth">Social Media Management</Link></li>
@@ -66,7 +66,7 @@ const Footer = () => {
           {/* Company */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li><Link to="/about" className="hover:text-accent transition-smooth">About Us</Link></li>
               <li><Link to="/pricing" className="hover:text-accent transition-smooth">Pricing</Link></li>
               <li><a href="#" className="hover:text-accent transition-smooth">Careers</a></li>
@@ -78,14 +78,14 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-sm text-primary-foreground/80 mb-4">
+            <p className="text-sm text-footer-foreground/80 mb-4">
               Subscribe to our newsletter for digital marketing tips and updates.
             </p>
             <div className="flex gap-2">
               <input 
                 type="email" 
                 placeholder="Your email"
-                className="flex-1 px-3 py-2 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                className="flex-1 px-3 py-2 rounded-lg bg-footer-foreground/10 border border-footer-foreground/20 text-footer-foreground placeholder:text-footer-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
               />
               <button 
                 aria-label="Subscribe"
@@ -98,7 +98,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-primary-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/70">
+        <div className="pt-8 border-t border-footer-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-footer-foreground/70">
           <p>© {currentYear} Royal Graphics Solutions. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-accent transition-smooth">Privacy Policy</a>
