@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import footerLogo from "@/assets/footer-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,11 +11,8 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold text-accent-foreground">RG</span>
-              </div>
-              <span className="text-xl font-bold">Royal Graphics</span>
+            <Link to="/" className="mb-4 block">
+              <img src={footerLogo} alt="Royal Graphics" className="h-12 w-auto" />
             </Link>
             <p className="text-footer-foreground/80 text-sm mb-4">
               Your royal treatment in digital marketing. Elevating brands through expert design, SEO, and social media.
