@@ -29,6 +29,10 @@ All colors MUST be HSL.
     --accent-light: 240 100% 60%;
     --accent-dark: 240 100% 40%;
 
+    /* Footer Dark Blue */
+    --footer: 240 100% 20%;
+    --footer-foreground: 0 0% 100%;
+
     --secondary: 220 15% 97%;
     --secondary-foreground: 220 20% 20%;
 
