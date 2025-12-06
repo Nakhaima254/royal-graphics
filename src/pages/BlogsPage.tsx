@@ -1,6 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
 const BlogsPage = () => {
   const blogPosts = [
@@ -64,40 +78,70 @@ const BlogsPage = () => {
 
   return (
     <div className="pt-16">
-      <div className="bg-primary-dark py-16">
+      <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Blog & Insights
-          </h1>
-          <p className="text-primary-foreground/90 max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-primary-foreground/90 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Expert tips, industry insights, and digital marketing strategies to help your business thrive
-          </p>
+          </motion.p>
         </div>
       </div>
 
-      <section className="py-12 border-b border-border">
+      <motion.section 
+        className="py-12 border-b border-border"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-3 flex-wrap justify-center">
             {categories.map((category, index) => (
-              <Button
+              <motion.div
                 key={index}
-                variant={category === "All" ? "accent" : "outline"}
-                size="sm"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 * index }}
               >
-                {category}
-              </Button>
+                <Button
+                  variant={category === "All" ? "accent" : "outline"}
+                  size="sm"
+                >
+                  {category}
+                </Button>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {blogPosts.map((post, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-elegant transition-smooth group"
+                className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-premium transition-smooth group"
+                variants={fadeInUp}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -135,25 +179,57 @@ const BlogsPage = () => {
                     </Button>
                   </Link>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-12 text-center">
+          <motion.div 
+            className="mt-12 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Button variant="outline" size="lg">
               Load More Articles
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-secondary/20">
+      <motion.section 
+        className="py-20 bg-secondary/20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <motion.h2 
+            className="text-3xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Stay Updated
+          </motion.h2>
+          <motion.p 
+            className="text-muted-foreground mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             Subscribe to our newsletter and get the latest digital marketing insights delivered to your inbox
-          </p>
-          <div className="max-w-md mx-auto flex gap-2">
+          </motion.p>
+          <motion.div 
+            className="max-w-md mx-auto flex gap-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <input
               type="email"
               placeholder="Your email address"
@@ -162,9 +238,9 @@ const BlogsPage = () => {
             <Button variant="accent" size="lg">
               Subscribe
             </Button>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
