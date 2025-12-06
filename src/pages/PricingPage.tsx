@@ -1,6 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
 const PricingPage = () => {
   const pricingPlans = [
@@ -59,28 +73,47 @@ const PricingPage = () => {
 
   return (
     <div className="pt-16">
-      <div className="bg-primary-dark py-16">
+      <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Pricing Plans
-          </h1>
-          <p className="text-primary-foreground/90 max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-primary-foreground/90 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Choose the perfect plan for your business needs. All plans include our royal-level service.
-          </p>
+          </motion.p>
         </div>
       </div>
 
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {pricingPlans.map((plan, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`rounded-2xl p-8 transition-smooth hover:shadow-elegant ${
+                className={`rounded-2xl p-8 transition-smooth hover:shadow-premium ${
                   plan.popular
-                    ? "bg-primary text-primary-foreground shadow-glow border-2 border-primary scale-105"
+                    ? "bg-primary text-primary-foreground shadow-premium border-2 border-primary scale-105"
                     : "bg-card border border-border"
                 }`}
+                variants={fadeInUp}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -5 }}
               >
                 {plan.popular && (
                   <div className="inline-block px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-4">
@@ -122,11 +155,17 @@ const PricingPage = () => {
                     {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
                   </Button>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-16 text-center">
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <p className="text-muted-foreground mb-4">
               Need a custom solution? We're here to help.
             </p>
@@ -135,33 +174,54 @@ const PricingPage = () => {
                 Contact Us for Custom Pricing
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-secondary/20">
+      <motion.section 
+        className="py-20 bg-secondary/20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-card p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-lg mb-2">Can I upgrade or downgrade my plan?</h3>
-              <p className="text-muted-foreground">Yes, you can change your plan at any time. Changes take effect on your next billing cycle.</p>
-            </div>
-            <div className="bg-card p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-lg mb-2">What payment methods do you accept?</h3>
-              <p className="text-muted-foreground">We accept all major credit cards, PayPal, and bank transfers for annual plans.</p>
-            </div>
-            <div className="bg-card p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-lg mb-2">Is there a contract or can I cancel anytime?</h3>
-              <p className="text-muted-foreground">Our monthly plans are flexible with no long-term contracts. Cancel anytime with 30 days notice.</p>
-            </div>
-            <div className="bg-card p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-lg mb-2">Do you offer discounts for annual payments?</h3>
-              <p className="text-muted-foreground">Yes! Save 20% when you pay annually. Contact us to learn more about annual pricing.</p>
-            </div>
-          </div>
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <motion.div 
+            className="max-w-3xl mx-auto space-y-6"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {[
+              { q: "Can I upgrade or downgrade my plan?", a: "Yes, you can change your plan at any time. Changes take effect on your next billing cycle." },
+              { q: "What payment methods do you accept?", a: "We accept all major credit cards, PayPal, and bank transfers for annual plans." },
+              { q: "Is there a contract or can I cancel anytime?", a: "Our monthly plans are flexible with no long-term contracts. Cancel anytime with 30 days notice." },
+              { q: "Do you offer discounts for annual payments?", a: "Yes! Save 20% when you pay annually. Contact us to learn more about annual pricing." }
+            ].map((faq, index) => (
+              <motion.div 
+                key={index}
+                className="bg-card p-6 rounded-lg border border-border"
+                variants={fadeInUp}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <h3 className="font-semibold text-lg mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground">{faq.a}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
