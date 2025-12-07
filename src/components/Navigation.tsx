@@ -81,7 +81,7 @@ const Navigation = () => {
                   <NavigationMenuTrigger className={`bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${isServicesActive ? "text-primary" : ""}`}>
                     Services
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="absolute left-0">
+                  <NavigationMenuContent className="absolute -left-32">
                     <motion.div 
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
