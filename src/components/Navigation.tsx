@@ -81,19 +81,19 @@ const Navigation = () => {
                   <NavigationMenuTrigger className={`bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${isServicesActive ? "text-primary" : ""}`}>
                     Services
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="absolute left-0 top-full mt-2">
+                  <NavigationMenuContent>
                     <motion.div 
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[700px] p-5 bg-card backdrop-blur-xl border border-border rounded-xl shadow-2xl shadow-primary/10 overflow-hidden"
+                      className="w-[580px] p-4 overflow-hidden relative"
                     >
                       {/* Decorative gradient orbs */}
                       <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-2xl pointer-events-none" />
                       <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-accent/20 rounded-full blur-2xl pointer-events-none" />
                       
-                      <div className="relative flex gap-5">
-                        <div className="w-[200px] shrink-0">
+                      <div className="relative flex gap-4">
+                        <div className="w-[180px] shrink-0">
                           <AnimatePresence mode="wait">
                             <motion.div
                               key={featuredIndex}
@@ -104,7 +104,7 @@ const Navigation = () => {
                             >
                               <Link 
                                 to={currentFeatured.href}
-                                className="block p-4 rounded-xl bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 border border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
+                                className="block p-3 rounded-lg bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 border border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
                               >
                                 <motion.div 
                                   className="p-2 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
@@ -152,7 +152,7 @@ const Navigation = () => {
                           </div>
                         </div>
 
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-3">
                             <div>
                               <h4 className="font-bold text-sm text-foreground">Our Services</h4>
