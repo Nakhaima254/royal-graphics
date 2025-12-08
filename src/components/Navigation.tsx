@@ -86,15 +86,15 @@ const Navigation = () => {
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[800px] p-8 bg-card/95 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl shadow-primary/10"
+                      className="w-[90vw] max-w-[900px] lg:w-[800px] p-4 md:p-6 lg:p-8 bg-card/95 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl shadow-primary/10"
                     >
                       {/* Decorative gradient orbs */}
-                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
-                      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
+                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none hidden lg:block" />
+                      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none hidden lg:block" />
                       
-                      <div className="relative flex gap-8">
-                        {/* Featured Service - Rotating */}
-                        <div className="w-[240px] shrink-0">
+                      <div className="relative flex flex-col lg:flex-row gap-6 lg:gap-8">
+                        {/* Featured Service - Rotating (hidden on smaller screens) */}
+                        <div className="hidden lg:block w-[240px] shrink-0">
                           <AnimatePresence mode="wait">
                             <motion.div
                               key={featuredIndex}
@@ -156,19 +156,19 @@ const Navigation = () => {
 
                         {/* Services Grid */}
                         <div className="flex-1">
-                          <div className="flex items-center justify-between mb-5">
+                          <div className="flex items-center justify-between mb-4 lg:mb-5">
                             <div>
-                              <h4 className="font-bold text-lg text-foreground">Our Services</h4>
-                              <p className="text-sm text-muted-foreground">Complete digital marketing solutions</p>
+                              <h4 className="font-bold text-base lg:text-lg text-foreground">Our Services</h4>
+                              <p className="text-xs lg:text-sm text-muted-foreground">Complete digital marketing solutions</p>
                             </div>
                             <Link 
                               to="/services" 
-                              className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                              className="px-3 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                             >
                               View all →
                             </Link>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3 max-h-[50vh] lg:max-h-none overflow-y-auto lg:overflow-visible">
                             {serviceLinks.map((service, index) => {
                               const Icon = service.icon;
                               return (
@@ -180,24 +180,24 @@ const Navigation = () => {
                                 >
                                   <Link
                                     to={service.href}
-                                    className="flex items-start gap-4 p-3 rounded-xl hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
+                                    className="flex items-center gap-3 lg:gap-4 p-2.5 lg:p-3 rounded-xl hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
                                   >
                                     <motion.div 
-                                      className="p-2.5 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-accent group-hover:text-primary-foreground transition-all duration-300 shadow-sm"
+                                      className="p-2 lg:p-2.5 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-accent group-hover:text-primary-foreground transition-all duration-300 shadow-sm shrink-0"
                                       whileHover={{ scale: 1.1, rotate: 5 }}
                                     >
-                                      <Icon className="w-5 h-5" />
+                                      <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                                     </motion.div>
-                                    <div className="flex-1">
-                                      <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors duration-300 block">
+                                    <div className="flex-1 min-w-0">
+                                      <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors duration-300 block truncate">
                                         {service.label}
                                       </span>
-                                      <span className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                                      <span className="text-xs text-muted-foreground line-clamp-1 mt-0.5 hidden md:block">
                                         {service.description}
                                       </span>
                                     </div>
                                     <motion.span 
-                                      className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-center"
+                                      className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
                                       initial={{ x: -10 }}
                                       whileHover={{ x: 0 }}
                                     >
