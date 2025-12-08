@@ -86,7 +86,7 @@ const Navigation = () => {
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[calc(100vw-2rem)] max-w-[800px] p-4 md:p-6 lg:p-8 bg-card/98 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
+                      className="w-[calc(100vw-2rem)] max-w-[800px] p-4 md:p-6 lg:p-8 bg-card border border-border rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
                     >
                       {/* Decorative gradient orbs */}
                       <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none hidden xl:block" />
