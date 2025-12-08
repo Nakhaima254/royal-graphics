@@ -83,122 +83,53 @@ const Navigation = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <motion.div 
-                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[580px] p-4 overflow-hidden relative"
+                      className="w-[720px] p-6"
                     >
-                      {/* Decorative gradient orbs */}
-                      <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-2xl pointer-events-none" />
-                      <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-accent/20 rounded-full blur-2xl pointer-events-none" />
+                      <div className="flex items-center justify-between mb-5 pb-4 border-b border-border">
+                        <div>
+                          <h4 className="font-bold text-foreground">Our Services</h4>
+                          <p className="text-sm text-muted-foreground">Comprehensive digital marketing solutions</p>
+                        </div>
+                        <Link 
+                          to="/services" 
+                          className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors duration-200"
+                        >
+                          View All Services
+                        </Link>
+                      </div>
                       
-                      <div className="relative flex gap-4">
-                        <div className="w-[180px] shrink-0">
-                          <AnimatePresence mode="wait">
+                      <div className="grid grid-cols-2 gap-2">
+                        {serviceLinks.map((service, index) => {
+                          const Icon = service.icon;
+                          return (
                             <motion.div
-                              key={featuredIndex}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              exit={{ opacity: 0, x: 20 }}
-                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              key={service.href}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: index * 0.03, duration: 0.2 }}
                             >
-                              <Link 
-                                to={currentFeatured.href}
-                                className="block p-3 rounded-lg bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 border border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
+                              <Link
+                                to={service.href}
+                                className="flex items-start gap-4 p-4 rounded-xl hover:bg-secondary transition-colors duration-200 group"
                               >
-                                <motion.div 
-                                  className="p-2 rounded-lg bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
-                                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                                  transition={{ duration: 0.4 }}
-                                >
-                                  <currentFeatured.icon className="w-5 h-5" />
-                                </motion.div>
-                                <span className="text-xs font-bold text-primary uppercase tracking-wider">Featured</span>
-                                <h3 className="font-bold text-base text-foreground mt-1 group-hover:text-primary transition-colors duration-300">
-                                  {currentFeatured.label}
-                                </h3>
-                                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed line-clamp-3">
-                                  {currentFeatured.highlight}
-                                </p>
-                                <motion.span 
-                                  className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3"
-                                  whileHover={{ x: 5 }}
-                                >
-                                  Explore service 
-                                  <motion.span
-                                    animate={{ x: [0, 5, 0] }}
-                                    transition={{ repeat: Infinity, duration: 1.5 }}
-                                  >
-                                    →
-                                  </motion.span>
-                                </motion.span>
+                                <div className="p-2.5 rounded-lg bg-secondary text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+                                  <Icon className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1">
+                                  <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors duration-200 block">
+                                    {service.label}
+                                  </span>
+                                  <span className="text-xs text-muted-foreground mt-0.5 block">
+                                    {service.description}
+                                  </span>
+                                </div>
                               </Link>
                             </motion.div>
-                          </AnimatePresence>
-                          <div className="flex gap-1.5 mt-3 justify-center">
-                            {featuredServices.map((_, idx) => (
-                              <motion.button
-                                key={idx}
-                                onClick={() => setFeaturedIndex(idx)}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${
-                                  idx === featuredIndex 
-                                    ? "w-4 bg-primary" 
-                                    : "w-1.5 bg-primary/30 hover:bg-primary/50"
-                                }`}
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.9 }}
-                              />
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between mb-3">
-                            <div>
-                              <h4 className="font-bold text-sm text-foreground">Our Services</h4>
-                              <p className="text-xs text-muted-foreground">Digital marketing solutions</p>
-                            </div>
-                            <Link 
-                              to="/services" 
-                              className="px-3 py-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                            >
-                              View all →
-                            </Link>
-                          </div>
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {serviceLinks.map((service, index) => {
-                              const Icon = service.icon;
-                              return (
-                                <motion.div
-                                  key={service.href}
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: index * 0.05, duration: 0.3 }}
-                                >
-                                  <Link
-                                    to={service.href}
-                                    className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
-                                  >
-                                    <motion.div 
-                                      className="p-1.5 rounded-md bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-accent group-hover:text-primary-foreground transition-all duration-300"
-                                      whileHover={{ scale: 1.1, rotate: 5 }}
-                                    >
-                                      <Icon className="w-4 h-4" />
-                                    </motion.div>
-                                    <div className="flex-1 min-w-0">
-                                      <span className="font-medium text-xs text-foreground group-hover:text-primary transition-colors duration-300 block truncate">
-                                        {service.label}
-                                      </span>
-                                    </div>
-                                    <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs">
-                                      →
-                                    </span>
-                                  </Link>
-                                </motion.div>
-                              );
-                            })}
-                          </div>
-                        </div>
+                          );
+                        })}
                       </div>
                     </motion.div>
                   </NavigationMenuContent>
