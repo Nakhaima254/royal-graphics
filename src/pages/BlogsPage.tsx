@@ -60,6 +60,33 @@ const BlogsPage = () => {
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80"
     },
+    {
+      slug: "voice-search-optimization",
+      title: "Voice Search Optimization Guide",
+      excerpt: "Prepare your website for the future of search with voice-first optimization strategies and best practices.",
+      category: "SEO",
+      date: "February 10, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&q=80"
+    },
+    {
+      slug: "seo-for-ecommerce",
+      title: "SEO for E-commerce: Complete Playbook",
+      excerpt: "Boost your online store visibility with proven e-commerce SEO tactics that drive sales and revenue.",
+      category: "SEO",
+      date: "February 5, 2025",
+      readTime: "11 min read",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+    },
+    {
+      slug: "link-building-strategies",
+      title: "Ethical Link Building Strategies That Work",
+      excerpt: "Build high-quality backlinks that boost your domain authority without risking Google penalties.",
+      category: "SEO",
+      date: "January 28, 2025",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
+    },
     // Design Category
     {
       slug: "the-power-of-brand-identity",
@@ -96,6 +123,33 @@ const BlogsPage = () => {
       date: "February 18, 2025",
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
+    },
+    {
+      slug: "ui-ux-design-principles",
+      title: "Essential UI/UX Design Principles",
+      excerpt: "Create intuitive user experiences with fundamental design principles that keep users engaged and satisfied.",
+      category: "Design",
+      date: "February 8, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80"
+    },
+    {
+      slug: "logo-design-process",
+      title: "The Complete Logo Design Process",
+      excerpt: "From concept to final delivery, learn the professional workflow for creating memorable brand logos.",
+      category: "Design",
+      date: "February 1, 2025",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?w=800&q=80"
+    },
+    {
+      slug: "motion-graphics-for-marketing",
+      title: "Motion Graphics for Marketing Success",
+      excerpt: "Elevate your marketing with animated content that captures attention and boosts engagement rates.",
+      category: "Design",
+      date: "January 25, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80"
     },
     // Social Media Category
     {
@@ -134,6 +188,33 @@ const BlogsPage = () => {
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80"
     },
+    {
+      slug: "facebook-ads-mastery",
+      title: "Facebook Ads Mastery for Small Business",
+      excerpt: "Learn to create high-converting Facebook ad campaigns that maximize your advertising budget.",
+      category: "Social Media",
+      date: "February 8, 2025",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80"
+    },
+    {
+      slug: "influencer-marketing-guide",
+      title: "Influencer Marketing: Finding the Right Partners",
+      excerpt: "Navigate the world of influencer marketing and build partnerships that deliver authentic brand exposure.",
+      category: "Social Media",
+      date: "February 2, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=800&q=80"
+    },
+    {
+      slug: "social-media-analytics",
+      title: "Social Media Analytics That Matter",
+      excerpt: "Focus on the metrics that truly impact your business and learn to interpret social media data effectively.",
+      category: "Social Media",
+      date: "January 26, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+    },
     // Marketing Category
     {
       slug: "email-marketing-best-practices-2025",
@@ -170,6 +251,33 @@ const BlogsPage = () => {
       date: "February 12, 2025",
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+    },
+    {
+      slug: "ppc-advertising-tips",
+      title: "PPC Advertising Tips for Higher ROI",
+      excerpt: "Optimize your pay-per-click campaigns with proven strategies that reduce costs and increase conversions.",
+      category: "Marketing",
+      date: "February 6, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&q=80"
+    },
+    {
+      slug: "brand-storytelling",
+      title: "The Art of Brand Storytelling",
+      excerpt: "Connect with your audience on an emotional level through compelling brand narratives that drive loyalty.",
+      category: "Marketing",
+      date: "January 30, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80"
+    },
+    {
+      slug: "conversion-rate-optimization",
+      title: "Conversion Rate Optimization Secrets",
+      excerpt: "Turn more visitors into customers with data-driven CRO techniques that boost your bottom line.",
+      category: "Marketing",
+      date: "January 22, 2025",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
     }
   ];
 
