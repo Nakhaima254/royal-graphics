@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts } from "@/data/blogPosts";
+
+const POSTS_PER_PAGE = 6;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,16 +24,36 @@ const staggerContainer = {
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const categories = ["All", "SEO", "Design", "Social Media", "Marketing"];
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = activeCategory === "All" || post.category === activeCategory;
-    const matchesSearch = searchQuery === "" || 
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredPosts = useMemo(() => {
+    return blogPosts.filter(post => {
+      const matchesCategory = activeCategory === "All" || post.category === activeCategory;
+      const matchesSearch = searchQuery === "" || 
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
+
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
+
+  // Reset to page 1 when filters change
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1);
+  };
 
 
   return (
@@ -71,7 +93,7 @@ const BlogsPage = () => {
               type="text"
               placeholder="Search articles..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange}
               className="pl-10"
             />
           </div>
@@ -88,7 +110,7 @@ const BlogsPage = () => {
                 <Button
                   variant={category === activeCategory ? "accent" : "outline"}
                   size="sm"
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => handleCategoryChange(category)}
                 >
                   {category}
                 </Button>
@@ -107,7 +129,7 @@ const BlogsPage = () => {
             animate="visible"
             key={activeCategory}
           >
-            {filteredPosts.map((post, index) => (
+            {paginatedPosts.map((post, index) => (
               <motion.article
                 key={post.slug}
                 className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-premium transition-smooth group"
@@ -159,6 +181,59 @@ const BlogsPage = () => {
             <div className="text-center py-12">
               <p className="text-muted-foreground">No articles found in this category.</p>
             </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <motion.div 
+              className="flex items-center justify-center gap-2 mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="gap-1"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </Button>
+              
+              <div className="flex items-center gap-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                  <Button
+                    key={page}
+                    variant={page === currentPage ? "accent" : "ghost"}
+                    size="sm"
+                    onClick={() => setCurrentPage(page)}
+                    className="w-10 h-10"
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="gap-1"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </motion.div>
+          )}
+
+          {/* Results info */}
+          {filteredPosts.length > 0 && (
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              Showing {(currentPage - 1) * POSTS_PER_PAGE + 1} - {Math.min(currentPage * POSTS_PER_PAGE, filteredPosts.length)} of {filteredPosts.length} articles
+            </p>
           )}
         </div>
       </section>
