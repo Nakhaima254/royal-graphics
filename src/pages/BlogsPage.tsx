@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,7 +18,10 @@ const staggerContainer = {
 };
 
 const BlogsPage = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const blogPosts = [
+    // SEO Category
     {
       slug: "10-essential-seo-tips-for-2025",
       title: "10 Essential SEO Tips for 2025",
@@ -28,6 +32,34 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
     },
     {
+      slug: "local-seo-dominating-your-market",
+      title: "Local SEO: Dominating Your Geographic Market",
+      excerpt: "Learn how to optimize your online presence for local search and attract more customers in your area.",
+      category: "SEO",
+      date: "March 1, 2025",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&q=80"
+    },
+    {
+      slug: "technical-seo-audit-guide",
+      title: "Complete Technical SEO Audit Guide",
+      excerpt: "A comprehensive checklist for conducting technical SEO audits that uncover hidden issues affecting your rankings.",
+      category: "SEO",
+      date: "February 25, 2025",
+      readTime: "12 min read",
+      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80"
+    },
+    {
+      slug: "keyword-research-strategies",
+      title: "Advanced Keyword Research Strategies",
+      excerpt: "Master the art of finding high-value keywords that drive targeted traffic and conversions for your business.",
+      category: "SEO",
+      date: "February 20, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80"
+    },
+    // Design Category
+    {
       slug: "the-power-of-brand-identity",
       title: "The Power of Brand Identity in Digital Marketing",
       excerpt: "Learn how a strong brand identity can transform your business and create lasting connections with your target audience.",
@@ -35,15 +67,6 @@ const BlogsPage = () => {
       date: "March 12, 2025",
       readTime: "7 min read",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
-    },
-    {
-      slug: "social-media-trends-2025",
-      title: "Social Media Trends to Watch This Year",
-      excerpt: "Stay ahead of the curve with these emerging social media trends that will shape how brands connect with audiences in 2025.",
-      category: "Social Media",
-      date: "March 10, 2025",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
     },
     {
       slug: "how-to-create-engaging-visual-content",
@@ -55,6 +78,62 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80"
     },
     {
+      slug: "color-psychology-in-branding",
+      title: "Color Psychology in Branding Design",
+      excerpt: "Understand how colors influence customer perception and learn to choose the perfect palette for your brand.",
+      category: "Design",
+      date: "February 28, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80"
+    },
+    {
+      slug: "typography-trends-2025",
+      title: "Typography Trends Shaping 2025",
+      excerpt: "Explore the latest typography trends that are defining modern web design and brand aesthetics this year.",
+      category: "Design",
+      date: "February 18, 2025",
+      readTime: "5 min read",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
+    },
+    // Social Media Category
+    {
+      slug: "social-media-trends-2025",
+      title: "Social Media Trends to Watch This Year",
+      excerpt: "Stay ahead of the curve with these emerging social media trends that will shape how brands connect with audiences in 2025.",
+      category: "Social Media",
+      date: "March 10, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
+    },
+    {
+      slug: "instagram-algorithm-secrets",
+      title: "Instagram Algorithm Secrets Revealed",
+      excerpt: "Decode the Instagram algorithm and learn strategies to boost your visibility and engagement on the platform.",
+      category: "Social Media",
+      date: "March 3, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80"
+    },
+    {
+      slug: "tiktok-marketing-guide",
+      title: "TikTok Marketing: A Complete Guide",
+      excerpt: "Everything you need to know about leveraging TikTok for business growth and brand awareness.",
+      category: "Social Media",
+      date: "February 22, 2025",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1596558450268-9c27524ba856?w=800&q=80"
+    },
+    {
+      slug: "linkedin-content-strategy",
+      title: "LinkedIn Content Strategy for B2B",
+      excerpt: "Build a powerful LinkedIn presence that generates leads and establishes thought leadership in your industry.",
+      category: "Social Media",
+      date: "February 15, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80"
+    },
+    // Marketing Category
+    {
       slug: "email-marketing-best-practices-2025",
       title: "Email Marketing Best Practices for 2025",
       excerpt: "Maximize your email campaign performance with these essential strategies and tactics that deliver real results.",
@@ -64,17 +143,39 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80"
     },
     {
-      slug: "local-seo-dominating-your-market",
-      title: "Local SEO: Dominating Your Geographic Market",
-      excerpt: "Learn how to optimize your online presence for local search and attract more customers in your area.",
-      category: "SEO",
-      date: "March 1, 2025",
+      slug: "content-marketing-roi",
+      title: "Measuring Content Marketing ROI",
+      excerpt: "Learn how to track and measure the return on investment of your content marketing efforts effectively.",
+      category: "Marketing",
+      date: "February 26, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+    },
+    {
+      slug: "marketing-automation-tools",
+      title: "Top Marketing Automation Tools for 2025",
+      excerpt: "Compare the best marketing automation platforms and find the perfect tool for your business needs.",
+      category: "Marketing",
+      date: "February 19, 2025",
       readTime: "9 min read",
-      image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+    },
+    {
+      slug: "customer-journey-mapping",
+      title: "Customer Journey Mapping Essentials",
+      excerpt: "Create effective customer journey maps that improve user experience and drive conversions at every touchpoint.",
+      category: "Marketing",
+      date: "February 12, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
     }
   ];
 
   const categories = ["All", "SEO", "Design", "Social Media", "Marketing"];
+
+  const filteredPosts = activeCategory === "All" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory);
 
   return (
     <div className="pt-16">
@@ -115,8 +216,9 @@ const BlogsPage = () => {
                 transition={{ duration: 0.3, delay: 0.1 * index }}
               >
                 <Button
-                  variant={category === "All" ? "accent" : "outline"}
+                  variant={category === activeCategory ? "accent" : "outline"}
                   size="sm"
+                  onClick={() => setActiveCategory(category)}
                 >
                   {category}
                 </Button>
@@ -132,12 +234,12 @@ const BlogsPage = () => {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={staggerContainer}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            animate="visible"
+            key={activeCategory}
           >
-            {blogPosts.map((post, index) => (
+            {filteredPosts.map((post, index) => (
               <motion.article
-                key={index}
+                key={post.slug}
                 className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-premium transition-smooth group"
                 variants={fadeInUp}
                 transition={{ duration: 0.5 }}
@@ -183,17 +285,11 @@ const BlogsPage = () => {
             ))}
           </motion.div>
 
-          <motion.div 
-            className="mt-12 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <Button variant="outline" size="lg">
-              Load More Articles
-            </Button>
-          </motion.div>
+          {filteredPosts.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No articles found in this category.</p>
+            </div>
+          )}
         </div>
       </section>
 
