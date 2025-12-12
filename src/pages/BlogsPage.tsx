@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { blogPosts } from "@/data/blogPosts";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,6 +22,16 @@ const staggerContainer = {
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const categories = ["All", "SEO", "Design", "Social Media", "Marketing"];
+
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = activeCategory === "All" || post.category === activeCategory;
+    const matchesSearch = searchQuery === "" || 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const blogPosts = [
     // SEO Category
