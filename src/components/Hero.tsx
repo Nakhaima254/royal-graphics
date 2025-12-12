@@ -211,8 +211,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-background/50 z-10" />
+      {/* Bottom Separator */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-border z-10" />
     </section>
   );
 };
