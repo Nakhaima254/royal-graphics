@@ -15,10 +15,12 @@ export interface BlogPost {
   content: string;
 }
 
+import authorAvatar from "@/assets/author-avatar.png";
+
 const defaultAuthor = {
   name: "Isaac N.",
   role: "Digital Marketing Expert",
-  avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+  avatar: authorAvatar,
   bio: "Passionate about helping businesses grow through strategic digital marketing, SEO, and creative design solutions."
 };
 
