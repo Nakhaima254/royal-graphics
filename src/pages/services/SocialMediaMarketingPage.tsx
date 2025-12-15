@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Share2, CheckCircle, ArrowLeft, Users, TrendingUp, BarChart3, MessageCircle, Target, Zap } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const SocialMediaMarketingPage = () => {
   const features = [
@@ -241,7 +242,9 @@ const SocialMediaMarketingPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">500+</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={500} suffix="+" />
+              </div>
               <div className="text-accent-foreground/80">Campaigns Launched</div>
             </motion.div>
             <motion.div
@@ -250,7 +253,9 @@ const SocialMediaMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">2M+</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={2} suffix="M+" />
+              </div>
               <div className="text-accent-foreground/80">Followers Gained</div>
             </motion.div>
             <motion.div
@@ -259,7 +264,9 @@ const SocialMediaMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">150%</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={150} suffix="%" />
+              </div>
               <div className="text-accent-foreground/80">Avg. Engagement Increase</div>
             </motion.div>
             <motion.div
@@ -268,7 +275,9 @@ const SocialMediaMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">95%</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={95} suffix="%" />
+              </div>
               <div className="text-accent-foreground/80">Client Retention</div>
             </motion.div>
           </div>

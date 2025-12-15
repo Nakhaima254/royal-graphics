@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Palette, CheckCircle, ArrowLeft, Layers, PenTool, Eye, Sparkles } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const GraphicDesignPage = () => {
   const features = [
@@ -72,9 +73,14 @@ const GraphicDesignPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <div className="bg-primary py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with blend colors */}
+      <div className="bg-gradient-to-br from-primary via-primary to-accent py-20 relative overflow-hidden">
+        {/* Blend color orbs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/50 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Link to="/services">
             <Button variant="ghost" className="text-primary-foreground hover:text-primary-foreground/80 mb-4">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -87,7 +93,7 @@ const GraphicDesignPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 bg-primary-foreground/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-primary-foreground/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
               <Palette className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
@@ -228,8 +234,60 @@ const GraphicDesignPage = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-primary to-accent relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-4xl font-bold text-white mb-2">
+                <AnimatedCounter value={500} suffix="+" />
+              </div>
+              <div className="text-white/80">Logos Created</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="text-4xl font-bold text-white mb-2">
+                <AnimatedCounter value={1000} suffix="+" />
+              </div>
+              <div className="text-white/80">Designs Delivered</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="text-4xl font-bold text-white mb-2">
+                <AnimatedCounter value={98} suffix="%" />
+              </div>
+              <div className="text-white/80">Client Satisfaction</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="text-4xl font-bold text-white mb-2">
+                <AnimatedCounter value={10} suffix="+" />
+              </div>
+              <div className="text-white/80">Years Experience</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -237,8 +295,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-primary-foreground">Our Design Process</h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Our Design Process</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               A structured approach that ensures quality and meets your expectations every time.
             </p>
           </motion.div>
@@ -252,9 +310,9 @@ const GraphicDesignPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="text-4xl font-bold text-primary-foreground/30 mb-2">{item.step}</div>
-                <h3 className="font-semibold mb-2 text-primary-foreground">{item.title}</h3>
-                <p className="text-sm text-primary-foreground/70">{item.description}</p>
+                <div className="text-4xl font-bold text-primary/30 mb-2">{item.step}</div>
+                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
           </div>
