@@ -88,9 +88,6 @@ const Navigation = () => {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className="w-[calc(100vw-2rem)] max-w-[800px] p-4 md:p-6 lg:p-8 bg-card border border-border rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
                     >
-                      {/* Decorative gradient orbs */}
-                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none hidden xl:block" />
-                      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none hidden xl:block" />
                       
                       <div className="relative flex flex-col xl:flex-row gap-4 xl:gap-8">
                         {/* Featured Service - Rotating (hidden on smaller screens) */}
@@ -105,7 +102,7 @@ const Navigation = () => {
                             >
                               <Link 
                                 to={currentFeatured.href}
-                                className="block p-4 rounded-2xl bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 border border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
+                                className="block p-4 rounded-2xl bg-primary/10 border border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
                               >
                                 <motion.div 
                                   className="p-2.5 rounded-xl bg-primary/20 text-primary w-fit mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
@@ -183,7 +180,7 @@ const Navigation = () => {
                                     className="flex items-center gap-2 xl:gap-3 p-2 xl:p-2.5 rounded-lg hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
                                   >
                                     <motion.div 
-                                      className="p-1.5 xl:p-2 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-accent group-hover:text-primary-foreground transition-all duration-300 shadow-sm shrink-0"
+                                      className="p-1.5 xl:p-2 rounded-lg bg-primary/15 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm shrink-0"
                                       whileHover={{ scale: 1.1, rotate: 5 }}
                                     >
                                       <Icon className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
