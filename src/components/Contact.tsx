@@ -50,8 +50,8 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Phone</h3>
-              <p className="text-muted-foreground">+1 (555) 123-4567</p>
-              <p className="text-sm text-muted-foreground mt-1">Mon-Fri 9am-6pm EST</p>
+              <p className="text-muted-foreground">+254 746 388 308</p>
+              <p className="text-sm text-muted-foreground mt-1">Mon-Fri 9am-6pm EAT</p>
             </Card>
 
             <Card className="p-6 border-border hover:shadow-card transition-smooth">
@@ -59,7 +59,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-accent-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Email</h3>
-              <p className="text-muted-foreground">hello@royalgraphics.com</p>
+              <p className="text-muted-foreground">info@royalgraphics.co.ke</p>
               <p className="text-sm text-muted-foreground mt-1">24/7 response time</p>
             </Card>
 
@@ -68,8 +68,8 @@ const Contact = () => {
                 <MapPin className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Location</h3>
-              <p className="text-muted-foreground">123 Business Street</p>
-              <p className="text-sm text-muted-foreground mt-1">New York, NY 10001</p>
+              <p className="text-muted-foreground">Nairobi, Kenya</p>
+              <p className="text-sm text-muted-foreground mt-1">East Africa</p>
             </Card>
           </div>
 
