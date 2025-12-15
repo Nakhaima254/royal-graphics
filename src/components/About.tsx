@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Award, Users, Target, TrendingUp } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 const values = [
   {
@@ -24,15 +26,105 @@ const values = [
   },
 ];
 
+const stats = [
+  { value: 10, suffix: "+", label: "Years of Excellence" },
+  { value: 500, suffix: "+", label: "Happy Clients" },
+  { value: 1000, suffix: "+", label: "Projects Delivered" },
+  { value: 25, suffix: "+", label: "Team Members" },
+];
+
+// Animated counter component
+const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000;
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, value]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {count}{suffix}
+    </span>
+  );
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
+
+const statVariants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 150,
+      damping: 12,
+    },
+  },
+};
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
             About Us
-          </div>
+          </motion.div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Your Trusted Digital Partner
           </h2>
@@ -40,11 +132,17 @@ const About = () => {
             With over a decade of experience, we've helped hundreds of businesses transform their digital presence 
             and achieve remarkable growth.
           </p>
-        </div>
+        </motion.div>
 
         {/* Story Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <Card className="p-8 border-border shadow-card">
+        <motion.div 
+          className="max-w-4xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="p-8 border-border shadow-card hover:shadow-premium transition-all duration-500">
             <h3 className="text-2xl font-bold text-card-foreground mb-4">Our Story</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -64,58 +162,107 @@ const About = () => {
               </p>
             </div>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Values Grid */}
         <div>
-          <h3 className="text-2xl font-bold text-center text-foreground mb-8">Our Core Values</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.h3 
+            className="text-2xl font-bold text-center text-foreground mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Core Values
+          </motion.h3>
+          <motion.div 
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <Card 
-                  key={index}
-                  className="p-6 border-border hover:shadow-card transition-smooth text-center"
-                >
-                  <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-card">
-                    <Icon className="w-7 h-7 text-primary-foreground" />
-                  </div>
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">
-                    {value.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    {value.description}
-                  </p>
-                </Card>
+                <motion.div key={index} variants={cardVariants}>
+                  <Card 
+                    className="p-6 border-border hover:shadow-card transition-all duration-300 text-center group cursor-pointer hover:-translate-y-2"
+                  >
+                    <motion.div 
+                      className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-card group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
+                    >
+                      <Icon className="w-7 h-7 text-primary-foreground" />
+                    </motion.div>
+                    <h4 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                      {value.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {value.description}
+                    </p>
+                  </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 bg-primary rounded-2xl p-8 sm:p-12 text-center shadow-premium">
-          <h3 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-8">
+        <motion.div 
+          className="mt-16 bg-primary rounded-2xl p-8 sm:p-12 text-center shadow-premium overflow-hidden relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+          
+          <motion.h3 
+            className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-8 relative z-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             By The Numbers
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            <div>
-              <div className="text-3xl sm:text-5xl font-bold text-accent mb-2">10+</div>
-              <div className="text-sm sm:text-base text-primary-foreground/90">Years of Excellence</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-5xl font-bold text-accent mb-2">500+</div>
-              <div className="text-sm sm:text-base text-primary-foreground/90">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-5xl font-bold text-accent mb-2">1000+</div>
-              <div className="text-sm sm:text-base text-primary-foreground/90">Projects Delivered</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-5xl font-bold text-accent mb-2">25+</div>
-              <div className="text-sm sm:text-base text-primary-foreground/90">Team Members</div>
-            </div>
-          </div>
-        </div>
+          </motion.h3>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index}
+                variants={statVariants}
+                whileHover={{ scale: 1.05 }}
+                className="group"
+              >
+                <motion.div 
+                  className="text-3xl sm:text-5xl font-bold text-accent mb-2"
+                  initial={{ scale: 0.5 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 200, 
+                    damping: 10,
+                    delay: index * 0.1 
+                  }}
+                >
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </motion.div>
+                <div className="text-sm sm:text-base text-primary-foreground/90 group-hover:text-accent transition-colors duration-300">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
