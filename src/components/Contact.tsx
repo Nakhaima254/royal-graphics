@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
@@ -38,6 +39,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -53,7 +55,12 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    
     console.log("Form submitted:", data);
     
     toast({
@@ -62,6 +69,7 @@ const Contact = () => {
     });
 
     form.reset();
+    setIsSubmitting(false);
   };
 
   const services = [
@@ -310,9 +318,24 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground">
                     We typically respond within 24 hours
                   </p>
-                  <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
-                    Get Started
-                    <Send className="ml-2 w-5 h-5" />
+                  <Button 
+                    type="submit" 
+                    variant="hero" 
+                    size="lg" 
+                    className="w-full sm:w-auto transition-all duration-300 hover:scale-105"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 w-5 h-5 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Get Started
+                        <Send className="ml-2 w-5 h-5" />
+                      </>
+                    )}
                   </Button>
                 </div>
               </form>
