@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { MessageSquare, CheckCircle, ArrowLeft, Smartphone, Clock, BarChart3, Shield } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
 const SMSMarketingPage = () => {
   const features = [
     "SMS Campaign Strategy",
@@ -335,6 +337,17 @@ const SMSMarketingPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "Is SMS marketing legal?", answer: "Yes, when done correctly! We ensure all campaigns are TCPA and CTIA compliant. Recipients must opt-in, and we include proper disclosures and easy opt-out options in every message." },
+          { question: "How do you build an SMS subscriber list?", answer: "We use compliant methods including keyword opt-ins, web forms, in-store signage, and cross-promotion from email. All subscribers explicitly consent to receive texts." },
+          { question: "What is the cost per text message?", answer: "Costs vary based on volume and carrier rates. We provide transparent pricing and help you maximize ROI by targeting the right audience with the right messages." },
+          { question: "Can I send images or links in SMS?", answer: "Yes! MMS allows you to send images, GIFs, and longer messages. Links are automatically shortened and tracked for analytics. We recommend a mix of SMS and MMS." },
+          { question: "How do you track SMS campaign performance?", answer: "We track delivery rates, open rates (for MMS), click-through rates, conversions, and ROI. You receive detailed reports with actionable insights for optimization." }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

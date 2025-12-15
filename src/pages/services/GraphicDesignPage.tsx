@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Palette, CheckCircle, ArrowLeft, Layers, PenTool, Eye, Sparkles } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
 const GraphicDesignPage = () => {
   const features = [
     "Logo & Brand Identity Design",
@@ -339,6 +341,17 @@ const GraphicDesignPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "How long does a logo design project take?", answer: "Typically 1-2 weeks for a complete logo design, including initial concepts, revisions, and final delivery. Complex brand identity projects may take 3-4 weeks." },
+          { question: "What file formats will I receive?", answer: "You'll receive your designs in all major formats including AI, EPS, PDF, SVG, PNG, and JPG. We ensure you have files suitable for both print and digital use." },
+          { question: "How many revisions are included?", answer: "Our standard packages include 2-3 rounds of revisions. We work closely with you to ensure the final design meets your expectations." },
+          { question: "Can you work with my existing brand guidelines?", answer: "Absolutely! We can work within your existing brand guidelines to create new materials that maintain consistency with your current visual identity." },
+          { question: "Do you offer rush delivery?", answer: "Yes, we offer expedited services for urgent projects. Rush delivery is available for an additional fee, depending on the scope of work." }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

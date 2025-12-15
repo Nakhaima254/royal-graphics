@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { GraduationCap, CheckCircle, ArrowLeft, BookOpen, Video, Users, Award } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
 const OnlineClassesPage = () => {
   const features = [
     "Graphic Design Fundamentals",
@@ -336,6 +338,17 @@ const OnlineClassesPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "Are the classes live or pre-recorded?", answer: "We offer both! Live sessions allow real-time interaction and Q&A, while recorded lessons provide flexibility to learn at your own pace. Most courses include a mix of both." },
+          { question: "Do I need any prior experience?", answer: "No! Our courses are designed for all skill levels. We start with fundamentals and progressively build to advanced techniques. Complete beginners are welcome." },
+          { question: "How long do I have access to course materials?", answer: "You receive lifetime access to all course materials. Watch and rewatch lessons as many times as you need, even after completing the course." },
+          { question: "Will I receive a certificate?", answer: "Yes! Upon successful completion of each course, you'll receive a certificate of completion that you can add to your portfolio or LinkedIn profile." },
+          { question: "What if I have questions during the course?", answer: "You can ask questions during live sessions, in our private community, or via email. We typically respond within 24 hours. 1-on-1 mentorship offers dedicated support." }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

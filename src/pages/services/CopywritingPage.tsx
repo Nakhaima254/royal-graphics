@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { PenTool, CheckCircle, ArrowLeft, FileText, Zap, Target, Users } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
 const CopywritingPage = () => {
   const features = [
     "Website Copy & Landing Pages",
@@ -335,6 +337,17 @@ const CopywritingPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "What industries do you write for?", answer: "We write for diverse industries including tech, e-commerce, healthcare, finance, real estate, and more. We research your industry thoroughly to understand your audience and competition." },
+          { question: "How do you capture my brand voice?", answer: "We start with a brand voice questionnaire and analyze your existing content. Through collaboration, we develop a style guide that ensures all copy sounds authentically you." },
+          { question: "Do you offer SEO copywriting?", answer: "Yes! All our web copy is optimized for search engines while remaining engaging for readers. We research keywords and incorporate them naturally into compelling content." },
+          { question: "What is your revision process?", answer: "We include 2-3 rounds of revisions in our packages. We welcome your feedback and work collaboratively to refine the copy until it perfectly meets your needs." },
+          { question: "How long does a typical project take?", answer: "Timelines vary by project scope. Blog posts typically take 3-5 days, website copy 1-2 weeks, and comprehensive brand messaging 2-4 weeks. Rush services are available." }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">
