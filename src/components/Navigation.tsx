@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare } from "lucide-react";
+import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare, Home, Users, DollarSign, BookOpen, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,11 +45,11 @@ const Navigation = () => {
   const currentFeatured = featuredServices[featuredIndex];
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/", icon: Home },
+    { label: "About", href: "/about", icon: Users },
+    { label: "Pricing", href: "/pricing", icon: DollarSign },
+    { label: "Blogs", href: "/blogs", icon: BookOpen },
+    { label: "Contact", href: "/contact", icon: Phone },
   ];
 
   const isServicesActive = location.pathname.startsWith("/services");
@@ -67,10 +67,11 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/"
-              className={`text-foreground hover:text-primary transition-smooth font-medium ${
+              className={`flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
                 location.pathname === "/" ? "text-primary" : ""
               }`}
             >
+              <Home className="w-4 h-4" />
               Home
             </Link>
 
@@ -213,17 +214,21 @@ const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {navItems.slice(1).map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`text-foreground hover:text-primary transition-smooth font-medium ${
-                  location.pathname === item.href ? "text-primary" : ""
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.slice(1).map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className={`flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
+                    location.pathname === item.href ? "text-primary" : ""
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {item.label}
+                </Link>
+              );
+            })}
             <Link to="/contact">
               <Button variant="accent" size="default">
                 Get Started
@@ -247,11 +252,12 @@ const Navigation = () => {
             <div className="flex flex-col gap-2">
               <Link
                 to="/"
-                className={`text-foreground hover:text-primary transition-smooth font-medium py-2 ${
+                className={`flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
                   location.pathname === "/" ? "text-primary" : ""
                 }`}
                 onClick={() => setIsOpen(false)}
               >
+                <Home className="w-4 h-4" />
                 Home
               </Link>
 
@@ -291,18 +297,22 @@ const Navigation = () => {
                 )}
               </div>
 
-              {navItems.slice(1).map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className={`text-foreground hover:text-primary transition-smooth font-medium py-2 ${
-                    location.pathname === item.href ? "text-primary" : ""
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.slice(1).map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
+                      location.pathname === item.href ? "text-primary" : ""
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
               <Link to="/contact" onClick={() => setIsOpen(false)}>
                 <Button variant="accent" size="default" className="w-full mt-2">
                   Get Started
