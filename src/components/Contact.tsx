@@ -50,7 +50,7 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Phone</h3>
-              <p className="text-muted-foreground">+254 746 388 308</p>
+              <a href="tel:+254746388308" className="text-muted-foreground hover:text-primary transition-colors">+254 746 388 308</a>
               <p className="text-sm text-muted-foreground mt-1">Mon-Fri 9am-6pm EAT</p>
             </Card>
 
@@ -59,7 +59,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-accent-foreground" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2">Email</h3>
-              <p className="text-muted-foreground">info@royalgraphics.co.ke</p>
+              <a href="mailto:info@royalgraphics.co.ke" className="text-muted-foreground hover:text-primary transition-colors">info@royalgraphics.co.ke</a>
               <p className="text-sm text-muted-foreground mt-1">24/7 response time</p>
             </Card>
 
