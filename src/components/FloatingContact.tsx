@@ -13,21 +13,18 @@ const FloatingContact = () => {
         </svg>
       ),
       label: "WhatsApp",
-      text: "+254 746 388 308",
       href: "https://wa.me/254746388308",
       bgColor: "bg-green-500 hover:bg-green-600",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Call",
-      text: "+254 746 388 308",
       href: "tel:+254746388308",
       bgColor: "bg-blue-500 hover:bg-blue-600",
     },
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      text: "info@royalgraphics.co.ke",
       href: "mailto:info@royalgraphics.co.ke",
       bgColor: "bg-primary hover:bg-primary/90",
     },
@@ -45,13 +42,13 @@ const FloatingContact = () => {
                 href={option.href}
                 target={option.label === "WhatsApp" ? "_blank" : undefined}
                 rel={option.label === "WhatsApp" ? "noopener noreferrer" : undefined}
-                className={`flex items-center gap-3 px-4 py-2 rounded-full ${option.bgColor} text-white shadow-lg transition-colors`}
-                initial={{ opacity: 0, scale: 0, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0, x: 20 }}
+                className={`w-12 h-12 rounded-full ${option.bgColor} text-white flex items-center justify-center shadow-lg transition-colors`}
+                initial={{ opacity: 0, scale: 0, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0, y: 20 }}
                 transition={{ delay: index * 0.1, duration: 0.2 }}
+                title={option.label}
               >
-                <span className="text-sm font-medium whitespace-nowrap">{option.text}</span>
                 {option.icon}
               </motion.a>
             ))}
