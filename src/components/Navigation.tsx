@@ -67,11 +67,11 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/"
-              className={`flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
+              className={`group flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
                 location.pathname === "/" ? "text-primary" : ""
               }`}
             >
-              <Home className="w-4 h-4" />
+              <Home className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
               Home
             </Link>
 
@@ -220,11 +220,11 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
+                  className={`group flex items-center gap-1.5 text-foreground hover:text-primary transition-smooth font-medium ${
                     location.pathname === item.href ? "text-primary" : ""
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
                   {item.label}
                 </Link>
               );
@@ -252,12 +252,12 @@ const Navigation = () => {
             <div className="flex flex-col gap-2">
               <Link
                 to="/"
-                className={`flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
+                className={`group flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
                   location.pathname === "/" ? "text-primary" : ""
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <Home className="w-4 h-4" />
+                <Home className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
                 Home
               </Link>
 
@@ -303,12 +303,12 @@ const Navigation = () => {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className={`flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
+                    className={`group flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium py-2 ${
                       location.pathname === item.href ? "text-primary" : ""
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
                     {item.label}
                   </Link>
                 );
