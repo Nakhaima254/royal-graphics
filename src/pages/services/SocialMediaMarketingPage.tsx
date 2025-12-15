@@ -40,7 +40,7 @@ const SocialMediaMarketingPage = () => {
 
   const platforms = [
     { name: "Facebook", color: "bg-blue-600" },
-    { name: "Instagram", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
+    { name: "Instagram", color: "bg-pink-600" },
     { name: "Twitter/X", color: "bg-gray-900" },
     { name: "LinkedIn", color: "bg-blue-700" },
     { name: "TikTok", color: "bg-gray-900" },

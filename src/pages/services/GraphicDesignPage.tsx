@@ -73,13 +73,8 @@ const GraphicDesignPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section with blend colors */}
-      <div className="bg-gradient-to-br from-primary via-primary to-accent py-20 relative overflow-hidden">
-        {/* Blend color orbs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/50 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
-        
+      {/* Hero Section */}
+      <div className="bg-primary py-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Link to="/services">
             <Button variant="ghost" className="text-primary-foreground hover:text-primary-foreground/80 mb-4">
@@ -93,7 +88,7 @@ const GraphicDesignPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 bg-primary-foreground/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+            <div className="w-20 h-20 bg-primary-foreground/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 border border-primary-foreground/20">
               <Palette className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
@@ -150,7 +145,7 @@ const GraphicDesignPage = () => {
               <img 
                 src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
                 alt="Graphic Design Services"
-                className="rounded-2xl shadow-premium"
+                className="rounded-2xl shadow-card"
               />
             </motion.div>
           </div>
@@ -225,7 +220,7 @@ const GraphicDesignPage = () => {
                   alt={item.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <span className="text-white font-semibold">{item.title}</span>
                 </div>
               </motion.div>
@@ -235,8 +230,7 @@ const GraphicDesignPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-accent relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
+      <section className="py-16 bg-primary relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <motion.div
@@ -244,10 +238,10 @@ const GraphicDesignPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl font-bold text-white mb-2">
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
                 <AnimatedCounter value={500} suffix="+" />
               </div>
-              <div className="text-white/80">Logos Created</div>
+              <div className="text-primary-foreground/80">Logos Created</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -255,10 +249,10 @@ const GraphicDesignPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="text-4xl font-bold text-white mb-2">
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
                 <AnimatedCounter value={1000} suffix="+" />
               </div>
-              <div className="text-white/80">Designs Delivered</div>
+              <div className="text-primary-foreground/80">Designs Delivered</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -266,10 +260,10 @@ const GraphicDesignPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="text-4xl font-bold text-white mb-2">
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
                 <AnimatedCounter value={98} suffix="%" />
               </div>
-              <div className="text-white/80">Client Satisfaction</div>
+              <div className="text-primary-foreground/80">Client Satisfaction</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -277,10 +271,10 @@ const GraphicDesignPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div className="text-4xl font-bold text-white mb-2">
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
                 <AnimatedCounter value={10} suffix="+" />
               </div>
-              <div className="text-white/80">Years Experience</div>
+              <div className="text-primary-foreground/80">Years Experience</div>
             </motion.div>
           </div>
         </div>
