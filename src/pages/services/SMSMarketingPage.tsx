@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MessageSquare, CheckCircle, ArrowLeft, Smartphone, Clock, BarChart3, Shield } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 const SMSMarketingPage = () => {
   const features = [
     "SMS Campaign Strategy",
@@ -53,6 +53,30 @@ const SMSMarketingPage = () => {
     { step: "03", title: "Content", description: "Craft compelling, concise messages" },
     { step: "04", title: "Schedule", description: "Optimize timing for maximum impact" },
     { step: "05", title: "Analyze", description: "Track results and refine campaigns" }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Jennifer Lee",
+      role: "Owner",
+      company: "Sweet Treats Bakery",
+      content: "Our SMS flash sales sell out within hours now! The response rate is incredible. We've seen a 40% increase in repeat customers since implementing their SMS strategy.",
+      rating: 5
+    },
+    {
+      name: "Marcus Johnson",
+      role: "Operations Manager",
+      company: "QuickFix Auto",
+      content: "Appointment reminders via SMS reduced our no-shows by 75%. The ROI on this service is unbelievable. Wish we had started SMS marketing sooner!",
+      rating: 5
+    },
+    {
+      name: "Sophia Patel",
+      role: "Marketing Manager",
+      company: "Fitness First Gym",
+      content: "They helped us build an engaged SMS list of 10,000+ members. Our promotional messages get responses within minutes. Game changer for our business!",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -308,6 +332,9 @@ const SMSMarketingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

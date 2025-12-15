@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GraduationCap, CheckCircle, ArrowLeft, BookOpen, Video, Users, Award } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 const OnlineClassesPage = () => {
   const features = [
     "Graphic Design Fundamentals",
@@ -53,6 +53,30 @@ const OnlineClassesPage = () => {
     { step: "03", title: "Practice", description: "Complete hands-on projects" },
     { step: "04", title: "Get Feedback", description: "Receive personalized guidance" },
     { step: "05", title: "Certify", description: "Earn your certificate" }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Alex Turner",
+      role: "Freelance Designer",
+      company: "Self-Employed",
+      content: "The graphic design course completely transformed my career. I went from zero design skills to landing freelance clients within 3 months of completing the course.",
+      rating: 5
+    },
+    {
+      name: "Priya Sharma",
+      role: "Social Media Manager",
+      company: "Creative Agency",
+      content: "Isaac is an incredible teacher! The social media course was practical, up-to-date, and gave me skills I use daily in my job. Best investment in my career.",
+      rating: 5
+    },
+    {
+      name: "James Wilson",
+      role: "Small Business Owner",
+      company: "Wilson Photography",
+      content: "The 1-on-1 mentorship helped me understand digital marketing for my business. Now I confidently manage my own social media and have tripled my client inquiries.",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -309,6 +333,9 @@ const OnlineClassesPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

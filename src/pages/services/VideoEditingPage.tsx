@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Video, CheckCircle, ArrowLeft, Play, Film, Sparkles, Volume2, Clock, Award } from "lucide-react";
+import { Video, CheckCircle, ArrowLeft, Play, Film, Volume2, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 
 const VideoEditingPage = () => {
   const features = [
@@ -45,6 +46,30 @@ const VideoEditingPage = () => {
     { name: "Corporate Videos", description: "Professional business presentations" },
     { name: "Documentaries", description: "Compelling storytelling narratives" },
     { name: "Music Videos", description: "Creative visual experiences" }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Ryan Martinez",
+      role: "Content Creator",
+      company: "TravelVlog Pro",
+      content: "My YouTube videos have never looked better! The editing quality, color grading, and pacing are all top-notch. My watch time has increased by 40% since working with them.",
+      rating: 5
+    },
+    {
+      name: "Lisa Wang",
+      role: "Brand Director",
+      company: "Luxe Fashion",
+      content: "They created stunning promotional videos for our new collection. The attention to detail and cinematic quality exceeded our expectations. True professionals!",
+      rating: 5
+    },
+    {
+      name: "Chris Johnson",
+      role: "Founder",
+      company: "Startup Academy",
+      content: "Quick turnaround, excellent communication, and the final videos are always perfect. They've edited over 100 videos for us and quality never drops.",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -275,6 +300,9 @@ const VideoEditingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
 
       {/* CTA */}
       <section className="py-20 bg-secondary/20">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PenTool, CheckCircle, ArrowLeft, FileText, Zap, Target, Users } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 const CopywritingPage = () => {
   const features = [
     "Website Copy & Landing Pages",
@@ -53,6 +53,30 @@ const CopywritingPage = () => {
     { step: "03", title: "Strategy", description: "Creating a content plan and messaging framework" },
     { step: "04", title: "Writing", description: "Crafting compelling copy that converts" },
     { step: "05", title: "Review", description: "Revisions and optimization for best results" }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Andrew Peters",
+      role: "Founder",
+      company: "Digital Nomad Pro",
+      content: "The website copy they wrote doubled our conversion rate! Every word was crafted with intention. Our brand finally has a voice that resonates with our audience.",
+      rating: 5
+    },
+    {
+      name: "Karen White",
+      role: "Marketing Director",
+      company: "Nexus Tech",
+      content: "Their blog content consistently ranks on page one of Google. Traffic has increased 300% and the leads are highly qualified. Outstanding copywriting team!",
+      rating: 5
+    },
+    {
+      name: "Daniel Brooks",
+      role: "E-commerce Owner",
+      company: "Urban Style Co.",
+      content: "Product descriptions that actually sell! Our average order value increased by 25% after they rewrote all our product pages. Worth every penny.",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -308,6 +332,9 @@ const CopywritingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">
