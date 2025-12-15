@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, CheckCircle, ArrowLeft, Send, BarChart3, Users, Zap, Target, TrendingUp } from "lucide-react";
+import { Mail, CheckCircle, ArrowLeft, BarChart3, Zap, Target, TrendingUp } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 
 const EmailMarketingPage = () => {
   const features = [
@@ -45,6 +46,30 @@ const EmailMarketingPage = () => {
     { name: "Abandoned Cart", description: "Recover lost sales with targeted reminders" },
     { name: "Re-engagement", description: "Win back inactive subscribers with personalized outreach" },
     { name: "Transactional", description: "Enhance customer experience with order updates and receipts" }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Patricia Adams",
+      role: "E-commerce Manager",
+      company: "HomeStyle Decor",
+      content: "Our email revenue increased by 180% in the first quarter! The automated sequences they set up continue to convert leads on autopilot. Amazing ROI!",
+      rating: 5
+    },
+    {
+      name: "Robert Kim",
+      role: "CEO",
+      company: "SaaS Solutions Inc.",
+      content: "They revamped our entire email strategy. Open rates went from 15% to 42%, and our churn rate decreased significantly thanks to the re-engagement campaigns.",
+      rating: 5
+    },
+    {
+      name: "Michelle Torres",
+      role: "Marketing Lead",
+      company: "Wellness Hub",
+      content: "Professional, data-driven approach to email marketing. They test everything and continuously optimize. Our newsletter is now our top converting channel.",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -267,6 +292,9 @@ const EmailMarketingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
 
       {/* CTA */}
       <section className="py-20 bg-secondary/20">

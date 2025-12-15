@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Palette, CheckCircle, ArrowLeft, Layers, PenTool, Eye, Sparkles } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 const GraphicDesignPage = () => {
   const features = [
     "Logo & Brand Identity Design",
@@ -51,6 +51,30 @@ const GraphicDesignPage = () => {
     { step: "03", title: "Concept", description: "Creating initial design concepts and mood boards." },
     { step: "04", title: "Design", description: "Crafting polished designs based on approved concepts." },
     { step: "05", title: "Delivery", description: "Providing final files in all required formats." }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Sarah Mitchell",
+      role: "Marketing Director",
+      company: "TechFlow Solutions",
+      content: "The logo and brand identity they created perfectly captures our company's innovative spirit. We've received countless compliments from clients and partners.",
+      rating: 5
+    },
+    {
+      name: "David Chen",
+      role: "Founder",
+      company: "Artisan Coffee Co.",
+      content: "From packaging design to marketing materials, every piece has been exceptional. Our products now stand out on shelves and our sales have increased significantly.",
+      rating: 5
+    },
+    {
+      name: "Emily Rodriguez",
+      role: "CEO",
+      company: "Bloom Wellness",
+      content: "They transformed our entire visual identity. The attention to detail and understanding of our brand values was remarkable. Highly recommend!",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -312,6 +336,9 @@ const GraphicDesignPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">

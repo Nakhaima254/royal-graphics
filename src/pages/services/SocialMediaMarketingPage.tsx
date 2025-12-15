@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Share2, CheckCircle, ArrowLeft, Users, TrendingUp, BarChart3, MessageCircle, Target, Zap } from "lucide-react";
+import { Share2, CheckCircle, ArrowLeft, Users, TrendingUp, BarChart3, MessageCircle } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 
 const SocialMediaMarketingPage = () => {
   const features = [
@@ -53,6 +54,30 @@ const SocialMediaMarketingPage = () => {
     { step: "03", title: "Content Creation", description: "Create engaging, platform-specific content that resonates with your audience." },
     { step: "04", title: "Execution", description: "Implement campaigns, manage communities, and run targeted advertising." },
     { step: "05", title: "Optimize", description: "Continuously monitor, analyze, and optimize for better performance." }
+  ];
+
+  const testimonials: Testimonial[] = [
+    {
+      name: "Jessica Thompson",
+      role: "Owner",
+      company: "Bella Boutique",
+      content: "Our Instagram following grew from 2K to 50K in just 6 months! The engagement on our posts has been incredible and we're seeing real sales from social media now.",
+      rating: 5
+    },
+    {
+      name: "Michael Brooks",
+      role: "Marketing Manager",
+      company: "FitLife Gym",
+      content: "They completely transformed our social media presence. The content is engaging, on-brand, and our membership inquiries have tripled since we started working together.",
+      rating: 5
+    },
+    {
+      name: "Amanda Foster",
+      role: "Co-Founder",
+      company: "Green Earth Organics",
+      content: "Professional, creative, and results-driven. They understand our audience and create content that truly resonates. Best decision we made for our marketing.",
+      rating: 5
+    }
   ];
 
   const fadeInUp = {
@@ -283,6 +308,9 @@ const SocialMediaMarketingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">
