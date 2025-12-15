@@ -49,7 +49,6 @@ const Navigation = () => {
     { label: "About", href: "/about", icon: Users },
     { label: "Pricing", href: "/pricing", icon: DollarSign },
     { label: "Blogs", href: "/blogs", icon: BookOpen },
-    { label: "Contact", href: "/contact", icon: Phone },
   ];
 
   const isServicesActive = location.pathname.startsWith("/services");
