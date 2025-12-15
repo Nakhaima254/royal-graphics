@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, CheckCircle, ArrowLeft, Send, BarChart3, Users, Zap, Target, TrendingUp } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const EmailMarketingPage = () => {
   const features = [
@@ -225,7 +226,9 @@ const EmailMarketingPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl font-bold text-primary-foreground mb-2">5M+</div>
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
+                <AnimatedCounter value={5} suffix="M+" />
+              </div>
               <div className="text-primary-foreground/80">Emails Sent</div>
             </motion.div>
             <motion.div
@@ -234,7 +237,9 @@ const EmailMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="text-4xl font-bold text-primary-foreground mb-2">35%</div>
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
+                <AnimatedCounter value={35} suffix="%" />
+              </div>
               <div className="text-primary-foreground/80">Avg. Open Rate</div>
             </motion.div>
             <motion.div
@@ -243,7 +248,9 @@ const EmailMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="text-4xl font-bold text-primary-foreground mb-2">12%</div>
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
+                <AnimatedCounter value={12} suffix="%" />
+              </div>
               <div className="text-primary-foreground/80">Avg. Click Rate</div>
             </motion.div>
             <motion.div
@@ -252,7 +259,9 @@ const EmailMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div className="text-4xl font-bold text-primary-foreground mb-2">$42</div>
+              <div className="text-4xl font-bold text-primary-foreground mb-2">
+                <AnimatedCounter value={42} prefix="$" />
+              </div>
               <div className="text-primary-foreground/80">ROI per $1</div>
             </motion.div>
           </div>

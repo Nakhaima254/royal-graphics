@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Video, CheckCircle, ArrowLeft, Play, Film, Sparkles, Volume2, Clock, Award } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const VideoEditingPage = () => {
   const features = [
@@ -233,7 +234,9 @@ const VideoEditingPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">1000+</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={1000} suffix="+" />
+              </div>
               <div className="text-accent-foreground/80">Videos Edited</div>
             </motion.div>
             <motion.div
@@ -242,7 +245,9 @@ const VideoEditingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">50M+</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={50} suffix="M+" />
+              </div>
               <div className="text-accent-foreground/80">Video Views</div>
             </motion.div>
             <motion.div
@@ -251,7 +256,9 @@ const VideoEditingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">24hr</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={24} suffix="hr" />
+              </div>
               <div className="text-accent-foreground/80">Rush Delivery</div>
             </motion.div>
             <motion.div
@@ -260,7 +267,9 @@ const VideoEditingPage = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div className="text-4xl font-bold text-accent-foreground mb-2">100%</div>
+              <div className="text-4xl font-bold text-accent-foreground mb-2">
+                <AnimatedCounter value={100} suffix="%" />
+              </div>
               <div className="text-accent-foreground/80">Satisfaction</div>
             </motion.div>
           </div>
