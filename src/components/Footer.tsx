@@ -21,28 +21,28 @@ const Footer = () => {
               <a 
                 href="#" 
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="Twitter"
-                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-accent transition-smooth flex items-center justify-center"
+                className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -52,22 +52,22 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
-              <li><Link to="/services/graphic-design" className="hover:text-accent transition-smooth">Graphic Design</Link></li>
-              <li><Link to="/services/social-media-marketing" className="hover:text-accent transition-smooth">Social Media Marketing</Link></li>
-              <li><Link to="/services/copywriting" className="hover:text-accent transition-smooth">Copywriting</Link></li>
-              <li><Link to="/services/email-marketing" className="hover:text-accent transition-smooth">Email Marketing</Link></li>
-              <li><Link to="/services/video-editing" className="hover:text-accent transition-smooth">Video Editing</Link></li>
+              <li><Link to="/services/graphic-design" className="hover:text-primary transition-smooth">Graphic Design</Link></li>
+              <li><Link to="/services/social-media-marketing" className="hover:text-primary transition-smooth">Social Media Marketing</Link></li>
+              <li><Link to="/services/copywriting" className="hover:text-primary transition-smooth">Copywriting</Link></li>
+              <li><Link to="/services/email-marketing" className="hover:text-primary transition-smooth">Email Marketing</Link></li>
+              <li><Link to="/services/video-editing" className="hover:text-primary transition-smooth">Video Editing</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
-              <li><Link to="/about" className="hover:text-accent transition-smooth">About Us</Link></li>
-              <li><Link to="/pricing" className="hover:text-accent transition-smooth">Pricing</Link></li>
-              <li><Link to="/services" className="hover:text-accent transition-smooth">All Services</Link></li>
-              <li><Link to="/blogs" className="hover:text-accent transition-smooth">Blog</Link></li>
-              <li><Link to="/contact" className="hover:text-accent transition-smooth">Contact</Link></li>
+              <li><Link to="/about" className="hover:text-primary transition-smooth">About Us</Link></li>
+              <li><Link to="/pricing" className="hover:text-primary transition-smooth">Pricing</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-smooth">All Services</Link></li>
+              <li><Link to="/blogs" className="hover:text-primary transition-smooth">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-smooth">Contact</Link></li>
             </ul>
           </div>
 
@@ -97,9 +97,9 @@ const Footer = () => {
         <div className="pt-8 border-t border-footer-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-footer-foreground/70">
           <p>© {currentYear} Royal Graphics Solutions. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/about" className="hover:text-accent transition-smooth">Privacy Policy</Link>
-            <Link to="/about" className="hover:text-accent transition-smooth">Terms of Service</Link>
-            <Link to="/contact" className="hover:text-accent transition-smooth">Contact Us</Link>
+            <Link to="/about" className="hover:text-primary transition-smooth">Privacy Policy</Link>
+            <Link to="/about" className="hover:text-primary transition-smooth">Terms of Service</Link>
+            <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
           </div>
         </div>
       </div>
