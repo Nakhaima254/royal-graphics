@@ -40,9 +40,13 @@ const FloatingContact = () => {
               <motion.a
                 key={option.label}
                 href={option.href}
-                target={option.label === "WhatsApp" ? "_blank" : undefined}
-                rel={option.label === "WhatsApp" ? "noopener noreferrer" : undefined}
-                className={`w-12 h-12 rounded-full ${option.bgColor} text-white flex items-center justify-center shadow-lg transition-colors`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(option.href, "_blank");
+                }}
+                className={`w-12 h-12 rounded-full ${option.bgColor} text-white flex items-center justify-center shadow-lg transition-colors cursor-pointer`}
                 initial={{ opacity: 0, scale: 0, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0, y: 20 }}
