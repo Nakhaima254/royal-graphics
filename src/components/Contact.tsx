@@ -2,12 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock, Loader2, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import confetti from "canvas-confetti";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Select,
   SelectContent,
@@ -40,7 +42,46 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const fireConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 9999,
+    };
+
+    function fire(particleRatio: number, opts: confetti.Options) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+    fire(0.2, {
+      spread: 60,
+    });
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -63,6 +104,10 @@ const Contact = () => {
     
     console.log("Form submitted:", data);
     
+    // Show success state and fire confetti
+    setShowSuccess(true);
+    fireConfetti();
+    
     toast({
       title: "Message Received!",
       description: "Thank you for reaching out. We'll get back to you within 24 hours.",
@@ -70,6 +115,11 @@ const Contact = () => {
 
     form.reset();
     setIsSubmitting(false);
+    
+    // Hide success state after 3 seconds
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
   const services = [
@@ -147,7 +197,45 @@ const Contact = () => {
           </div>
 
           {/* Expanded Contact Form */}
-          <Card className="lg:col-span-2 p-8 border-border shadow-card">
+          <Card className="lg:col-span-2 p-8 border-border shadow-card relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              {showSuccess ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  className="absolute inset-0 flex flex-col items-center justify-center bg-card z-10"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                  >
+                    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                      <CheckCircle className="w-12 h-12 text-primary" />
+                    </div>
+                  </motion.div>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-2xl font-bold text-card-foreground mb-2"
+                  >
+                    Message Sent!
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-muted-foreground text-center max-w-sm"
+                  >
+                    Thank you for reaching out. We'll get back to you within 24 hours.
+                  </motion.p>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+            
             <h3 className="text-xl font-bold text-card-foreground mb-6">Tell Us About Your Project</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
