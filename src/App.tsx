@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AnimatedRoutes from "@/components/AnimatedRoutes";
+import FloatingContact from "@/components/FloatingContact";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           </main>
           <Footer />
         </div>
+        <FloatingContact />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
