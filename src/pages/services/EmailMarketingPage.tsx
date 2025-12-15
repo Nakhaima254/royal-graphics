@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, CheckCircle, ArrowLeft, BarChart3, Zap, Target, TrendingUp } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
 
 const EmailMarketingPage = () => {
   const features = [
@@ -295,6 +296,17 @@ const EmailMarketingPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="primary" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "Which email platforms do you work with?", answer: "We work with all major email platforms including Mailchimp, Klaviyo, ConvertKit, ActiveCampaign, HubSpot, and more. We'll help you choose the best fit for your needs." },
+          { question: "How do you grow my email list?", answer: "We implement proven list-building strategies including lead magnets, opt-in forms, landing pages, and pop-ups. All methods are compliant and focus on quality subscribers." },
+          { question: "What is your approach to email deliverability?", answer: "We follow best practices for deliverability including proper authentication (SPF, DKIM, DMARC), list hygiene, and engagement-based sending to ensure your emails reach the inbox." },
+          { question: "How often should I send emails?", answer: "Frequency depends on your audience and content. We typically recommend 1-4 emails per week, but we'll analyze your data to find the optimal cadence for your subscribers." },
+          { question: "Do you write the email copy?", answer: "Yes! Our copywriters create compelling subject lines and email content that resonates with your audience and drives action. All copy is customized to match your brand voice." }
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 bg-secondary/20">

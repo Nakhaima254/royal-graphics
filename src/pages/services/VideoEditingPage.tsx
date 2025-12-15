@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Video, CheckCircle, ArrowLeft, Play, Film, Volume2, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
 
 const VideoEditingPage = () => {
   const features = [
@@ -303,6 +304,17 @@ const VideoEditingPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "What video formats do you work with?", answer: "We work with all major video formats including MP4, MOV, AVI, and RAW files from any camera. We deliver in your preferred format optimized for your platform." },
+          { question: "How long is the typical turnaround time?", answer: "Standard turnaround is 3-5 business days for most projects. Rush delivery within 24-48 hours is available for an additional fee." },
+          { question: "Do you provide music and sound effects?", answer: "Yes! We have access to extensive royalty-free music and sound effect libraries. We can also work with licensed tracks you provide." },
+          { question: "Can you add subtitles and captions?", answer: "Absolutely! We offer professional subtitling and caption services in multiple languages. Captions are essential for social media accessibility." },
+          { question: "How many revisions are included?", answer: "Our packages include 2-3 rounds of revisions. We work with you until you're completely satisfied with the final product." }
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 bg-secondary/20">

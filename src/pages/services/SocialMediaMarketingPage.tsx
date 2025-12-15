@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Share2, CheckCircle, ArrowLeft, Users, TrendingUp, BarChart3, MessageCircle } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
+import ServiceFAQ from "@/components/ServiceFAQ";
 
 const SocialMediaMarketingPage = () => {
   const features = [
@@ -311,6 +312,17 @@ const SocialMediaMarketingPage = () => {
 
       {/* Testimonials Section */}
       <ServiceTestimonials testimonials={testimonials} accentColor="accent" />
+
+      {/* FAQ Section */}
+      <ServiceFAQ 
+        faqs={[
+          { question: "Which social media platforms do you manage?", answer: "We manage all major platforms including Facebook, Instagram, Twitter/X, LinkedIn, TikTok, YouTube, and Pinterest. We'll recommend the best platforms based on your target audience." },
+          { question: "How often will you post on my accounts?", answer: "Posting frequency depends on your package and platform. Typically, we post 3-7 times per week on Instagram, 1-2 times daily on Twitter, and 2-4 times per week on LinkedIn." },
+          { question: "Do you create all the content?", answer: "Yes! Our team creates custom graphics, writes engaging captions, and develops content calendars. We can also incorporate your existing assets and user-generated content." },
+          { question: "How do you measure success?", answer: "We track key metrics including follower growth, engagement rate, reach, website traffic from social, and conversions. You'll receive detailed monthly reports with insights and recommendations." },
+          { question: "Can I approve content before it's posted?", answer: "Absolutely! We provide content calendars in advance for your review and approval. You have full visibility and control over what gets published." }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-secondary/20">
