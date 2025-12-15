@@ -3,8 +3,10 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock } from "lucide-react";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import {
   Select,
   SelectContent,
@@ -12,29 +14,54 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string().optional(),
+  company: z.string().optional(),
+  service: z.string().min(1, "Please select a service"),
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters"),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    budget: "",
-    timeline: "",
-    message: "",
+  
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      budget: "",
+      timeline: "",
+      message: "",
+    },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: ContactFormValues) => {
+    console.log("Form submitted:", data);
     
     toast({
       title: "Message Received!",
       description: "Thank you for reaching out. We'll get back to you within 24 hours.",
     });
 
-    setFormData({ name: "", email: "", phone: "", company: "", service: "", budget: "", timeline: "", message: "" });
+    form.reset();
   };
 
   const services = [
@@ -114,157 +141,182 @@ const Contact = () => {
           {/* Expanded Contact Form */}
           <Card className="lg:col-span-2 p-8 border-border shadow-card">
             <h3 className="text-xl font-bold text-card-foreground mb-6">Tell Us About Your Project</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Info */}
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="John Doe"
-                    className="w-full"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                {/* Personal Info */}
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Full Name *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="John Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email Address *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="john@example.com" type="email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-2">
-                    Email Address *
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="john@example.com"
-                    className="w-full"
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number</FormLabel>
+                        <FormControl>
+                          <Input placeholder="+254 712 345 678" type="tel" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Company / Business Name</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Building className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                            <Input placeholder="Your company name" className="pl-10" {...field} />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-              </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-card-foreground mb-2">
-                    Phone Number
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+254 712 345 678"
-                    className="w-full"
+                {/* Project Details */}
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="service"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Service Needed *</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="w-full">
+                              <Briefcase className="w-4 h-4 mr-2 text-muted-foreground" />
+                              <SelectValue placeholder="Select service" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {services.map((service) => (
+                              <SelectItem key={service} value={service}>
+                                {service}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="budget"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Budget Range</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select budget" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {budgets.map((budget) => (
+                              <SelectItem key={budget} value={budget}>
+                                {budget}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="timeline"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Timeline</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="w-full">
+                              <Clock className="w-4 h-4 mr-2 text-muted-foreground" />
+                              <SelectValue placeholder="Select timeline" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {timelines.map((timeline) => (
+                              <SelectItem key={timeline} value={timeline}>
+                                {timeline}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-card-foreground mb-2">
-                    Company / Business Name
-                  </label>
-                  <div className="relative">
-                    <Building className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="company"
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Your company name"
-                      className="w-full pl-10"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Details */}
-              <div className="grid sm:grid-cols-3 gap-6">
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-card-foreground mb-2">
-                    Service Needed *
-                  </label>
-                  <Select value={formData.service} onValueChange={(value) => setFormData({ ...formData, service: value })}>
-                    <SelectTrigger className="w-full">
-                      <Briefcase className="w-4 h-4 mr-2 text-muted-foreground" />
-                      <SelectValue placeholder="Select service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {services.map((service) => (
-                        <SelectItem key={service} value={service}>
-                          {service}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-card-foreground mb-2">
-                    Budget Range
-                  </label>
-                  <Select value={formData.budget} onValueChange={(value) => setFormData({ ...formData, budget: value })}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select budget" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {budgets.map((budget) => (
-                        <SelectItem key={budget} value={budget}>
-                          {budget}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium text-card-foreground mb-2">
-                    Timeline
-                  </label>
-                  <Select value={formData.timeline} onValueChange={(value) => setFormData({ ...formData, timeline: value })}>
-                    <SelectTrigger className="w-full">
-                      <Clock className="w-4 h-4 mr-2 text-muted-foreground" />
-                      <SelectValue placeholder="Select timeline" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {timelines.map((timeline) => (
-                        <SelectItem key={timeline} value={timeline}>
-                          {timeline}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-2">
-                  Project Details *
-                </label>
-                <Textarea
-                  id="message"
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your project goals, target audience, and any specific requirements..."
-                  rows={5}
-                  className="w-full resize-none"
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Project Details *</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Tell us about your project goals, target audience, and any specific requirements..."
+                          rows={5}
+                          className="resize-none"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-2">
-                <p className="text-sm text-muted-foreground">
-                  We typically respond within 24 hours
-                </p>
-                <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
-                  Get Started
-                  <Send className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
-            </form>
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-2">
+                  <p className="text-sm text-muted-foreground">
+                    We typically respond within 24 hours
+                  </p>
+                  <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
+                    Get Started
+                    <Send className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              </form>
+            </Form>
           </Card>
         </div>
       </div>
