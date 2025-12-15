@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Video, CheckCircle, ArrowLeft } from "lucide-react";
+import { Video, CheckCircle, ArrowLeft, Play, Film, Sparkles, Volume2, Clock, Award } from "lucide-react";
 
 const VideoEditingPage = () => {
   const features = [
@@ -13,14 +14,60 @@ const VideoEditingPage = () => {
     "Color Grading & Sound Design"
   ];
 
+  const benefits = [
+    {
+      icon: Play,
+      title: "Engaging Content",
+      description: "Capture and hold your audience's attention with professionally edited videos that tell compelling stories."
+    },
+    {
+      icon: Film,
+      title: "Professional Quality",
+      description: "Industry-standard editing techniques, color grading, and effects that make your content stand out."
+    },
+    {
+      icon: Volume2,
+      title: "Perfect Audio",
+      description: "Crystal clear sound design, music selection, and audio mixing for an immersive viewing experience."
+    },
+    {
+      icon: Clock,
+      title: "Fast Turnaround",
+      description: "Quick delivery without compromising on quality, keeping your content calendar on track."
+    }
+  ];
+
+  const videoTypes = [
+    { name: "YouTube Videos", description: "Engaging content optimized for the platform" },
+    { name: "TikTok/Reels", description: "Short-form vertical content that goes viral" },
+    { name: "Commercials", description: "High-impact promotional videos" },
+    { name: "Corporate Videos", description: "Professional business presentations" },
+    { name: "Documentaries", description: "Compelling storytelling narratives" },
+    { name: "Music Videos", description: "Creative visual experiences" }
+  ];
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <div className="pt-16">
-      <div className="bg-accent py-16">
+      {/* Hero Section */}
+      <div className="bg-accent py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/services">
             <Button variant="ghost" className="text-accent-foreground hover:text-accent-foreground/80 mb-4">
@@ -47,6 +94,7 @@ const VideoEditingPage = () => {
         </div>
       </div>
 
+      {/* Features Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -60,6 +108,9 @@ const VideoEditingPage = () => {
               <h2 className="text-3xl font-bold mb-6">Bring Your Vision to Life</h2>
               <p className="text-muted-foreground mb-6">
                 Video is the most engaging content format. We transform raw footage into polished, professional videos that capture attention and deliver your message effectively.
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Our team of expert editors uses industry-leading software and techniques to create videos that not only look amazing but also achieve your marketing goals.
               </p>
               <ul className="space-y-4">
                 {features.map((feature, index) => (
@@ -89,25 +140,154 @@ const VideoEditingPage = () => {
                 alt="Video Editing Services"
                 className="rounded-2xl shadow-accent"
               />
+              <motion.div 
+                className="absolute inset-0 flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+              >
+                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center cursor-pointer shadow-lg">
+                  <Play className="w-8 h-8 text-accent-foreground ml-1" />
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* Benefits Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-4">Why Choose Our Video Editing?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We combine technical expertise with creative vision to deliver videos that exceed expectations.
+            </p>
+          </motion.div>
+          <motion.div 
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="p-6 h-full hover:shadow-card transition-all duration-300 hover:-translate-y-2 group">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                      <Icon className="w-6 h-6 text-accent group-hover:text-accent-foreground transition-colors" />
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Types */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-4">Videos We Create</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From short social clips to full-length productions, we handle it all.
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {videoTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                className="p-6 border border-border rounded-xl hover:border-accent hover:shadow-accent transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <h3 className="font-semibold text-lg mb-2">{type.name}</h3>
+                <p className="text-sm text-muted-foreground">{type.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 bg-accent">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-4xl font-bold text-accent-foreground mb-2">1000+</div>
+              <div className="text-accent-foreground/80">Videos Edited</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="text-4xl font-bold text-accent-foreground mb-2">50M+</div>
+              <div className="text-accent-foreground/80">Video Views</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="text-4xl font-bold text-accent-foreground mb-2">24hr</div>
+              <div className="text-accent-foreground/80">Rush Delivery</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="text-4xl font-bold text-accent-foreground mb-2">100%</div>
+              <div className="text-accent-foreground/80">Satisfaction</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="py-20 bg-secondary/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Create Amazing Videos?</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's turn your footage into professional content that engages
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button variant="accent" size="lg">Get Started</Button>
-            </Link>
-            <Link to="/pricing">
-              <Button variant="outline" size="lg">View Pricing</Button>
-            </Link>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-4">Ready to Create Amazing Videos?</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Let's turn your footage into professional content that engages and converts your audience.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/contact">
+                <Button variant="accent" size="lg">Get Started</Button>
+              </Link>
+              <Link to="/pricing">
+                <Button variant="outline" size="lg">View Pricing</Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
