@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, type LucideIcon } from "lucide-react";
+import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -537,6 +538,17 @@ const PricingPage = () => {
                               </Card>
                             </motion.div>
                           ))}
+                        </div>
+                      </div>
+                      
+                      {/* Custom Savings Calculator */}
+                      <div className="mt-16">
+                        <div className="text-center mb-8">
+                          <h3 className="text-2xl font-bold text-primary mb-2">Build Your Own Bundle</h3>
+                          <p className="text-muted-foreground">Select multiple services and see your savings in real-time</p>
+                        </div>
+                        <div className="max-w-2xl mx-auto">
+                          <SavingsCalculator services={graphicDesignServices} />
                         </div>
                       </div>
                       
