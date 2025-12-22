@@ -98,8 +98,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-footer-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-footer-foreground/70">
           <p>© {currentYear} Royal Graphics Solutions. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/about" className="hover:text-primary transition-smooth">Privacy Policy</Link>
-            <Link to="/about" className="hover:text-primary transition-smooth">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-primary transition-smooth">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary transition-smooth">Terms of Service</Link>
             <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
           </div>
         </div>
