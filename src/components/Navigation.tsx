@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare, Home, Users, DollarSign, BookOpen, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, GraduationCap, Mail, MessageSquare, Home, Users, DollarSign, BookOpen, Phone, Sparkles, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -111,7 +111,7 @@ const Navigation = () => {
                                 >
                                   <currentFeatured.icon className="w-6 h-6" />
                                 </motion.div>
-                                <span className="text-xs font-bold text-primary uppercase tracking-widest">✨ Featured</span>
+                                <span className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-1"><Sparkles className="w-3 h-3" /> Featured</span>
                                 <h3 className="font-bold text-base text-foreground mt-1.5 group-hover:text-primary transition-colors duration-300">
                                   {currentFeatured.label}
                                 </h3>
@@ -127,7 +127,7 @@ const Navigation = () => {
                                     animate={{ x: [0, 5, 0] }}
                                     transition={{ repeat: Infinity, duration: 1.5 }}
                                   >
-                                    →
+                                    <ArrowRight className="w-3 h-3" />
                                   </motion.span>
                                 </motion.span>
                               </Link>
@@ -162,7 +162,7 @@ const Navigation = () => {
                               to="/services" 
                               className="px-3 py-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap"
                             >
-                              View all →
+                              View all <ArrowRight className="w-3 h-3 inline ml-1" />
                             </Link>
                           </div>
                           <div className="grid grid-cols-2 gap-1.5 xl:gap-2 max-h-[45vh] overflow-y-auto pr-1">
@@ -194,11 +194,11 @@ const Navigation = () => {
                                       </span>
                                     </div>
                                     <motion.span 
-                                      className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 text-xs"
+                                      className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
                                       initial={{ x: -5 }}
                                       whileHover={{ x: 0 }}
                                     >
-                                      →
+                                      <ArrowRight className="w-3 h-3" />
                                     </motion.span>
                                   </Link>
                                 </motion.div>

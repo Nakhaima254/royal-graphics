@@ -124,7 +124,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
       hasTriggeredConfetti.current = true;
       fireConfetti();
       toast({
-        title: "🎉 Maximum Savings Unlocked!",
+        title: "Maximum Savings Unlocked!",
         description: "You've reached the 20% Premium Bundle discount tier!",
       });
     } else if (calculations.discountTier.percentage < 20) {
