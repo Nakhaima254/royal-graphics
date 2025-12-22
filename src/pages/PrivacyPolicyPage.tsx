@@ -1,9 +1,120 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, FileText, Users, Bell } from "lucide-react";
+import { Shield, Lock, Eye, FileText, Users, Bell, Cookie, Settings } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
+interface CookiePreferences {
+  essential: boolean;
+  analytics: boolean;
+  marketing: boolean;
+  functional: boolean;
+}
 
 const PrivacyPolicyPage = () => {
+  const { toast } = useToast();
+  const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>({
+    essential: true,
+    analytics: false,
+    marketing: false,
+    functional: false,
+  });
+
+  useEffect(() => {
+    const savedPreferences = localStorage.getItem("cookie-preferences");
+    const consent = localStorage.getItem("cookie-consent");
+    
+    if (savedPreferences) {
+      setCookiePreferences(JSON.parse(savedPreferences));
+    } else if (consent === "accepted") {
+      setCookiePreferences({
+        essential: true,
+        analytics: true,
+        marketing: true,
+        functional: true,
+      });
+    }
+  }, []);
+
+  const handlePreferenceChange = (key: keyof CookiePreferences) => {
+    if (key === "essential") return; // Essential cookies cannot be disabled
+    setCookiePreferences(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
+  const savePreferences = () => {
+    localStorage.setItem("cookie-preferences", JSON.stringify(cookiePreferences));
+    localStorage.setItem("cookie-consent", "customized");
+    toast({
+      title: "Preferences Saved",
+      description: "Your cookie preferences have been updated successfully.",
+    });
+  };
+
+  const acceptAll = () => {
+    const allAccepted = {
+      essential: true,
+      analytics: true,
+      marketing: true,
+      functional: true,
+    };
+    setCookiePreferences(allAccepted);
+    localStorage.setItem("cookie-preferences", JSON.stringify(allAccepted));
+    localStorage.setItem("cookie-consent", "accepted");
+    toast({
+      title: "All Cookies Accepted",
+      description: "You have accepted all cookies.",
+    });
+  };
+
+  const rejectNonEssential = () => {
+    const essentialOnly = {
+      essential: true,
+      analytics: false,
+      marketing: false,
+      functional: false,
+    };
+    setCookiePreferences(essentialOnly);
+    localStorage.setItem("cookie-preferences", JSON.stringify(essentialOnly));
+    localStorage.setItem("cookie-consent", "declined");
+    toast({
+      title: "Non-Essential Cookies Rejected",
+      description: "Only essential cookies will be used.",
+    });
+  };
+
+  const cookieTypes = [
+    {
+      key: "essential" as const,
+      name: "Essential Cookies",
+      description: "Required for the website to function properly. Cannot be disabled.",
+      locked: true,
+    },
+    {
+      key: "analytics" as const,
+      name: "Analytics Cookies",
+      description: "Help us understand how visitors interact with our website.",
+      locked: false,
+    },
+    {
+      key: "marketing" as const,
+      name: "Marketing Cookies",
+      description: "Used to deliver personalized advertisements.",
+      locked: false,
+    },
+    {
+      key: "functional" as const,
+      name: "Functional Cookies",
+      description: "Enable enhanced functionality and personalization.",
+      locked: false,
+    },
+  ];
+
   const sections = [
     {
       icon: FileText,
@@ -126,11 +237,68 @@ const PrivacyPolicyPage = () => {
               </motion.div>
             ))}
 
-            {/* Contact Section */}
+            {/* Cookie Preferences Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-card rounded-2xl p-6 md:p-8 border border-border"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Settings className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-xl font-semibold text-foreground mb-2">
+                    Manage Cookie Preferences
+                  </h2>
+                  <p className="text-muted-foreground">
+                    Customize which cookies you allow us to use. Your preferences are saved locally.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-6">
+                {cookieTypes.map((cookie) => (
+                  <div
+                    key={cookie.key}
+                    className="flex items-center justify-between p-4 rounded-xl bg-muted/50 border border-border"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Cookie className="w-5 h-5 text-primary" />
+                      <div>
+                        <p className="font-medium text-foreground">{cookie.name}</p>
+                        <p className="text-sm text-muted-foreground">{cookie.description}</p>
+                      </div>
+                    </div>
+                    <Switch
+                      checked={cookiePreferences[cookie.key]}
+                      onCheckedChange={() => handlePreferenceChange(cookie.key)}
+                      disabled={cookie.locked}
+                      className={cookie.locked ? "opacity-50 cursor-not-allowed" : ""}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button onClick={savePreferences} className="flex-1">
+                  Save Preferences
+                </Button>
+                <Button onClick={acceptAll} variant="outline" className="flex-1">
+                  Accept All
+                </Button>
+                <Button onClick={rejectNonEssential} variant="outline" className="flex-1">
+                  Reject Non-Essential
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Contact Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
               className="bg-primary/5 rounded-2xl p-6 md:p-8 text-center"
             >
               <h2 className="text-xl font-semibold text-foreground mb-3">
