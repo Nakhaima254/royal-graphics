@@ -142,6 +142,38 @@ const designBundles = [
   }
 ];
 
+const videoEditingBundles = [
+  {
+    name: "Content Creator Starter",
+    icon: Package,
+    originalPrice: "5,500",
+    bundlePrice: "4,500",
+    savings: "18%",
+    includes: ["Basic Edit (3 min)", "Thumbnail Design", "Intro/Outro"],
+    description: "Perfect for YouTubers and content creators getting started"
+  },
+  {
+    name: "Social Media Pro",
+    icon: Sparkles,
+    originalPrice: "7,500",
+    bundlePrice: "6,000",
+    savings: "20%",
+    popular: true,
+    includes: ["Short-Form Reel", "Short-Form Reel", "Short-Form Reel", "Thumbnail Design"],
+    displayIncludes: ["3x Short-Form Reels", "Thumbnail Design"],
+    description: "Dominate TikTok, Reels & Shorts with a content pack"
+  },
+  {
+    name: "Professional Video Suite",
+    icon: Crown,
+    originalPrice: "28,000",
+    bundlePrice: "22,000",
+    savings: "21%",
+    includes: ["Premium Edit", "Intro/Outro", "Color Grading", "Subtitles/Captions", "Thumbnail Design"],
+    description: "Complete professional video production package"
+  }
+];
+
 const servicePricing = {
   graphicDesign: {
     title: "Graphic Design",
@@ -715,6 +747,64 @@ const PricingPage = () => {
                           </motion.div>
                         ))}
                       </motion.div>
+                      
+                      {/* Video Editing Bundle Deals Section */}
+                      {key === 'videoEditing' && (
+                        <div className="mt-16">
+                          <div className="text-center mb-8">
+                            <h3 className="text-2xl font-bold text-primary mb-2">Bundle & Save</h3>
+                            <p className="text-muted-foreground">Get more value with our discounted video editing packages</p>
+                          </div>
+                          <div className="grid md:grid-cols-3 gap-6">
+                            {videoEditingBundles.map((bundle, index) => (
+                              <motion.div
+                                key={index}
+                                variants={fadeInUp}
+                              >
+                                <Card className={`p-6 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ${bundle.popular ? 'border-primary ring-2 ring-primary/20' : ''}`}>
+                                  {bundle.popular && (
+                                    <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold rounded-bl-lg">
+                                      Best Value
+                                    </div>
+                                  )}
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <div className={`p-3 rounded-xl ${bundle.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'}`}>
+                                      <bundle.icon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                      <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
+                                        Save {bundle.savings}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
+                                  <div className="mb-4">
+                                    <div className="flex items-baseline gap-2 mb-2">
+                                      <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
+                                      <span className="text-muted-foreground line-through text-sm">KES {bundle.originalPrice}</span>
+                                    </div>
+                                  </div>
+                                  <div className="space-y-2 mb-6">
+                                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Includes:</p>
+                                    {(bundle.displayIncludes || bundle.includes).map((item, i) => (
+                                      <div key={i} className="flex items-center gap-2 text-sm">
+                                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Video Editing&discount=${bundle.savings.replace("%", "")}`}>
+                                    <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
+                                      Get This Bundle
+                                    </Button>
+                                  </Link>
+                                </Card>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                       
                       {/* Savings Calculator for this category */}
                       {categoryServices[key] && (
