@@ -174,6 +174,37 @@ const videoEditingBundles = [
   }
 ];
 
+const socialMediaBundles = [
+  {
+    name: "Social Starter",
+    icon: Package,
+    originalPrice: "4,300",
+    bundlePrice: "3,500",
+    savings: "19%",
+    includes: ["Post Design (10 Pack)", "Stories Template", "Hashtag Research"],
+    description: "Essential package for businesses starting on social media"
+  },
+  {
+    name: "Growth Accelerator",
+    icon: Sparkles,
+    originalPrice: "8,500",
+    bundlePrice: "6,800",
+    savings: "20%",
+    popular: true,
+    includes: ["Post Design (10 Pack)", "Content Calendar", "Profile Setup", "Hashtag Research"],
+    description: "Complete setup and strategy to accelerate your growth"
+  },
+  {
+    name: "Enterprise Social Suite",
+    icon: Crown,
+    originalPrice: "13,300",
+    bundlePrice: "10,500",
+    savings: "21%",
+    includes: ["Post Design (10 Pack)", "Content Calendar", "Profile Setup", "Competitor Analysis", "Engagement Strategy"],
+    description: "Full-service social media management package"
+  }
+];
+
 const servicePricing = {
   graphicDesign: {
     title: "Graphic Design",
@@ -795,6 +826,64 @@ const PricingPage = () => {
                                     ))}
                                   </div>
                                   <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Video Editing&discount=${bundle.savings.replace("%", "")}`}>
+                                    <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
+                                      Get This Bundle
+                                    </Button>
+                                  </Link>
+                                </Card>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Social Media Marketing Bundle Deals Section */}
+                      {key === 'socialMedia' && (
+                        <div className="mt-16">
+                          <div className="text-center mb-8">
+                            <h3 className="text-2xl font-bold text-primary mb-2">Bundle & Save</h3>
+                            <p className="text-muted-foreground">Get more value with our discounted social media packages</p>
+                          </div>
+                          <div className="grid md:grid-cols-3 gap-6">
+                            {socialMediaBundles.map((bundle, index) => (
+                              <motion.div
+                                key={index}
+                                variants={fadeInUp}
+                              >
+                                <Card className={`p-6 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ${bundle.popular ? 'border-primary ring-2 ring-primary/20' : ''}`}>
+                                  {bundle.popular && (
+                                    <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold rounded-bl-lg">
+                                      Best Value
+                                    </div>
+                                  )}
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <div className={`p-3 rounded-xl ${bundle.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'}`}>
+                                      <bundle.icon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                      <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
+                                        Save {bundle.savings}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
+                                  <div className="mb-4">
+                                    <div className="flex items-baseline gap-2 mb-2">
+                                      <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
+                                      <span className="text-muted-foreground line-through text-sm">KES {bundle.originalPrice}</span>
+                                    </div>
+                                  </div>
+                                  <div className="space-y-2 mb-6">
+                                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Includes:</p>
+                                    {bundle.includes.map((item, i) => (
+                                      <div key={i} className="flex items-center gap-2 text-sm">
+                                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Social Media Marketing&discount=${bundle.savings.replace("%", "")}`}>
                                     <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
                                       Get This Bundle
                                     </Button>
