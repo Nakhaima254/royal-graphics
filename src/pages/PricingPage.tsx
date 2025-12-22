@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap } from "lucide-react";
+import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,21 +18,21 @@ const staggerContainer = {
   }
 };
 
-const graphicDesignServices = [
-  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)" },
-  { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats" },
-  { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template" },
-  { name: "Brochure", price: "600", description: "Bi-fold or tri-fold design, print-ready PDF, source files" },
-  { name: "Banners", price: "800", description: "Web or print banners, custom sizes, high-resolution output" },
-  { name: "Posters", price: "400", description: "Eye-catching poster design, any size, print-ready files" },
-  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF" },
-  { name: "Invoice/Receipt", price: "650", description: "Professional invoice template, editable Word/Excel format" },
-  { name: "Email Signature", price: "300", description: "HTML email signature, works with Gmail, Outlook & more" },
-  { name: "Catalog/Menu", price: "400", description: "Multi-page catalog or menu design, print-ready files" },
-  { name: "Product Label", price: "400", description: "Custom product label design, die-cut ready, all formats" },
-  { name: "Infographics", price: "600", description: "Data visualization, custom icons, shareable formats" },
-  { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images" },
-  { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready" },
+const graphicDesignServices: { name: string; price: string; description: string; icon: LucideIcon }[] = [
+  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp },
+  { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats", icon: CreditCard },
+  { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template", icon: FileText },
+  { name: "Brochure", price: "600", description: "Bi-fold or tri-fold design, print-ready PDF, source files", icon: BookOpen },
+  { name: "Banners", price: "800", description: "Web or print banners, custom sizes, high-resolution output", icon: Image },
+  { name: "Posters", price: "400", description: "Eye-catching poster design, any size, print-ready files", icon: Megaphone },
+  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF", icon: FileImage },
+  { name: "Invoice/Receipt", price: "650", description: "Professional invoice template, editable Word/Excel format", icon: Receipt },
+  { name: "Email Signature", price: "300", description: "HTML email signature, works with Gmail, Outlook & more", icon: AtSign },
+  { name: "Catalog/Menu", price: "400", description: "Multi-page catalog or menu design, print-ready files", icon: UtensilsCrossed },
+  { name: "Product Label", price: "400", description: "Custom product label design, die-cut ready, all formats", icon: Tag },
+  { name: "Infographics", price: "600", description: "Data visualization, custom icons, shareable formats", icon: BarChart3 },
+  { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images", icon: Box },
+  { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready", icon: CalendarDays },
 ];
 
 const servicePricing = {
@@ -436,11 +436,16 @@ const PricingPage = () => {
                             variants={fadeInUp}
                           >
                             <Card className="p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group">
-                              <div className="flex items-start justify-between mb-3">
-                                <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
-                                <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">KES {item.price}</span>
+                              <div className="flex items-start gap-3 mb-3">
+                                <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                  <item.icon className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1 flex items-start justify-between">
+                                  <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
+                                  <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">KES {item.price}</span>
+                                </div>
                               </div>
-                              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed pl-12">{item.description}</p>
                             </Card>
                           </motion.div>
                         ))}
