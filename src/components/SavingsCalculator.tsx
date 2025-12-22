@@ -161,6 +161,38 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
           <Sparkles className="w-4 h-4 text-primary" />
           Bundle Discount Tiers
         </p>
+        
+        {/* Visual Progress Bar */}
+        <div className="mb-4">
+          <div className="relative h-3 bg-muted rounded-full overflow-hidden">
+            <motion.div
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary/70 via-primary to-green-500 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ 
+                width: `${Math.min((calculations.itemCount / 6) * 100, 100)}%` 
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            />
+            {/* Tier markers */}
+            <div className="absolute inset-0 flex">
+              <div className="w-1/3 border-r border-background/50" />
+              <div className="w-1/3 border-r border-background/50" />
+              <div className="w-1/3" />
+            </div>
+          </div>
+          <div className="flex justify-between mt-1">
+            <span className={`text-[10px] ${calculations.itemCount >= 2 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+              2 services
+            </span>
+            <span className={`text-[10px] ${calculations.itemCount >= 4 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+              4 services
+            </span>
+            <span className={`text-[10px] ${calculations.itemCount >= 6 ? "text-green-600 font-semibold" : "text-muted-foreground"}`}>
+              6+ services
+            </span>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-3 gap-2 text-xs">
           <div
             className={`p-2 rounded text-center transition-all ${
