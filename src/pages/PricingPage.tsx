@@ -18,59 +18,29 @@ const staggerContainer = {
   }
 };
 
+const graphicDesignServices = [
+  { name: "Logo Design", price: "2,000" },
+  { name: "Business Card", price: "800" },
+  { name: "Letterhead", price: "700" },
+  { name: "Brochure", price: "600" },
+  { name: "Banners", price: "800" },
+  { name: "Posters", price: "400" },
+  { name: "Flyers", price: "500" },
+  { name: "Invoice/Receipt", price: "650" },
+  { name: "Email Signature", price: "300" },
+  { name: "Catalog/Menu", price: "400" },
+  { name: "Product Label", price: "400" },
+  { name: "Infographics", price: "600" },
+  { name: "3D Mockups", price: "500" },
+  { name: "Calendar", price: "600" },
+];
+
 const servicePricing = {
   graphicDesign: {
     title: "Graphic Design",
     icon: Palette,
     description: "Professional visual designs for your brand",
-    plans: [
-      {
-        name: "Basic",
-        price: "KES 5,000",
-        period: "/project",
-        description: "Simple design needs",
-        features: [
-          "Logo design (2 concepts)",
-          "2 revisions included",
-          "Source files (PNG, JPG)",
-          "3-5 days delivery",
-          "Email support"
-        ]
-      },
-      {
-        name: "Standard",
-        price: "KES 15,000",
-        period: "/project",
-        description: "Complete brand essentials",
-        popular: true,
-        features: [
-          "Logo design (4 concepts)",
-          "Business card design",
-          "Letterhead & envelope",
-          "5 revisions included",
-          "All source files (AI, EPS, PDF)",
-          "2-3 days delivery",
-          "Priority support"
-        ]
-      },
-      {
-        name: "Premium",
-        price: "KES 35,000",
-        period: "/project",
-        description: "Full brand identity",
-        features: [
-          "Complete brand identity",
-          "Logo + variations",
-          "Brand guidelines document",
-          "Stationery suite",
-          "Social media kit",
-          "Unlimited revisions",
-          "All source files",
-          "1-2 days delivery",
-          "Dedicated designer"
-        ]
-      }
-    ]
+    isRateCard: true,
   },
   socialMedia: {
     title: "Social Media Marketing",
@@ -449,74 +419,112 @@ const PricingPage = () => {
                     <p className="text-muted-foreground">{service.description}</p>
                   </div>
 
-                  <motion.div 
-                    className="grid md:grid-cols-3 gap-6 lg:gap-8"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    {service.plans.map((plan, index) => (
-                      <motion.div
-                        key={index}
-                        variants={fadeInUp}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Card 
-                          className={`p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-premium relative ${
-                            plan.popular
-                              ? "bg-primary text-primary-foreground border-2 border-primary scale-[1.02] shadow-premium"
-                              : "hover:-translate-y-2"
-                          }`}
-                        >
-                          {plan.popular && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
-                              Most Popular
-                            </div>
-                          )}
-                          
-                          <div className="mb-6">
-                            <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
-                              {plan.name}
-                            </h3>
-                            <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                              {plan.description}
-                            </p>
-                          </div>
-
-                          <div className="mb-6">
-                            <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
-                              {plan.price}
-                            </span>
-                            <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                              {plan.period}
-                            </span>
-                          </div>
-
-                          <ul className="space-y-3 mb-8">
-                            {plan.features.map((feature, fIndex) => (
-                              <li key={fIndex} className="flex items-start gap-3">
-                                <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                                  plan.popular ? "text-primary-foreground" : "text-primary"
-                                }`} />
-                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <Link to="/contact">
-                            <Button 
-                              className="w-full"
-                              variant={plan.popular ? "secondary" : "default"}
+                  {'isRateCard' in service && service.isRateCard ? (
+                    <motion.div
+                      variants={staggerContainer}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      <Card className="p-6 lg:p-8 max-w-4xl mx-auto">
+                        <div className="text-center mb-8">
+                          <h3 className="text-2xl font-bold text-primary mb-2">Individual Service Prices</h3>
+                          <p className="text-muted-foreground">Quality designs at affordable rates</p>
+                        </div>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          {graphicDesignServices.map((item, index) => (
+                            <motion.div
+                              key={index}
+                              variants={fadeInUp}
+                              className="flex items-center justify-between p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
                             >
-                              Get Started
-                            </Button>
-                          </Link>
-                        </Card>
-                      </motion.div>
-                    ))}
-                  </motion.div>
+                              <span className="font-medium text-foreground">{item.name}</span>
+                              <span className="text-lg font-bold text-primary">KES {item.price}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                        <div className="mt-8 text-center">
+                          <p className="text-muted-foreground mb-4">Need multiple designs? Contact us for package deals!</p>
+                          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link to="/contact">
+                              <Button variant="default" size="lg">Request Quote</Button>
+                            </Link>
+                            <a href="https://wa.me/254746388308" target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="lg">Chat on WhatsApp</Button>
+                            </a>
+                          </div>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  ) : (
+                    <motion.div 
+                      className="grid md:grid-cols-3 gap-6 lg:gap-8"
+                      variants={staggerContainer}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      {'plans' in service && service.plans.map((plan, index) => (
+                        <motion.div
+                          key={index}
+                          variants={fadeInUp}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <Card 
+                            className={`p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-premium relative ${
+                              plan.popular
+                                ? "bg-primary text-primary-foreground border-2 border-primary scale-[1.02] shadow-premium"
+                                : "hover:-translate-y-2"
+                            }`}
+                          >
+                            {plan.popular && (
+                              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
+                                Most Popular
+                              </div>
+                            )}
+                            
+                            <div className="mb-6">
+                              <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
+                                {plan.name}
+                              </h3>
+                              <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                                {plan.description}
+                              </p>
+                            </div>
+
+                            <div className="mb-6">
+                              <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
+                                {plan.price}
+                              </span>
+                              <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                                {plan.period}
+                              </span>
+                            </div>
+
+                            <ul className="space-y-3 mb-8">
+                              {plan.features.map((feature, fIndex) => (
+                                <li key={fIndex} className="flex items-start gap-3">
+                                  <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                                    plan.popular ? "text-primary-foreground" : "text-primary"
+                                  }`} />
+                                  <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
+                                    {feature}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <Link to="/contact">
+                              <Button 
+                                className="w-full"
+                                variant={plan.popular ? "secondary" : "default"}
+                              >
+                                Get Started
+                              </Button>
+                            </Link>
+                          </Card>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
                 </motion.div>
               </TabsContent>
             ))}
