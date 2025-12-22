@@ -17,6 +17,7 @@ interface Service {
 
 interface SavingsCalculatorProps {
   services: Service[];
+  categoryName?: string;
 }
 
 const getDiscountTier = (total: number, itemCount: number) => {
@@ -34,7 +35,7 @@ const formatPrice = (price: number): string => {
   return price.toLocaleString();
 };
 
-export const SavingsCalculator = ({ services }: SavingsCalculatorProps) => {
+export const SavingsCalculator = ({ services, categoryName = "services" }: SavingsCalculatorProps) => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const toggleService = (serviceName: string) => {
