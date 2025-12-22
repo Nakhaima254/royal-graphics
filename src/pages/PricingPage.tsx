@@ -541,7 +541,7 @@ const PricingPage = () => {
               <Link to="/contact">
                 <Button variant="accent" size="lg">Request Custom Quote</Button>
               </Link>
-              <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/254746388308" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg">Chat on WhatsApp</Button>
               </a>
             </div>
