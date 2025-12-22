@@ -5,10 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, Building, Briefcase, Clock, Loader2, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import confetti from "canvas-confetti";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Select,
@@ -43,6 +44,7 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [searchParams] = useSearchParams();
 
   const fireConfetti = () => {
     const count = 200;
@@ -95,6 +97,41 @@ const Contact = () => {
       message: "",
     },
   });
+
+  // Auto-populate from calculator params
+  useEffect(() => {
+    const services = searchParams.get("services");
+    const total = searchParams.get("total");
+    const category = searchParams.get("category");
+    const discount = searchParams.get("discount");
+
+    if (services && total) {
+      const serviceList = services.split(",");
+      const formattedTotal = parseInt(total).toLocaleString();
+      
+      // Set service based on category
+      if (category) {
+        const categoryMap: Record<string, string> = {
+          "Graphic Design": "Graphic Design",
+          "Video Editing": "Video Editing",
+          "Social Media Marketing": "Social Media Marketing",
+          "Copywriting": "Copywriting",
+          "Email Marketing": "Email Marketing",
+          "SMS Marketing": "SMS Marketing",
+          "Online Classes": "Online Classes",
+        };
+        form.setValue("service", categoryMap[category] || "Multiple Services");
+      }
+
+      // Build the message with selected services and pricing
+      const discountText = discount && parseInt(discount) > 0 
+        ? ` (${discount}% bundle discount applied)` 
+        : "";
+      const message = `I'm interested in the following services:\n\n${serviceList.map(s => `• ${s}`).join("\n")}\n\nCalculated Total: KES ${formattedTotal}${discountText}\n\nPlease provide a detailed quote.`;
+      
+      form.setValue("message", message);
+    }
+  }, [searchParams, form]);
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);

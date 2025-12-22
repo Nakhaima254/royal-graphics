@@ -1,10 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Calculator, TrendingDown, Sparkles, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import confetti from "canvas-confetti";
 import type { LucideIcon } from "lucide-react";
 
 interface Service {
@@ -37,6 +38,8 @@ const formatPrice = (price: number): string => {
 
 export const SavingsCalculator = ({ services, categoryName = "services" }: SavingsCalculatorProps) => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const navigate = useNavigate();
+  const hasTriggeredConfetti = useRef(false);
 
   const toggleService = (serviceName: string) => {
     setSelectedServices((prev) =>
@@ -52,6 +55,29 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
 
   const clearAll = () => {
     setSelectedServices([]);
+    hasTriggeredConfetti.current = false;
+  };
+
+  const fireConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 9999,
+    };
+
+    function fire(particleRatio: number, opts: confetti.Options) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, { spread: 26, startVelocity: 55 });
+    fire(0.2, { spread: 60 });
+    fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+    fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+    fire(0.1, { spread: 120, startVelocity: 45 });
   };
 
   const calculations = useMemo(() => {
@@ -76,6 +102,25 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
       total,
     };
   }, [selectedServices, services]);
+
+  // Fire confetti when reaching 20% tier
+  useEffect(() => {
+    if (calculations.discountTier.percentage === 20 && !hasTriggeredConfetti.current) {
+      hasTriggeredConfetti.current = true;
+      fireConfetti();
+    } else if (calculations.discountTier.percentage < 20) {
+      hasTriggeredConfetti.current = false;
+    }
+  }, [calculations.discountTier.percentage]);
+
+  const handleGetQuote = () => {
+    const params = new URLSearchParams();
+    params.set("services", selectedServices.join(","));
+    params.set("total", calculations.total.toString());
+    params.set("category", categoryName);
+    params.set("discount", calculations.discountTier.percentage.toString());
+    navigate(`/contact?${params.toString()}`);
+  };
 
   return (
     <Card className="p-6 lg:p-8 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
@@ -250,12 +295,10 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
               </div>
             </div>
 
-            <Link to="/contact" className="block pt-2">
-              <Button className="w-full" size="lg">
-                <Check className="w-4 h-4 mr-2" />
-                Get This Bundle
-              </Button>
-            </Link>
+            <Button className="w-full mt-2" size="lg" onClick={handleGetQuote}>
+              <Check className="w-4 h-4 mr-2" />
+              Get This Bundle
+            </Button>
           </motion.div>
         ) : (
           <motion.div
