@@ -39,18 +39,18 @@ const designBundles = [
   {
     name: "Starter Bundle",
     icon: Package,
-    originalPrice: "3,500",
-    bundlePrice: "2,800",
-    savings: "20%",
+    originalPrice: "2,800",
+    bundlePrice: "2,500",
+    savings: "11%",
     includes: ["Logo Design", "Business Card"],
     description: "Perfect for new businesses starting their brand identity"
   },
   {
     name: "Business Essentials",
     icon: Sparkles,
-    originalPrice: "6,000",
-    bundlePrice: "4,500",
-    savings: "25%",
+    originalPrice: "3,800",
+    bundlePrice: "3,200",
+    savings: "16%",
     popular: true,
     includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature"],
     description: "Complete professional branding package for your business"
@@ -58,9 +58,9 @@ const designBundles = [
   {
     name: "Ultimate Brand Package",
     icon: Crown,
-    originalPrice: "9,100",
-    bundlePrice: "6,500",
-    savings: "29%",
+    originalPrice: "4,900",
+    bundlePrice: "3,900",
+    savings: "20%",
     includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature", "Flyers", "Brochure"],
     description: "Everything you need for a complete brand presence"
   }
