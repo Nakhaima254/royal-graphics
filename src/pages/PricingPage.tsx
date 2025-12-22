@@ -607,9 +607,11 @@ const PricingPage = () => {
                                     </div>
                                   ))}
                                 </div>
-                                <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
-                                  Get This Bundle
-                                </Button>
+                                <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Graphic Design&discount=${bundle.savings.replace("%", "")}`}>
+                                  <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
+                                    Get This Bundle
+                                  </Button>
+                                </Link>
                               </Card>
                             </motion.div>
                           ))}

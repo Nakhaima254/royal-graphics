@@ -96,12 +96,25 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
     );
     const total = subtotal - discountAmount;
 
+    // Calculate progress to next tier
+    let nextTierInfo = { needed: 0, nextPercentage: 0, label: "" };
+    if (selectedItems.length === 0) {
+      nextTierInfo = { needed: 2, nextPercentage: 10, label: "Starter Bundle" };
+    } else if (selectedItems.length === 1) {
+      nextTierInfo = { needed: 1, nextPercentage: 10, label: "Starter Bundle" };
+    } else if (selectedItems.length < 4) {
+      nextTierInfo = { needed: 4 - selectedItems.length, nextPercentage: 15, label: "Business Bundle" };
+    } else if (selectedItems.length < 6) {
+      nextTierInfo = { needed: 6 - selectedItems.length, nextPercentage: 20, label: "Premium Bundle" };
+    }
+
     return {
       itemCount: selectedItems.length,
       subtotal,
       discountTier,
       discountAmount,
       total,
+      nextTierInfo,
     };
   }, [selectedServices, services]);
 
@@ -180,6 +193,34 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
             <div className="opacity-80">6+ services</div>
           </div>
         </div>
+        
+        {/* Progress to Next Tier */}
+        {calculations.nextTierInfo.needed > 0 && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            className="mt-3 pt-3 border-t border-border/50"
+          >
+            <p className="text-xs text-center text-muted-foreground">
+              Add <span className="font-bold text-primary">{calculations.nextTierInfo.needed} more service{calculations.nextTierInfo.needed > 1 ? "s" : ""}</span> to unlock{" "}
+              <span className="font-bold text-green-600">{calculations.nextTierInfo.nextPercentage}% off</span> ({calculations.nextTierInfo.label})
+            </p>
+          </motion.div>
+        )}
+        
+        {calculations.itemCount >= 6 && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mt-3 pt-3 border-t border-border/50"
+          >
+            <p className="text-xs text-center font-semibold text-green-600 flex items-center justify-center gap-1">
+              <Sparkles className="w-3 h-3" />
+              Maximum discount unlocked!
+              <Sparkles className="w-3 h-3" />
+            </p>
+          </motion.div>
+        )}
       </div>
 
       {/* Quick Actions */}
