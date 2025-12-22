@@ -19,20 +19,20 @@ const staggerContainer = {
 };
 
 const graphicDesignServices = [
-  { name: "Logo Design", price: "2,000" },
-  { name: "Business Card", price: "800" },
-  { name: "Letterhead", price: "700" },
-  { name: "Brochure", price: "600" },
-  { name: "Banners", price: "800" },
-  { name: "Posters", price: "400" },
-  { name: "Flyers", price: "500" },
-  { name: "Invoice/Receipt", price: "650" },
-  { name: "Email Signature", price: "300" },
-  { name: "Catalog/Menu", price: "400" },
-  { name: "Product Label", price: "400" },
-  { name: "Infographics", price: "600" },
-  { name: "3D Mockups", price: "500" },
-  { name: "Calendar", price: "600" },
+  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)" },
+  { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats" },
+  { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template" },
+  { name: "Brochure", price: "600", description: "Bi-fold or tri-fold design, print-ready PDF, source files" },
+  { name: "Banners", price: "800", description: "Web or print banners, custom sizes, high-resolution output" },
+  { name: "Posters", price: "400", description: "Eye-catching poster design, any size, print-ready files" },
+  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF" },
+  { name: "Invoice/Receipt", price: "650", description: "Professional invoice template, editable Word/Excel format" },
+  { name: "Email Signature", price: "300", description: "HTML email signature, works with Gmail, Outlook & more" },
+  { name: "Catalog/Menu", price: "400", description: "Multi-page catalog or menu design, print-ready files" },
+  { name: "Product Label", price: "400", description: "Custom product label design, die-cut ready, all formats" },
+  { name: "Infographics", price: "600", description: "Data visualization, custom icons, shareable formats" },
+  { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images" },
+  { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready" },
 ];
 
 const servicePricing = {
@@ -425,35 +425,37 @@ const PricingPage = () => {
                       initial="hidden"
                       animate="visible"
                     >
-                      <Card className="p-6 lg:p-8 max-w-4xl mx-auto">
-                        <div className="text-center mb-8">
-                          <h3 className="text-2xl font-bold text-primary mb-2">Individual Service Prices</h3>
-                          <p className="text-muted-foreground">Quality designs at affordable rates</p>
+                      <div className="text-center mb-8">
+                        <h3 className="text-2xl font-bold text-primary mb-2">Individual Service Prices</h3>
+                        <p className="text-muted-foreground">Quality designs at affordable rates</p>
+                      </div>
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {graphicDesignServices.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            variants={fadeInUp}
+                          >
+                            <Card className="p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group">
+                              <div className="flex items-start justify-between mb-3">
+                                <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
+                                <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">KES {item.price}</span>
+                              </div>
+                              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                            </Card>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <div className="mt-10 text-center">
+                        <p className="text-muted-foreground mb-4">Need multiple designs? Contact us for package deals!</p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                          <Link to="/contact">
+                            <Button variant="default" size="lg">Request Quote</Button>
+                          </Link>
+                          <a href="https://wa.me/254746388308" target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" size="lg">Chat on WhatsApp</Button>
+                          </a>
                         </div>
-                        <div className="grid sm:grid-cols-2 gap-4">
-                          {graphicDesignServices.map((item, index) => (
-                            <motion.div
-                              key={index}
-                              variants={fadeInUp}
-                              className="flex items-center justify-between p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
-                            >
-                              <span className="font-medium text-foreground">{item.name}</span>
-                              <span className="text-lg font-bold text-primary">KES {item.price}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-                        <div className="mt-8 text-center">
-                          <p className="text-muted-foreground mb-4">Need multiple designs? Contact us for package deals!</p>
-                          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link to="/contact">
-                              <Button variant="default" size="lg">Request Quote</Button>
-                            </Link>
-                            <a href="https://wa.me/254746388308" target="_blank" rel="noopener noreferrer">
-                              <Button variant="outline" size="lg">Chat on WhatsApp</Button>
-                            </a>
-                          </div>
-                        </div>
-                      </Card>
+                      </div>
                     </motion.div>
                   ) : (
                     <motion.div 
