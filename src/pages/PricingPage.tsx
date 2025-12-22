@@ -19,7 +19,9 @@ const staggerContainer = {
   }
 };
 
-const graphicDesignServices: { name: string; price: string; description: string; icon: LucideIcon; popular?: boolean }[] = [
+type ServiceItem = { name: string; price: string; description: string; icon: LucideIcon; popular?: boolean };
+
+const graphicDesignServices: ServiceItem[] = [
   { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp, popular: true },
   { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats", icon: CreditCard, popular: true },
   { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template", icon: FileText },
@@ -35,6 +37,79 @@ const graphicDesignServices: { name: string; price: string; description: string;
   { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images", icon: Box },
   { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready", icon: CalendarDays },
 ];
+
+const videoEditingServices: ServiceItem[] = [
+  { name: "Basic Edit (3 min)", price: "3,000", description: "Basic cuts, transitions, background music, text overlays", icon: Video, popular: true },
+  { name: "Standard Edit (10 min)", price: "8,000", description: "Advanced editing, motion graphics, sound design", icon: Video, popular: true },
+  { name: "Premium Edit", price: "20,000", description: "Cinematic production, custom animations, professional mix", icon: Video },
+  { name: "Thumbnail Design", price: "500", description: "Eye-catching YouTube/video thumbnails", icon: Image },
+  { name: "Intro/Outro", price: "2,500", description: "Custom animated intro or outro for your channel", icon: Sparkles },
+  { name: "Color Grading", price: "1,500", description: "Professional color correction and grading", icon: Palette },
+  { name: "Subtitles/Captions", price: "1,000", description: "Accurate subtitles with timing and styling", icon: FileText },
+  { name: "Short-Form Reel", price: "2,000", description: "TikTok/Reels/Shorts optimized vertical video", icon: Video },
+];
+
+const socialMediaServices: ServiceItem[] = [
+  { name: "Post Design (Single)", price: "300", description: "Custom social media post graphic", icon: Image },
+  { name: "Post Design (10 Pack)", price: "2,500", description: "10 custom social media graphics", icon: Image, popular: true },
+  { name: "Stories Template", price: "500", description: "Custom Instagram/Facebook story template", icon: FileImage },
+  { name: "Profile Setup", price: "1,500", description: "Complete profile optimization and branding", icon: Share2 },
+  { name: "Content Calendar", price: "2,000", description: "30-day content strategy and calendar", icon: CalendarDays, popular: true },
+  { name: "Hashtag Research", price: "800", description: "Industry-specific hashtag strategy", icon: Tag },
+  { name: "Competitor Analysis", price: "3,000", description: "In-depth competitor social media analysis", icon: BarChart3 },
+  { name: "Engagement Strategy", price: "2,500", description: "Custom engagement and growth strategy", icon: Megaphone },
+];
+
+const copywritingServices: ServiceItem[] = [
+  { name: "Blog Post (500 words)", price: "2,500", description: "SEO-optimized blog article", icon: PenTool, popular: true },
+  { name: "Blog Post (1000 words)", price: "4,000", description: "In-depth SEO-optimized article", icon: PenTool },
+  { name: "Website Copy (per page)", price: "3,000", description: "Compelling website page content", icon: FileText, popular: true },
+  { name: "Product Description", price: "500", description: "Persuasive product descriptions", icon: Tag },
+  { name: "Email Sequence (3 emails)", price: "3,500", description: "Conversion-focused email series", icon: Mail },
+  { name: "Ad Copy (5 variations)", price: "2,000", description: "High-converting ad copy set", icon: Megaphone },
+  { name: "Social Media Captions (10)", price: "1,500", description: "Engaging social media captions", icon: Share2 },
+  { name: "Tagline/Slogan", price: "1,000", description: "Memorable brand tagline creation", icon: Sparkles },
+];
+
+const emailMarketingServices: ServiceItem[] = [
+  { name: "Email Template Design", price: "2,000", description: "Custom responsive email template", icon: Mail, popular: true },
+  { name: "Campaign Setup", price: "3,000", description: "Full email campaign configuration", icon: Mail },
+  { name: "Automation Sequence", price: "5,000", description: "Automated drip campaign setup", icon: Mail, popular: true },
+  { name: "List Segmentation", price: "2,500", description: "Strategic subscriber segmentation", icon: BarChart3 },
+  { name: "A/B Testing Setup", price: "1,500", description: "Split testing configuration", icon: BarChart3 },
+  { name: "Newsletter Design", price: "1,800", description: "Branded newsletter template", icon: FileText },
+  { name: "Cleanup & Optimization", price: "2,000", description: "List cleaning and optimization", icon: Tag },
+  { name: "Analytics Report", price: "1,000", description: "Detailed campaign performance report", icon: BarChart3 },
+];
+
+const smsMarketingServices: ServiceItem[] = [
+  { name: "Campaign Setup", price: "1,500", description: "SMS campaign configuration", icon: MessageSquare, popular: true },
+  { name: "500 SMS Credits", price: "3,000", description: "Bulk SMS message credits", icon: MessageSquare },
+  { name: "2,500 SMS Credits", price: "12,000", description: "Business SMS package", icon: MessageSquare, popular: true },
+  { name: "Custom Sender ID", price: "2,000", description: "Branded sender ID registration", icon: Tag },
+  { name: "Contact Import", price: "1,000", description: "Contact list setup and import", icon: FileText },
+  { name: "Scheduled Campaigns", price: "1,500", description: "Advanced scheduling setup", icon: CalendarDays },
+  { name: "Analytics Dashboard", price: "2,000", description: "Custom analytics and reporting", icon: BarChart3 },
+];
+
+const onlineClassesServices: ServiceItem[] = [
+  { name: "Single Course", price: "5,000", description: "Access to one complete course", icon: GraduationCap, popular: true },
+  { name: "5 Course Bundle", price: "15,000", description: "Choose any 5 courses", icon: GraduationCap, popular: true },
+  { name: "1-on-1 Mentorship (1hr)", price: "3,000", description: "Personal coaching session", icon: GraduationCap },
+  { name: "Live Workshop", price: "2,000", description: "Interactive live training session", icon: GraduationCap },
+  { name: "Course Materials", price: "1,500", description: "Downloadable resources and templates", icon: FileText },
+  { name: "Certification Exam", price: "2,500", description: "Professional certification test", icon: Sparkles },
+];
+
+// Map category keys to their service arrays
+const categoryServices: Record<string, ServiceItem[]> = {
+  videoEditing: videoEditingServices,
+  socialMedia: socialMediaServices,
+  copywriting: copywritingServices,
+  emailMarketing: emailMarketingServices,
+  smsMarketing: smsMarketingServices,
+  onlineClasses: onlineClassesServices,
+};
 
 const designBundles = [
   {
@@ -565,73 +640,92 @@ const PricingPage = () => {
                       </div>
                     </motion.div>
                   ) : (
-                    <motion.div 
-                      className="grid md:grid-cols-3 gap-6 lg:gap-8"
+                    <motion.div
                       variants={staggerContainer}
                       initial="hidden"
                       animate="visible"
                     >
-                      {'plans' in service && service.plans.map((plan, index) => (
-                        <motion.div
-                          key={index}
-                          variants={fadeInUp}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <Card 
-                            className={`p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-premium relative ${
-                              plan.popular
-                                ? "bg-primary text-primary-foreground border-2 border-primary scale-[1.02] shadow-premium"
-                                : "hover:-translate-y-2"
-                            }`}
+                      <motion.div 
+                        className="grid md:grid-cols-3 gap-6 lg:gap-8"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                      >
+                        {'plans' in service && service.plans.map((plan, index) => (
+                          <motion.div
+                            key={index}
+                            variants={fadeInUp}
+                            transition={{ duration: 0.5 }}
                           >
-                            {plan.popular && (
-                              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
-                                Most Popular
+                            <Card 
+                              className={`p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-premium relative ${
+                                plan.popular
+                                  ? "bg-primary text-primary-foreground border-2 border-primary scale-[1.02] shadow-premium"
+                                  : "hover:-translate-y-2"
+                              }`}
+                            >
+                              {plan.popular && (
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
+                                  Most Popular
+                                </div>
+                              )}
+                              
+                              <div className="mb-6">
+                                <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
+                                  {plan.name}
+                                </h3>
+                                <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                                  {plan.description}
+                                </p>
                               </div>
-                            )}
-                            
-                            <div className="mb-6">
-                              <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
-                                {plan.name}
-                              </h3>
-                              <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                                {plan.description}
-                              </p>
-                            </div>
 
-                            <div className="mb-6">
-                              <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
-                                {plan.price}
-                              </span>
-                              <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                                {plan.period}
-                              </span>
-                            </div>
+                              <div className="mb-6">
+                                <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
+                                  {plan.price}
+                                </span>
+                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                                  {plan.period}
+                                </span>
+                              </div>
 
-                            <ul className="space-y-3 mb-8">
-                              {plan.features.map((feature, fIndex) => (
-                                <li key={fIndex} className="flex items-start gap-3">
-                                  <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                                    plan.popular ? "text-primary-foreground" : "text-primary"
-                                  }`} />
-                                  <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
-                                    {feature}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
+                              <ul className="space-y-3 mb-8">
+                                {plan.features.map((feature, fIndex) => (
+                                  <li key={fIndex} className="flex items-start gap-3">
+                                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                                      plan.popular ? "text-primary-foreground" : "text-primary"
+                                    }`} />
+                                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
+                                      {feature}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
 
-                            <Link to="/contact">
-                              <Button 
-                                className="w-full"
-                                variant={plan.popular ? "secondary" : "default"}
-                              >
-                                Get Started
-                              </Button>
-                            </Link>
-                          </Card>
-                        </motion.div>
-                      ))}
+                              <Link to="/contact">
+                                <Button 
+                                  className="w-full"
+                                  variant={plan.popular ? "secondary" : "default"}
+                                >
+                                  Get Started
+                                </Button>
+                              </Link>
+                            </Card>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                      
+                      {/* Savings Calculator for this category */}
+                      {categoryServices[key] && (
+                        <div className="mt-16">
+                          <div className="text-center mb-8">
+                            <h3 className="text-2xl font-bold text-primary mb-2">Build Your Own Bundle</h3>
+                            <p className="text-muted-foreground">Select individual services and see your savings in real-time</p>
+                          </div>
+                          <div className="max-w-2xl mx-auto">
+                            <SavingsCalculator services={categoryServices[key]} categoryName={service.title} />
+                          </div>
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </motion.div>
