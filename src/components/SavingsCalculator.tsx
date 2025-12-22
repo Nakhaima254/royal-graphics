@@ -6,6 +6,7 @@ import { Calculator, TrendingDown, Sparkles, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
+import { useToast } from "@/hooks/use-toast";
 import type { LucideIcon } from "lucide-react";
 
 interface Service {
@@ -39,6 +40,7 @@ const formatPrice = (price: number): string => {
 export const SavingsCalculator = ({ services, categoryName = "services" }: SavingsCalculatorProps) => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const navigate = useNavigate();
+  const { toast } = useToast();
   const hasTriggeredConfetti = useRef(false);
 
   const toggleService = (serviceName: string) => {
@@ -108,10 +110,14 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
     if (calculations.discountTier.percentage === 20 && !hasTriggeredConfetti.current) {
       hasTriggeredConfetti.current = true;
       fireConfetti();
+      toast({
+        title: "🎉 Maximum Savings Unlocked!",
+        description: "You've reached the 20% Premium Bundle discount tier!",
+      });
     } else if (calculations.discountTier.percentage < 20) {
       hasTriggeredConfetti.current = false;
     }
-  }, [calculations.discountTier.percentage]);
+  }, [calculations.discountTier.percentage, toast]);
 
   const handleGetQuote = () => {
     const params = new URLSearchParams();
