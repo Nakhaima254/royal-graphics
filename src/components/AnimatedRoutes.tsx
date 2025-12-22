@@ -14,6 +14,8 @@ import PricingPage from "@/pages/PricingPage";
 import BlogsPage from "@/pages/BlogsPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import ContactPage from "@/pages/ContactPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
 import NotFound from "@/pages/NotFound";
 import PageTransition from "./PageTransition";
 
@@ -37,6 +39,8 @@ const AnimatedRoutes = () => {
         <Route path="/blogs" element={<PageTransition><BlogsPage /></PageTransition>} />
         <Route path="/blogs/:slug" element={<PageTransition><BlogPostPage /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+        <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicyPage /></PageTransition>} />
+        <Route path="/terms-of-service" element={<PageTransition><TermsOfServicePage /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
