@@ -18,14 +18,14 @@ const staggerContainer = {
   }
 };
 
-const graphicDesignServices: { name: string; price: string; description: string; icon: LucideIcon }[] = [
-  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp },
-  { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats", icon: CreditCard },
+const graphicDesignServices: { name: string; price: string; description: string; icon: LucideIcon; popular?: boolean }[] = [
+  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp, popular: true },
+  { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats", icon: CreditCard, popular: true },
   { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template", icon: FileText },
   { name: "Brochure", price: "600", description: "Bi-fold or tri-fold design, print-ready PDF, source files", icon: BookOpen },
   { name: "Banners", price: "800", description: "Web or print banners, custom sizes, high-resolution output", icon: Image },
   { name: "Posters", price: "400", description: "Eye-catching poster design, any size, print-ready files", icon: Megaphone },
-  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF", icon: FileImage },
+  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF", icon: FileImage, popular: true },
   { name: "Invoice/Receipt", price: "650", description: "Professional invoice template, editable Word/Excel format", icon: Receipt },
   { name: "Email Signature", price: "300", description: "HTML email signature, works with Gmail, Outlook & more", icon: AtSign },
   { name: "Catalog/Menu", price: "400", description: "Multi-page catalog or menu design, print-ready files", icon: UtensilsCrossed },
@@ -435,9 +435,14 @@ const PricingPage = () => {
                             key={index}
                             variants={fadeInUp}
                           >
-                            <Card className="p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group">
+                            <Card className={`p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group relative ${item.popular ? 'border-primary/50 bg-primary/5' : ''}`}>
+                              {item.popular && (
+                                <div className="absolute -top-2.5 right-3 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
+                                  Popular
+                                </div>
+                              )}
                               <div className="flex items-start gap-3 mb-3">
-                                <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                <div className={`p-2 rounded-lg transition-colors ${item.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'}`}>
                                   <item.icon className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 flex items-start justify-between">
