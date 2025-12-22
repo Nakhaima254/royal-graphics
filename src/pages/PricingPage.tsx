@@ -22,17 +22,17 @@ const staggerContainer = {
 type ServiceItem = { name: string; price: string; description: string; icon: LucideIcon; popular?: boolean };
 
 const graphicDesignServices: ServiceItem[] = [
-  { name: "Logo Design", price: "2,000", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp, popular: true },
+  { name: "Logo Design", price: "2,500", description: "Unique logo with 2-3 concepts, vector files (AI, EPS, PNG, JPG)", icon: Stamp, popular: true },
   { name: "Business Card", price: "800", description: "Double-sided design, print-ready files, multiple formats", icon: CreditCard, popular: true },
   { name: "Letterhead", price: "700", description: "Professional letterhead design with your branding, editable template", icon: FileText },
-  { name: "Brochure", price: "600", description: "Bi-fold or tri-fold design, print-ready PDF, source files", icon: BookOpen },
-  { name: "Banners", price: "800", description: "Web or print banners, custom sizes, high-resolution output", icon: Image },
+  { name: "Brochure", price: "650/page", description: "Bi-fold or tri-fold design, print-ready PDF, source files", icon: BookOpen },
+  { name: "Banners", price: "1,000", description: "Web or print banners, custom sizes, high-resolution output", icon: Image },
   { name: "Posters", price: "400", description: "Eye-catching poster design, any size, print-ready files", icon: Megaphone },
-  { name: "Flyers", price: "500", description: "Single or double-sided, A4/A5 size, print-ready PDF", icon: FileImage, popular: true },
+  { name: "Flyers", price: "800", description: "Single or double-sided, A4/A5 size, print-ready PDF", icon: FileImage, popular: true },
   { name: "Invoice/Receipt", price: "650", description: "Professional invoice template, editable Word/Excel format", icon: Receipt },
   { name: "Email Signature", price: "300", description: "HTML email signature, works with Gmail, Outlook & more", icon: AtSign },
-  { name: "Catalog/Menu", price: "400", description: "Multi-page catalog or menu design, print-ready files", icon: UtensilsCrossed },
-  { name: "Product Label", price: "400", description: "Custom product label design, die-cut ready, all formats", icon: Tag },
+  { name: "Catalog/Menu", price: "500/page", description: "Multi-page catalog or menu design, print-ready files", icon: UtensilsCrossed },
+  { name: "Product Label", price: "500", description: "Custom product label design, die-cut ready, all formats", icon: Tag },
   { name: "Infographics", price: "600", description: "Data visualization, custom icons, shareable formats", icon: BarChart3 },
   { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images", icon: Box },
   { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready", icon: CalendarDays },
@@ -115,17 +115,17 @@ const designBundles = [
   {
     name: "Starter Bundle",
     icon: Package,
-    originalPrice: "2,800",
-    bundlePrice: "2,500",
-    savings: "11%",
+    originalPrice: "3,300",
+    bundlePrice: "2,900",
+    savings: "12%",
     includes: ["Logo Design", "Business Card"],
     description: "Perfect for new businesses starting their brand identity"
   },
   {
     name: "Business Essentials",
     icon: Sparkles,
-    originalPrice: "3,800",
-    bundlePrice: "3,200",
+    originalPrice: "4,300",
+    bundlePrice: "3,600",
     savings: "16%",
     popular: true,
     includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature"],
@@ -134,8 +134,8 @@ const designBundles = [
   {
     name: "Ultimate Brand Package",
     icon: Crown,
-    originalPrice: "4,900",
-    bundlePrice: "3,900",
+    originalPrice: "5,750",
+    bundlePrice: "4,600",
     savings: "20%",
     includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature", "Flyers", "Brochure"],
     description: "Everything you need for a complete brand presence"
