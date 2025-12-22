@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, type LucideIcon } from "lucide-react";
+import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -33,6 +33,37 @@ const graphicDesignServices: { name: string; price: string; description: string;
   { name: "Infographics", price: "600", description: "Data visualization, custom icons, shareable formats", icon: BarChart3 },
   { name: "3D Mockups", price: "500", description: "Realistic product mockups, multiple angles, high-res images", icon: Box },
   { name: "Calendar", price: "600", description: "Custom calendar design, wall or desk format, print-ready", icon: CalendarDays },
+];
+
+const designBundles = [
+  {
+    name: "Starter Bundle",
+    icon: Package,
+    originalPrice: "3,500",
+    bundlePrice: "2,800",
+    savings: "20%",
+    includes: ["Logo Design", "Business Card"],
+    description: "Perfect for new businesses starting their brand identity"
+  },
+  {
+    name: "Business Essentials",
+    icon: Sparkles,
+    originalPrice: "6,000",
+    bundlePrice: "4,500",
+    savings: "25%",
+    popular: true,
+    includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature"],
+    description: "Complete professional branding package for your business"
+  },
+  {
+    name: "Ultimate Brand Package",
+    icon: Crown,
+    originalPrice: "9,100",
+    bundlePrice: "6,500",
+    savings: "29%",
+    includes: ["Logo Design", "Business Card", "Letterhead", "Email Signature", "Flyers", "Brochure"],
+    description: "Everything you need for a complete brand presence"
+  }
 ];
 
 const servicePricing = {
@@ -455,8 +486,62 @@ const PricingPage = () => {
                           </motion.div>
                         ))}
                       </div>
+                      {/* Bundle Deals Section */}
+                      <div className="mt-16">
+                        <div className="text-center mb-8">
+                          <h3 className="text-2xl font-bold text-primary mb-2">Bundle & Save</h3>
+                          <p className="text-muted-foreground">Get more value with our discounted package deals</p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-6">
+                          {designBundles.map((bundle, index) => (
+                            <motion.div
+                              key={index}
+                              variants={fadeInUp}
+                            >
+                              <Card className={`p-6 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ${bundle.popular ? 'border-primary ring-2 ring-primary/20' : ''}`}>
+                                {bundle.popular && (
+                                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold rounded-bl-lg">
+                                    Best Value
+                                  </div>
+                                )}
+                                <div className="flex items-center gap-3 mb-4">
+                                  <div className={`p-3 rounded-xl ${bundle.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'}`}>
+                                    <bundle.icon className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                    <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
+                                      Save {bundle.savings}
+                                    </span>
+                                  </div>
+                                </div>
+                                <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
+                                <div className="mb-4">
+                                  <div className="flex items-baseline gap-2 mb-2">
+                                    <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
+                                    <span className="text-muted-foreground line-through text-sm">KES {bundle.originalPrice}</span>
+                                  </div>
+                                </div>
+                                <div className="space-y-2 mb-6">
+                                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Includes:</p>
+                                  {bundle.includes.map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-sm">
+                                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                                      <span>{item}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                                <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
+                                  Get This Bundle
+                                </Button>
+                              </Card>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                      
                       <div className="mt-10 text-center">
-                        <p className="text-muted-foreground mb-4">Need multiple designs? Contact us for package deals!</p>
+                        <p className="text-muted-foreground mb-4">Need a custom package? Contact us for a personalized quote!</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                           <Link to="/contact">
                             <Button variant="default" size="lg">Request Quote</Button>
