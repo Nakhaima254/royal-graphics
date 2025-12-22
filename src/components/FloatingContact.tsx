@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus, X, Phone, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Icon from "@/components/ui/icon";
 
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +18,13 @@ const FloatingContact = () => {
       bgColor: "bg-green-500 hover:bg-green-600",
     },
     {
-      icon: <Phone className="w-5 h-5" />,
+      iconComponent: Phone,
       label: "Call",
       href: "tel:+254746388308",
       bgColor: "bg-blue-500 hover:bg-blue-600",
     },
     {
-      icon: <Mail className="w-5 h-5" />,
+      iconComponent: Mail,
       label: "Email",
       href: "mailto:info@royalgraphics.co.ke",
       bgColor: "bg-primary hover:bg-primary/90",
@@ -53,7 +54,9 @@ const FloatingContact = () => {
                 transition={{ delay: index * 0.1, duration: 0.2 }}
                 title={option.label}
               >
-                {option.icon}
+                {option.icon ? option.icon : option.iconComponent && (
+                  <Icon icon={option.iconComponent} variant="foreground" size="md" className="text-white" />
+                )}
               </motion.a>
             ))}
           </>
@@ -71,7 +74,7 @@ const FloatingContact = () => {
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
+          <Icon icon={isOpen ? X : Plus} variant="foreground" size="lg" className="text-primary-foreground" />
         </motion.div>
       </motion.button>
     </div>

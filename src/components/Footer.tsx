@@ -1,6 +1,7 @@
-import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import footerLogo from "@/assets/footer-logo.png";
+import Icon from "@/components/ui/icon";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,7 +26,7 @@ const Footer = () => {
                 aria-label="Facebook"
                 className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
-                <Facebook className="w-4 h-4" />
+                <Icon icon={Facebook} variant="foreground" size="sm" hover="scale" className="text-footer-foreground" />
               </a>
               <a 
                 href="https://www.tiktok.com/@royal.graphics.so?_r=1&_t=ZM-92FOEs4YPmN" 
@@ -45,7 +46,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 className="w-9 h-9 rounded-lg bg-footer-foreground/10 hover:bg-primary transition-smooth flex items-center justify-center"
               >
-                <Instagram className="w-4 h-4" />
+                <Icon icon={Instagram} variant="foreground" size="sm" hover="scale" className="text-footer-foreground" />
               </a>
             </div>
           </div>
@@ -88,7 +89,7 @@ const Footer = () => {
                 aria-label="Subscribe"
                 className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center hover:scale-105 transition-bounce"
               >
-                <Mail className="w-4 h-4 text-accent-foreground" />
+                <Icon icon={Mail} variant="foreground" size="sm" className="text-accent-foreground" />
               </button>
             </div>
           </div>

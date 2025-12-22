@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import { useToast } from "@/hooks/use-toast";
 import type { LucideIcon } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 interface Service {
   name: string;
@@ -145,7 +146,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
     <Card className="p-6 lg:p-8 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-xl bg-primary text-primary-foreground">
-          <Calculator className="w-6 h-6" />
+          <Icon icon={Calculator} variant="foreground" size="lg" className="text-primary-foreground" />
         </div>
         <div>
           <h3 className="text-xl font-bold">Savings Calculator</h3>
@@ -158,7 +159,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
       {/* Discount Tiers Info */}
       <div className="mb-6 p-4 rounded-lg bg-secondary/50 border border-border">
         <p className="text-sm font-semibold mb-2 flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-primary" />
+          <Icon icon={Sparkles} variant="primary" size="sm" />
           Bundle Discount Tiers
         </p>
         
@@ -247,9 +248,9 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
             className="mt-3 pt-3 border-t border-border/50"
           >
             <p className="text-xs text-center font-semibold text-green-600 flex items-center justify-center gap-1">
-              <Sparkles className="w-3 h-3" />
+              <Icon icon={Sparkles} variant="primary" size="xs" className="text-green-600" />
               Maximum discount unlocked!
-              <Sparkles className="w-3 h-3" />
+              <Icon icon={Sparkles} variant="primary" size="xs" className="text-green-600" />
             </p>
           </motion.div>
         )}
@@ -335,7 +336,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
                 className="flex justify-between text-sm text-green-600"
               >
                 <span className="flex items-center gap-1">
-                  <TrendingDown className="w-4 h-4" />
+                  <Icon icon={TrendingDown} variant="primary" size="sm" className="text-green-600" />
                   {calculations.discountTier.label} (-
                   {calculations.discountTier.percentage}%)
                 </span>
@@ -375,7 +376,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
             </div>
 
             <Button className="w-full mt-2" size="lg" onClick={handleGetQuote}>
-              <Check className="w-4 h-4 mr-2" />
+              <Icon icon={Check} variant="foreground" size="sm" className="mr-2 text-primary-foreground" />
               Get This Bundle
             </Button>
           </motion.div>
@@ -387,7 +388,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
             exit={{ opacity: 0 }}
             className="text-center py-6 text-muted-foreground"
           >
-            <Calculator className="w-10 h-10 mx-auto mb-2 opacity-30" />
+            <Icon icon={Calculator} variant="muted" size="xl" className="w-10 h-10 mx-auto mb-2 opacity-30" />
             <p className="text-sm">
               Select services above to calculate your savings
             </p>

@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const testimonials = [
   {
@@ -49,7 +50,7 @@ const Testimonials = () => {
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  <Icon key={i} icon={Star} variant="accent" size="md" className="fill-accent text-accent" />
                 ))}
               </div>
 
