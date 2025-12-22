@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Icon from "@/components/ui/icon";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,12 +42,12 @@ const CookieConsent = () => {
               className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Close"
             >
-              <X className="w-4 h-4" />
+              <Icon icon={X} variant="muted" size="sm" hover="scale" />
             </button>
             
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Cookie className="w-5 h-5 text-primary" />
+                <Icon icon={Cookie} variant="primary" size="md" />
               </div>
               
               <div className="flex-1 pr-4">

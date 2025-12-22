@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
 
 export interface Testimonial {
   name: string;
@@ -91,7 +92,7 @@ const ServiceTestimonials = ({
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <Quote className={`w-16 h-16 ${colors.icon}`} />
+                  <Icon icon={Quote} variant={accentColor} size="xl" className="w-16 h-16" />
                 </motion.div>
 
                 {/* Stars */}
@@ -104,9 +105,11 @@ const ServiceTestimonials = ({
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.3 }}
                     >
-                      <Star 
-                        className={`w-4 h-4 ${i < testimonial.rating ? colors.star : 'text-muted'}`}
-                        fill={i < testimonial.rating ? "currentColor" : "none"}
+                      <Icon 
+                        icon={Star}
+                        variant={i < testimonial.rating ? accentColor : "muted"}
+                        size="sm"
+                        className={i < testimonial.rating ? "fill-current" : ""}
                       />
                     </motion.div>
                   ))}

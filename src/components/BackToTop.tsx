@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +39,7 @@ const BackToTop = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Back to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <Icon icon={ArrowUp} variant="foreground" size="md" className="text-primary-foreground" />
         </motion.button>
       )}
     </AnimatePresence>

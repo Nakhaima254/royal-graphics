@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Icon from "@/components/ui/icon";
 
 const Hero = () => {
   return (
@@ -107,7 +108,7 @@ const Hero = () => {
               right: `${10 + i * 12}%`,
             }}
           >
-            <Sparkles className="w-4 h-4 text-primary" />
+            <Icon icon={Sparkles} variant="primary" size="sm" />
           </motion.div>
         ))}
       </div>
@@ -122,7 +123,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Sparkles className="w-4 h-4 text-primary" />
+            <Icon icon={Sparkles} variant="primary" size="sm" />
             <span className="text-sm font-medium text-primary">Your Royal Treatment in Digital Marketing</span>
           </motion.div>
 
@@ -166,7 +167,7 @@ const Hero = () => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button variant="default" size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-primary-foreground shadow-premium">
                   Get Free Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <Icon icon={ArrowRight} variant="foreground" size="md" className="ml-2 text-primary-foreground" />
                 </Button>
               </motion.div>
             </Link>
