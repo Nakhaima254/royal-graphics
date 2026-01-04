@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "CEO, TechStart Inc.",
-    content: "Royal Graphics Solutions transformed our entire digital presence. Their SEO strategies increased our organic traffic by 400% in just 6 months!",
+    content: "Royal Graphics Solutions really helped us get found online. Their SEO strategies increased our organic traffic by 400% in just 6 months!",
     rating: 5,
   },
   {

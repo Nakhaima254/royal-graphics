@@ -16,7 +16,7 @@ const Footer = () => {
               <img src={footerLogo} alt="Royal Graphics" className="h-20 w-auto" />
             </Link>
             <p className="text-footer-foreground/80 text-sm mb-4">
-              Elevating brands through expert design, SEO, and social media.
+              Professional design, SEO, and social media services for growing businesses.
             </p>
             <div className="flex gap-3">
               <a 

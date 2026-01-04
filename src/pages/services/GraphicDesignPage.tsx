@@ -75,7 +75,7 @@ const GraphicDesignPage = () => {
       name: "Emily Rodriguez",
       role: "CEO",
       company: "Bloom Wellness",
-      content: "They transformed our entire visual identity. The attention to detail and understanding of our brand values was remarkable. Highly recommend!",
+      content: "They completely redesigned our visual identity. The attention to detail and understanding of our brand values was remarkable. Highly recommend!",
       rating: 5
     }
   ];
@@ -139,7 +139,7 @@ const GraphicDesignPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Transform Your Brand Visually</h2>
+              <h2 className="text-3xl font-bold mb-6">Professional Design Services</h2>
               <p className="text-muted-foreground mb-6">
                 Our graphic design services bring your ideas to life with creative solutions that resonate with your target audience. From brand identity to marketing materials, we create designs that stand out and communicate your message effectively.
               </p>
@@ -362,7 +362,7 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Brand?</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's create stunning visuals that make your brand unforgettable and help you stand out from the competition.
             </p>

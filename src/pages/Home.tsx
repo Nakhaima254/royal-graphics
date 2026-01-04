@@ -33,7 +33,7 @@ const Home = () => {
   ];
 
   const testimonials = [
-    { name: "Sarah Johnson", role: "CEO, TechStart", content: "Royal Graphics transformed our online presence. Our traffic increased by 300% in just 6 months!", rating: 5 },
+    { name: "Sarah Johnson", role: "CEO, TechStart", content: "Royal Graphics helped us get more customers online. Our traffic increased by 300% in just 6 months!", rating: 5 },
     { name: "Michael Chen", role: "Founder, GreenLeaf", content: "The team's creativity and professionalism exceeded our expectations. Highly recommended!", rating: 5 },
     { name: "Emily Davis", role: "Marketing Director", content: "Best investment we made for our brand. The ROI has been incredible.", rating: 5 },
   ];
@@ -80,7 +80,7 @@ const Home = () => {
               Our Core Services
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive digital solutions to elevate your brand and drive measurable results
+              Digital solutions that help your business grow and get real results
             </p>
           </motion.div>
           
@@ -272,7 +272,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Ready to Elevate Your Brand?
+            Ready to Grow Your Business?
           </motion.h2>
           <motion.p 
             className="text-primary-foreground/90 max-w-2xl mx-auto mb-8"

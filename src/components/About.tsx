@@ -129,8 +129,8 @@ const About = () => {
             Your Trusted Digital Partner
           </h2>
           <p className="text-lg text-muted-foreground">
-            With over a decade of experience, we've helped hundreds of businesses transform their digital presence 
-            and achieve remarkable growth.
+            With over a decade of experience, we've helped hundreds of businesses grow online 
+            and reach more customers.
           </p>
         </motion.div>
 

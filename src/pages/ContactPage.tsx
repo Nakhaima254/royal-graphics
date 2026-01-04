@@ -20,7 +20,7 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Ready to elevate your digital presence? Let's discuss how we can help your business grow
+            Have a project in mind? Let's discuss how we can help your business grow
           </motion.p>
         </div>
       </div>
