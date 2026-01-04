@@ -23,10 +23,10 @@ const serviceLinks = [
 ];
 
 const featuredServices = [
-  { ...serviceLinks[1], highlight: "Boost your brand visibility with our expert social media strategies and content creation." },
-  { ...serviceLinks[0], highlight: "Create stunning visuals that capture attention and elevate your brand identity." },
-  { ...serviceLinks[3], highlight: "Transform raw footage into compelling stories that engage your audience." },
-  { ...serviceLinks[4], highlight: "Drive conversions with targeted email campaigns that deliver results." },
+  { ...serviceLinks[1], highlight: "Get more followers and engagement with smart social media strategies and content." },
+  { ...serviceLinks[0], highlight: "Professional designs that make your brand look great and stand out." },
+  { ...serviceLinks[3], highlight: "Turn your raw footage into polished videos that keep viewers watching." },
+  { ...serviceLinks[4], highlight: "Email campaigns that actually get opened and bring in sales." },
 ];
 
 const Navigation = () => {
