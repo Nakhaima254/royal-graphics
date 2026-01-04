@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, CheckCircle, ArrowLeft, BarChart3, Zap, Target, TrendingUp } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
 
@@ -98,7 +99,7 @@ const EmailMarketingPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/services">
             <Button variant="ghost" className="text-primary-foreground hover:text-primary-foreground/80 mb-4">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <Icon icon={ArrowLeft} size="sm" className="mr-2 text-primary-foreground" />
               Back to Services
             </Button>
           </Link>
@@ -109,7 +110,7 @@ const EmailMarketingPage = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="w-20 h-20 bg-primary-foreground/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Mail className="w-10 h-10 text-primary-foreground" />
+              <Icon icon={Mail} size="xl" className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
               Email Marketing
@@ -149,7 +150,7 @@ const EmailMarketingPage = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0" />
                     <span>{feature}</span>
                   </motion.li>
                 ))}

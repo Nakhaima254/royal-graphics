@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Video, CheckCircle, ArrowLeft, Play, Film, Volume2, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
 
@@ -98,7 +99,7 @@ const VideoEditingPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/services">
             <Button variant="ghost" className="text-accent-foreground hover:text-accent-foreground/80 mb-4">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <Icon icon={ArrowLeft} size="sm" className="mr-2 text-accent-foreground" />
               Back to Services
             </Button>
           </Link>
@@ -109,7 +110,7 @@ const VideoEditingPage = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="w-20 h-20 bg-accent-foreground/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Video className="w-10 h-10 text-accent-foreground" />
+              <Icon icon={Video} size="xl" className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
               Video Editing
@@ -149,7 +150,7 @@ const VideoEditingPage = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                    <Icon icon={CheckCircle} variant="accent" size="md" className="flex-shrink-0 text-accent" />
                     <span>{feature}</span>
                   </motion.li>
                 ))}
@@ -172,7 +173,7 @@ const VideoEditingPage = () => {
                 whileHover={{ scale: 1.1 }}
               >
                 <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center cursor-pointer shadow-lg">
-                  <Play className="w-8 h-8 text-accent-foreground ml-1" />
+                  <Icon icon={Play} size="xl" className="w-8 h-8 text-accent-foreground ml-1" />
                 </div>
               </motion.div>
             </motion.div>
