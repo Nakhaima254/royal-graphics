@@ -22,14 +22,6 @@ const AboutPage = () => {
           >
             About Royal Graphics
           </motion.h1>
-          <motion.p 
-            className="text-primary-foreground/90 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Your royal treatment in digital marketing
-          </motion.p>
         </div>
       </div>
       

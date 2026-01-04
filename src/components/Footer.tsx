@@ -16,7 +16,7 @@ const Footer = () => {
               <img src={footerLogo} alt="Royal Graphics" className="h-20 w-auto" />
             </Link>
             <p className="text-footer-foreground/80 text-sm mb-4">
-              Your royal treatment in digital marketing. Elevating brands through expert design, SEO, and social media.
+              Elevating brands through expert design, SEO, and social media.
             </p>
             <div className="flex gap-3">
               <a 
