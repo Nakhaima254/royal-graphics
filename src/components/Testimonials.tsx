@@ -4,21 +4,21 @@ import Icon from "@/components/ui/icon";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
-    content: "Royal Graphics Solutions really helped us get found online. Their SEO strategies increased our organic traffic by 400% in just 6 months!",
+    name: "Arjun Sharma",
+    role: "Owner, Sharma Electronics",
+    content: "We were struggling to get customers from Google. After working with Royal Graphics for 8 months, we now rank on page 1 for 'electronics store Lucknow' and get 40+ calls a week from the website.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
-    role: "Marketing Director, GreenLeaf Co.",
-    content: "The team's creativity and professionalism are unmatched. Our brand identity redesign exceeded all expectations and drove real business results.",
+    name: "Priya Mehta",
+    role: "Director, Mehta Textiles Pvt Ltd",
+    content: "They redesigned our entire catalog and product photography. Our wholesale inquiries doubled within 3 months. Very professional team that understood our traditional business.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
-    role: "Founder, StyleHub Boutique",
-    content: "Their social media management helped us build an engaged community of 50K+ followers. Sales through social channels increased by 300%!",
+    name: "Rajesh Kumar",
+    role: "Manager, Krishna Sweets & Bakery",
+    content: "Started with just Facebook posts and now we have 28K followers. Festival season orders increased significantly. They know how to reach local customers.",
     rating: 5,
   },
 ];
