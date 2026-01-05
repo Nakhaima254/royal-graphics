@@ -14,6 +14,7 @@ import {
 
 const serviceLinks = [
   { label: "Graphic Design", href: "/services/graphic-design", icon: Palette, description: "Logos, branding & visual identity" },
+  { label: "Design Portfolio", href: "/services/graphic-design/portfolio", icon: Palette, description: "View our design work" },
   { label: "Social Media Marketing", href: "/services/social-media-marketing", icon: Share2, description: "Grow your online presence" },
   { label: "Copywriting", href: "/services/copywriting", icon: PenTool, description: "Compelling content that converts" },
   { label: "Video Editing", href: "/services/video-editing", icon: Video, description: "Professional video production" },
