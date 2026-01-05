@@ -55,6 +55,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li><Link to="/services/graphic-design" className="hover:text-primary transition-smooth">Graphic Design</Link></li>
+              <li><Link to="/services/graphic-design/portfolio" className="hover:text-primary transition-smooth">Design Portfolio</Link></li>
               <li><Link to="/services/social-media-marketing" className="hover:text-primary transition-smooth">Social Media Marketing</Link></li>
               <li><Link to="/services/copywriting" className="hover:text-primary transition-smooth">Copywriting</Link></li>
               <li><Link to="/services/email-marketing" className="hover:text-primary transition-smooth">Email Marketing</Link></li>
