@@ -4,6 +4,16 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Palette } from "lucide-react";
 import Icon from "@/components/ui/icon";
 
+// Logo imports
+import jahaziLogo from "@/assets/portfolio/logos/jahazi-solutions.png";
+import hikersHavenLogo from "@/assets/portfolio/logos/hikers-haven.png";
+import moraraLogo from "@/assets/portfolio/logos/morara-furniture.png";
+import neoAfricaLogo from "@/assets/portfolio/logos/neo-africa.png";
+import subyTechLogo from "@/assets/portfolio/logos/suby-tech.png";
+import tekSavannahLogo from "@/assets/portfolio/logos/tek-savannah.png";
+import waksDigitalLogo from "@/assets/portfolio/logos/waks-digital.png";
+import achieMentalLogo from "@/assets/portfolio/logos/achie-mental-health.png";
+
 interface PortfolioCategory {
   id: string;
   title: string;
@@ -18,9 +28,18 @@ const GraphicDesignPortfolioPage = () => {
   const categories: PortfolioCategory[] = [
     {
       id: "logos",
-      title: "Logos",
+      title: "2D Logos",
       description: "Brand identities that make lasting impressions",
-      items: []
+      items: [
+        { title: "Jahazi Solutions", image: jahaziLogo },
+        { title: "Hikers Haven Community", image: hikersHavenLogo },
+        { title: "Morara Home Furniture", image: moraraLogo },
+        { title: "Neo Africa Safaris", image: neoAfricaLogo },
+        { title: "Suby Tech", image: subyTechLogo },
+        { title: "Tek Savannah Labs", image: tekSavannahLogo },
+        { title: "Waks Digital Solutions", image: waksDigitalLogo },
+        { title: "Achie Mental Health Foundation", image: achieMentalLogo }
+      ]
     },
     {
       id: "posters",
