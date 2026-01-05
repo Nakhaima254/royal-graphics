@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "@/pages/Home";
 import ServicesPage from "@/pages/ServicesPage";
 import GraphicDesignPage from "@/pages/services/GraphicDesignPage";
+import GraphicDesignPortfolioPage from "@/pages/services/GraphicDesignPortfolioPage";
 import SocialMediaMarketingPage from "@/pages/services/SocialMediaMarketingPage";
 import CopywritingPage from "@/pages/services/CopywritingPage";
 import VideoEditingPage from "@/pages/services/VideoEditingPage";
@@ -28,6 +29,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
         <Route path="/services/graphic-design" element={<PageTransition><GraphicDesignPage /></PageTransition>} />
+        <Route path="/services/graphic-design/portfolio" element={<PageTransition><GraphicDesignPortfolioPage /></PageTransition>} />
         <Route path="/services/social-media-marketing" element={<PageTransition><SocialMediaMarketingPage /></PageTransition>} />
         <Route path="/services/copywriting" element={<PageTransition><CopywritingPage /></PageTransition>} />
         <Route path="/services/video-editing" element={<PageTransition><VideoEditingPage /></PageTransition>} />
