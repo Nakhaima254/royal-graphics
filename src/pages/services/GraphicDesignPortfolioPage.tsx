@@ -27,6 +27,14 @@ import apexPesaLogo from "@/assets/portfolio/logos/apex-pesa.png";
 import apex21Logo from "@/assets/portfolio/logos/apex21.png";
 import alkaumyTvLogo from "@/assets/portfolio/logos/alkaumy-tv.png";
 import arianaMerchantsLogo from "@/assets/portfolio/logos/ariana-merchants.png";
+import bayaSolutionsLogo from "@/assets/portfolio/logos/baya-solutions.png";
+import beetfitStoresLogo from "@/assets/portfolio/logos/beetfit-stores.png";
+import benafriqSafarisLogo from "@/assets/portfolio/logos/benafriq-safaris.jpg";
+import bestvanaFoodsLogo from "@/assets/portfolio/logos/bestvana-foods.png";
+import brawsieSecurityLogo from "@/assets/portfolio/logos/brawsie-security.png";
+import dtechSolutionsLogo from "@/assets/portfolio/logos/dtech-solutions.png";
+import ewLightupLogo from "@/assets/portfolio/logos/ew-lightup.png";
+import farajaRealtorsLogo from "@/assets/portfolio/logos/faraja-realtors.png";
 
 interface PortfolioItem {
   title: string;
@@ -74,7 +82,15 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Apex Pesa", image: apexPesaLogo },
         { title: "Apex21", image: apex21Logo },
         { title: "Alkaumy TV", image: alkaumyTvLogo },
-        { title: "Ariana General Merchants Ltd", image: arianaMerchantsLogo }
+        { title: "Ariana General Merchants Ltd", image: arianaMerchantsLogo },
+        { title: "Baya Solutions Limited", image: bayaSolutionsLogo },
+        { title: "Beetfit Stores", image: beetfitStoresLogo },
+        { title: "Benafriq Safaris", image: benafriqSafarisLogo },
+        { title: "Bestvana Authentic Foods", image: bestvanaFoodsLogo },
+        { title: "Brawsie Security Group", image: brawsieSecurityLogo },
+        { title: "DTech Solutions", image: dtechSolutionsLogo },
+        { title: "Ew. LightUp Moments Broadcast", image: ewLightupLogo },
+        { title: "Faraja Realtors", image: farajaRealtorsLogo }
       ]
     },
     {
