@@ -64,6 +64,17 @@ import palazzoloFlyer1 from "@/assets/portfolio/flyers/palazzolo-flyer-1.png";
 import palazzoloCoursesFlyer from "@/assets/portfolio/flyers/palazzolo-courses-flyer.png";
 import palazzoloFlyer2 from "@/assets/portfolio/flyers/palazzolo-flyer-2.png";
 
+// Letterhead imports
+import familyBlissLetterhead from "@/assets/portfolio/letterheads/family-bliss.png";
+import harvestYouthLetterhead from "@/assets/portfolio/letterheads/harvest-youth.png";
+import metaforgeLetterhead from "@/assets/portfolio/letterheads/metaforge.png";
+import milesBuildersLetterhead from "@/assets/portfolio/letterheads/miles-builders.png";
+import mwegaMentalLetterhead from "@/assets/portfolio/letterheads/mwega-mental.png";
+import nexovateLetterhead from "@/assets/portfolio/letterheads/nexovate.png";
+import nurexIftinLetterhead from "@/assets/portfolio/letterheads/nurex-iftin.png";
+import planetCareLetterhead from "@/assets/portfolio/letterheads/planet-care.png";
+import sheltecLetterhead from "@/assets/portfolio/letterheads/sheltec.png";
+import tekpathLetterhead from "@/assets/portfolio/letterheads/tekpath.png";
 interface PortfolioItem {
   title: string;
   image: string;
@@ -163,7 +174,18 @@ const GraphicDesignPortfolioPage = () => {
       id: "letterheads",
       title: "Letterheads",
       description: "Professional stationery for your business",
-      items: []
+      items: [
+        { title: "Family Bliss Medical Centre Limited", image: familyBlissLetterhead },
+        { title: "Harvest Youth Ministry", image: harvestYouthLetterhead },
+        { title: "Metaforge Holdings Limited", image: metaforgeLetterhead },
+        { title: "Miles Builders & Transporters Ltd", image: milesBuildersLetterhead },
+        { title: "Mwega Mental Wellness & Psychotherapy", image: mwegaMentalLetterhead },
+        { title: "Nexovate Technologies Ltd", image: nexovateLetterhead },
+        { title: "Nurex Iftin Technologies Ltd", image: nurexIftinLetterhead },
+        { title: "Planet Care Environmental Consultants", image: planetCareLetterhead },
+        { title: "Sheltec Consulting Limited", image: sheltecLetterhead },
+        { title: "Tekpath Scientific Limited", image: tekpathLetterhead }
+      ]
     }
   ];
 
