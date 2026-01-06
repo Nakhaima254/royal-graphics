@@ -56,6 +56,14 @@ import poster36 from "@/assets/portfolio/posters/poster-36.png";
 import poster42 from "@/assets/portfolio/posters/poster-42.png";
 import poster43 from "@/assets/portfolio/posters/poster-43.png";
 
+// Flyer imports
+import genesisDevelopersFlyer from "@/assets/portfolio/flyers/genesis-developers-flyer.png";
+import bayaSolutionsFlyer from "@/assets/portfolio/flyers/baya-solutions-flyer.png";
+import leleyaCleaningFlyer from "@/assets/portfolio/flyers/leleya-cleaning-flyer.png";
+import palazzoloFlyer1 from "@/assets/portfolio/flyers/palazzolo-flyer-1.png";
+import palazzoloCoursesFlyer from "@/assets/portfolio/flyers/palazzolo-courses-flyer.png";
+import palazzoloFlyer2 from "@/assets/portfolio/flyers/palazzolo-flyer-2.png";
+
 interface PortfolioItem {
   title: string;
   image: string;
@@ -142,7 +150,14 @@ const GraphicDesignPortfolioPage = () => {
       id: "flyers",
       title: "Flyers",
       description: "Promotional flyers that get noticed",
-      items: []
+      items: [
+        { title: "Genesis Developers - Secret Haven Ranch", image: genesisDevelopersFlyer },
+        { title: "Baya Solutions - Cleaning Services", image: bayaSolutionsFlyer },
+        { title: "Leleya Cleaning Services", image: leleyaCleaningFlyer },
+        { title: "Palazzolo Technical Institute", image: palazzoloFlyer1 },
+        { title: "Palazzolo - Our Courses", image: palazzoloCoursesFlyer },
+        { title: "Palazzolo - Intake Ongoing", image: palazzoloFlyer2 }
+      ]
     },
     {
       id: "letterheads",
