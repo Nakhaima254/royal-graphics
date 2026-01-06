@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Palette } from "lucide-react";
+import { ArrowLeft, Palette, X } from "lucide-react";
 import Icon from "@/components/ui/icon";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 // Logo imports
 import jahaziLogo from "@/assets/portfolio/logos/jahazi-solutions.png";
@@ -13,18 +19,30 @@ import subyTechLogo from "@/assets/portfolio/logos/suby-tech.png";
 import tekSavannahLogo from "@/assets/portfolio/logos/tek-savannah.png";
 import waksDigitalLogo from "@/assets/portfolio/logos/waks-digital.png";
 import achieMentalLogo from "@/assets/portfolio/logos/achie-mental-health.png";
+import africaTdmLogo from "@/assets/portfolio/logos/africa-tdm.png";
+import aimoTravelLogo from "@/assets/portfolio/logos/aimo-travel.jpg";
+import apexCryptoAcademyLogo from "@/assets/portfolio/logos/apex-crypto-academy.png";
+import apexCryptoShopLogo from "@/assets/portfolio/logos/apex-crypto-shop.png";
+import apexPesaLogo from "@/assets/portfolio/logos/apex-pesa.png";
+import apex21Logo from "@/assets/portfolio/logos/apex21.png";
+import alkaumyTvLogo from "@/assets/portfolio/logos/alkaumy-tv.png";
+import arianaMerchantsLogo from "@/assets/portfolio/logos/ariana-merchants.png";
+
+interface PortfolioItem {
+  title: string;
+  image: string;
+}
 
 interface PortfolioCategory {
   id: string;
   title: string;
   description: string;
-  items: {
-    title: string;
-    image: string;
-  }[];
+  items: PortfolioItem[];
 }
 
 const GraphicDesignPortfolioPage = () => {
+  const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null);
+
   const categories: PortfolioCategory[] = [
     {
       id: "logos",
@@ -38,7 +56,15 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Suby Tech", image: subyTechLogo },
         { title: "Tek Savannah Labs", image: tekSavannahLogo },
         { title: "Waks Digital Solutions", image: waksDigitalLogo },
-        { title: "Achie Mental Health Foundation", image: achieMentalLogo }
+        { title: "Achie Mental Health Foundation", image: achieMentalLogo },
+        { title: "Africa Transformation Digital Media", image: africaTdmLogo },
+        { title: "Aimo Travel Agency", image: aimoTravelLogo },
+        { title: "Apex Crypto Academy", image: apexCryptoAcademyLogo },
+        { title: "Apex Crypto Shop", image: apexCryptoShopLogo },
+        { title: "Apex Pesa", image: apexPesaLogo },
+        { title: "Apex21", image: apex21Logo },
+        { title: "Alkaumy TV", image: alkaumyTvLogo },
+        { title: "Ariana General Merchants Ltd", image: arianaMerchantsLogo }
       ]
     },
     {
@@ -134,7 +160,8 @@ const GraphicDesignPortfolioPage = () => {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300"
+                    className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
+                    onClick={() => setSelectedImage(item)}
                   >
                     <div className="aspect-square overflow-hidden">
                       <img 
@@ -157,6 +184,30 @@ const GraphicDesignPortfolioPage = () => {
           </div>
         </section>
       ))}
+
+      {/* Image Dialog/Lightbox */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl p-0 bg-background/95 backdrop-blur-sm border-none">
+          <DialogClose className="absolute right-4 top-4 z-10 rounded-full bg-background/80 p-2 hover:bg-background transition-colors">
+            <X className="h-5 w-5" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+          {selectedImage && (
+            <div className="flex flex-col items-center p-6">
+              <div className="w-full max-h-[70vh] overflow-hidden rounded-lg">
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mt-4 text-center">
+                {selectedImage.title}
+              </h3>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* CTA Section */}
       <section className="py-20 bg-primary">
