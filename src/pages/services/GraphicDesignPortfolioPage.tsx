@@ -36,6 +36,15 @@ import dtechSolutionsLogo from "@/assets/portfolio/logos/dtech-solutions.png";
 import ewLightupLogo from "@/assets/portfolio/logos/ew-lightup.png";
 import farajaRealtorsLogo from "@/assets/portfolio/logos/faraja-realtors.png";
 
+// Poster imports
+import aimoNewYear2026 from "@/assets/portfolio/posters/aimo-new-year-2026.png";
+import aimoVisaAbroad from "@/assets/portfolio/posters/aimo-visa-abroad.png";
+import aimoRailaTribute from "@/assets/portfolio/posters/aimo-raila-tribute.png";
+import aimoCanadaWorldcup from "@/assets/portfolio/posters/aimo-canada-worldcup.png";
+import aimoCanadaVisa from "@/assets/portfolio/posters/aimo-canada-visa.png";
+import aimoCanadaVisaProcessing from "@/assets/portfolio/posters/aimo-canada-visa-processing.png";
+import aimoMerryChristmas from "@/assets/portfolio/posters/aimo-merry-christmas.png";
+import aimoHolidayNotice from "@/assets/portfolio/posters/aimo-holiday-notice.png";
 interface PortfolioItem {
   title: string;
   image: string;
@@ -97,7 +106,16 @@ const GraphicDesignPortfolioPage = () => {
       id: "posters",
       title: "Posters",
       description: "Eye-catching posters for events and promotions",
-      items: []
+      items: [
+        { title: "Aimo Travel - Happy New Year 2026", image: aimoNewYear2026 },
+        { title: "Aimo Travel - Visa Abroad Dreams", image: aimoVisaAbroad },
+        { title: "Aimo Travel - Hon. Raila Odinga Tribute", image: aimoRailaTribute },
+        { title: "Aimo Travel - Canada World Cup", image: aimoCanadaWorldcup },
+        { title: "Aimo Travel - Canada Visitor Visa", image: aimoCanadaVisa },
+        { title: "Aimo Travel - Canada Visa Processing", image: aimoCanadaVisaProcessing },
+        { title: "Aimo Travel - Merry Christmas", image: aimoMerryChristmas },
+        { title: "Aimo Travel - Holiday Notice", image: aimoHolidayNotice }
+      ]
     },
     {
       id: "flyers",
