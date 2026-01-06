@@ -53,6 +53,8 @@ import poster33 from "@/assets/portfolio/posters/poster-33.png";
 import poster34 from "@/assets/portfolio/posters/poster-34.png";
 import poster35 from "@/assets/portfolio/posters/poster-35.png";
 import poster36 from "@/assets/portfolio/posters/poster-36.png";
+import poster42 from "@/assets/portfolio/posters/poster-42.png";
+import poster43 from "@/assets/portfolio/posters/poster-43.png";
 
 interface PortfolioItem {
   title: string;
@@ -131,7 +133,9 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Social Media Poster", image: poster33 },
         { title: "Campaign Poster Design", image: poster34 },
         { title: "Creative Poster Design", image: poster35 },
-        { title: "Business Poster Design", image: poster36 }
+        { title: "Business Poster Design", image: poster36 },
+        { title: "Apex Crypto Academy - Master Crypto Bundle", image: poster42 },
+        { title: "Apex Crypto Academy - Bundle Details", image: poster43 }
       ]
     },
     {
