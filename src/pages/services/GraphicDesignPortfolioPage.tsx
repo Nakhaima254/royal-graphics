@@ -124,14 +124,14 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Aimo Travel - Canada Visa Processing", image: aimoCanadaVisaProcessing },
         { title: "Aimo Travel - Merry Christmas", image: aimoMerryChristmas },
         { title: "Aimo Travel - Holiday Notice", image: aimoHolidayNotice },
-        { title: "Promotional Poster Design", image: poster22 },
-        { title: "Event Poster Design", image: poster24 },
-        { title: "Marketing Poster Design", image: poster25 },
-        { title: "Brand Poster Design", image: poster28 },
-        { title: "Social Media Poster", image: poster33 },
-        { title: "Campaign Poster Design", image: poster34 },
-        { title: "Creative Poster Design", image: poster35 },
-        { title: "Business Poster Design", image: poster36 }
+        { title: "Promotional Poster 1", image: poster22 },
+        { title: "Promotional Poster 2", image: poster24 },
+        { title: "Promotional Poster 3", image: poster25 },
+        { title: "Promotional Poster 4", image: poster28 },
+        { title: "Promotional Poster 5", image: poster33 },
+        { title: "Promotional Poster 6", image: poster34 },
+        { title: "Promotional Poster 7", image: poster35 },
+        { title: "Promotional Poster 8", image: poster36 }
       ]
     },
     {
