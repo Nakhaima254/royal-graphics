@@ -180,15 +180,15 @@ const GraphicDesignPortfolioPage = () => {
                   className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
                   variants={containerVariants}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
+                  animate="visible"
+                  key={`${category.id}-${expandedCategories.includes(category.id)}`}
                 >
                   {(expandedCategories.includes(category.id) 
                     ? category.items 
                     : category.items.slice(0, ITEMS_PER_PAGE)
                   ).map((item, index) => (
                     <motion.div
-                      key={index}
+                      key={`${category.id}-${index}`}
                       variants={itemVariants}
                       className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
                       onClick={() => setSelectedImage(item)}
