@@ -42,7 +42,17 @@ interface PortfolioCategory {
 
 const GraphicDesignPortfolioPage = () => {
   const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null);
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategories(prev => 
+      prev.includes(categoryId) 
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    );
+  };
+
+  const ITEMS_PER_PAGE = 6;
   const categories: PortfolioCategory[] = [
     {
       id: "logos",
@@ -149,33 +159,50 @@ const GraphicDesignPortfolioPage = () => {
             </motion.div>
             
             {category.items.length > 0 ? (
-              <motion.div 
-                className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {category.items.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
-                    onClick={() => setSelectedImage(item)}
-                  >
-                    <div className="aspect-square overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold">{item.title}</h3>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <>
+                <motion.div 
+                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  {(expandedCategories.includes(category.id) 
+                    ? category.items 
+                    : category.items.slice(0, ITEMS_PER_PAGE)
+                  ).map((item, index) => (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
+                      onClick={() => setSelectedImage(item)}
+                    >
+                      <div className="aspect-square overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold">{item.title}</h3>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+                {category.items.length > ITEMS_PER_PAGE && (
+                  <div className="text-center mt-8">
+                    <Button
+                      variant="outline"
+                      onClick={() => toggleCategory(category.id)}
+                    >
+                      {expandedCategories.includes(category.id) 
+                        ? "Show Less" 
+                        : `View More (${category.items.length - ITEMS_PER_PAGE} more)`}
+                    </Button>
+                  </div>
+                )}
+              </>
             ) : (
               <div className="text-center py-12 bg-card rounded-xl border border-dashed">
                 <p className="text-muted-foreground">Portfolio items coming soon</p>
