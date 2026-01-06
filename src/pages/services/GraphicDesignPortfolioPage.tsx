@@ -248,11 +248,13 @@ const GraphicDesignPortfolioPage = () => {
                       className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
                       onClick={() => setSelectedImage(item)}
                     >
-                      <div className="aspect-square overflow-hidden">
+                      <div className="aspect-square overflow-hidden bg-muted">
                         <img 
                           src={item.image} 
                           alt={item.title}
                           loading="lazy"
+                          decoding="async"
+                          fetchPriority={index < 3 ? "high" : "low"}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
