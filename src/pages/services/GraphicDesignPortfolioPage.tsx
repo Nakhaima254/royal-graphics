@@ -207,18 +207,6 @@ const GraphicDesignPortfolioPage = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
 
   return (
     <div className="pt-16">
@@ -270,21 +258,16 @@ const GraphicDesignPortfolioPage = () => {
             
             {category.items.length > 0 ? (
               <>
-                <motion.div 
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                  variants={containerVariants}
-                  initial={false}
-                  animate="visible"
-                  key={`${category.id}-${expandedCategories.includes(category.id)}`}
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {(expandedCategories.includes(category.id) 
                     ? category.items 
                     : category.items.slice(0, ITEMS_PER_PAGE)
                   ).map((item, index) => (
                     <motion.div
                       key={`${category.id}-${index}`}
-                      variants={itemVariants}
-                      initial={false}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.15, delay: index < ITEMS_PER_PAGE ? index * 0.03 : 0 }}
                       className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
                       onClick={() => setSelectedImage(item)}
                     >
@@ -303,7 +286,7 @@ const GraphicDesignPortfolioPage = () => {
                       </div>
                     </motion.div>
                   ))}
-                </motion.div>
+                </div>
                 {category.items.length > ITEMS_PER_PAGE && (
                   <div className="text-center mt-8">
                     <Button
