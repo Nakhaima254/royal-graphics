@@ -45,6 +45,15 @@ import aimoCanadaVisa from "@/assets/portfolio/posters/aimo-canada-visa.png";
 import aimoCanadaVisaProcessing from "@/assets/portfolio/posters/aimo-canada-visa-processing.png";
 import aimoMerryChristmas from "@/assets/portfolio/posters/aimo-merry-christmas.png";
 import aimoHolidayNotice from "@/assets/portfolio/posters/aimo-holiday-notice.png";
+import poster22 from "@/assets/portfolio/posters/poster-22.png";
+import poster24 from "@/assets/portfolio/posters/poster-24.png";
+import poster25 from "@/assets/portfolio/posters/poster-25.png";
+import poster28 from "@/assets/portfolio/posters/poster-28.png";
+import poster33 from "@/assets/portfolio/posters/poster-33.png";
+import poster34 from "@/assets/portfolio/posters/poster-34.png";
+import poster35 from "@/assets/portfolio/posters/poster-35.png";
+import poster36 from "@/assets/portfolio/posters/poster-36.png";
+
 interface PortfolioItem {
   title: string;
   image: string;
@@ -114,7 +123,15 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Aimo Travel - Canada Visitor Visa", image: aimoCanadaVisa },
         { title: "Aimo Travel - Canada Visa Processing", image: aimoCanadaVisaProcessing },
         { title: "Aimo Travel - Merry Christmas", image: aimoMerryChristmas },
-        { title: "Aimo Travel - Holiday Notice", image: aimoHolidayNotice }
+        { title: "Aimo Travel - Holiday Notice", image: aimoHolidayNotice },
+        { title: "Promotional Poster Design", image: poster22 },
+        { title: "Event Poster Design", image: poster24 },
+        { title: "Marketing Poster Design", image: poster25 },
+        { title: "Brand Poster Design", image: poster28 },
+        { title: "Social Media Poster", image: poster33 },
+        { title: "Campaign Poster Design", image: poster34 },
+        { title: "Creative Poster Design", image: poster35 },
+        { title: "Business Poster Design", image: poster36 }
       ]
     },
     {
