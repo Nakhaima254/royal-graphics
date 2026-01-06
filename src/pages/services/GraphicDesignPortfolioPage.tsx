@@ -177,9 +177,9 @@ const GraphicDesignPortfolioPage = () => {
             {category.items.length > 0 ? (
               <>
                 <motion.div 
-                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                   variants={containerVariants}
-                  initial="hidden"
+                  initial={false}
                   animate="visible"
                   key={`${category.id}-${expandedCategories.includes(category.id)}`}
                 >
@@ -190,6 +190,7 @@ const GraphicDesignPortfolioPage = () => {
                     <motion.div
                       key={`${category.id}-${index}`}
                       variants={itemVariants}
+                      initial={false}
                       className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
                       onClick={() => setSelectedImage(item)}
                     >
@@ -197,6 +198,7 @@ const GraphicDesignPortfolioPage = () => {
                         <img 
                           src={item.image} 
                           alt={item.title}
+                          loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
