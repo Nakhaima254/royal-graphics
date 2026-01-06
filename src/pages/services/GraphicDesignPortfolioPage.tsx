@@ -65,8 +65,8 @@ import palazzoloCoursesFlyer from "@/assets/portfolio/flyers/palazzolo-courses-f
 import palazzoloFlyer2 from "@/assets/portfolio/flyers/palazzolo-flyer-2.png";
 
 // Letterhead imports
-import familyBlissLetterhead from "@/assets/portfolio/letterheads/family-bliss.png";
 import harvestYouthLetterhead from "@/assets/portfolio/letterheads/harvest-youth.png";
+import leleyaCleaningLetterhead from "@/assets/portfolio/letterheads/leleya-cleaning.png";
 import metaforgeLetterhead from "@/assets/portfolio/letterheads/metaforge.png";
 import milesBuildersLetterhead from "@/assets/portfolio/letterheads/miles-builders.png";
 import mwegaMentalLetterhead from "@/assets/portfolio/letterheads/mwega-mental.png";
@@ -74,7 +74,7 @@ import nexovateLetterhead from "@/assets/portfolio/letterheads/nexovate.png";
 import nurexIftinLetterhead from "@/assets/portfolio/letterheads/nurex-iftin.png";
 import planetCareLetterhead from "@/assets/portfolio/letterheads/planet-care.png";
 import sheltecLetterhead from "@/assets/portfolio/letterheads/sheltec.png";
-import tekpathLetterhead from "@/assets/portfolio/letterheads/tekpath.png";
+import systechManagementLetterhead from "@/assets/portfolio/letterheads/systech-management.png";
 interface PortfolioItem {
   title: string;
   image: string;
@@ -175,16 +175,16 @@ const GraphicDesignPortfolioPage = () => {
       title: "Letterheads",
       description: "Professional stationery for your business",
       items: [
-        { title: "Family Bliss Medical Centre Limited", image: familyBlissLetterhead },
         { title: "Harvest Youth Ministry", image: harvestYouthLetterhead },
+        { title: "Leleya Cleaning Services", image: leleyaCleaningLetterhead },
         { title: "Metaforge Holdings Limited", image: metaforgeLetterhead },
-        { title: "Miles Builders & Transporters Ltd", image: milesBuildersLetterhead },
+        { title: "Miles Builders Limited", image: milesBuildersLetterhead },
         { title: "Mwega Mental Wellness & Psychotherapy", image: mwegaMentalLetterhead },
         { title: "Nexovate Technologies Ltd", image: nexovateLetterhead },
         { title: "Nurex Iftin Technologies Ltd", image: nurexIftinLetterhead },
         { title: "Planet Care Environmental Consultants", image: planetCareLetterhead },
         { title: "Sheltec Consulting Limited", image: sheltecLetterhead },
-        { title: "Tekpath Scientific Limited", image: tekpathLetterhead }
+        { title: "Systech Management", image: systechManagementLetterhead }
       ]
     }
   ];
@@ -270,7 +270,7 @@ const GraphicDesignPortfolioPage = () => {
                       className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
                       onClick={() => setSelectedImage(item)}
                     >
-                      <div className={`aspect-square overflow-hidden ${category.id === 'letterheads' ? 'bg-white' : 'bg-muted'}`}>
+                      <div className={`overflow-hidden ${category.id === 'letterheads' ? 'aspect-[3/4] bg-white' : 'aspect-square bg-muted'}`}>
                         <img 
                           src={item.image} 
                           alt={item.title}
