@@ -136,18 +136,34 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Build WhatsApp message
+    const whatsappNumber = "254746388308";
+    const message = `*New Project Inquiry*
+
+*Name:* ${data.name}
+*Email:* ${data.email}
+*Phone:* ${data.phone || "Not provided"}
+*Company:* ${data.company || "Not provided"}
+*Service:* ${data.service}
+*Budget:* ${data.budget || "Not specified"}
+*Timeline:* ${data.timeline || "Not specified"}
+
+*Project Details:*
+${data.message}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
-    console.log("Form submitted:", data);
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, "_blank");
     
     // Show success state and fire confetti
     setShowSuccess(true);
     fireConfetti();
     
     toast({
-      title: "Message Received!",
-      description: "Thank you for reaching out. We'll get back to you within 24 hours.",
+      title: "Redirecting to WhatsApp!",
+      description: "Complete your message on WhatsApp to reach us directly.",
     });
 
     form.reset();
