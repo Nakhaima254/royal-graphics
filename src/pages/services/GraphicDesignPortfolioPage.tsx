@@ -198,6 +198,12 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Systech Management", image: systechManagementLetterhead },
         { title: "Tekpath Scientific Limited", image: tekpathLetterhead }
       ]
+    },
+    {
+      id: "business-cards",
+      title: "Business Cards",
+      description: "Professional business cards that leave a lasting impression",
+      items: []
     }
   ];
 
