@@ -79,6 +79,20 @@ const CopywritingPage = () => {
       company: "Urban Style Kenya",
       content: "Product descriptions that actually sell! Our average order value increased by 25% after they rewrote all our product pages. Worth every penny.",
       rating: 5
+    },
+    {
+      name: "Hannah Moraa",
+      role: "CEO",
+      company: "Moraa Consulting",
+      content: "The case studies they wrote for us have become our best sales tools. Prospects understand our value proposition immediately. Exceptional work!",
+      rating: 5
+    },
+    {
+      name: "Joseph Mutua",
+      role: "Owner",
+      company: "Mutua Hardware Stores",
+      content: "Our email newsletters now have a 45% open rate! The copywriting is engaging and drives customers to our stores. Sales from email have tripled.",
+      rating: 5
     }
   ];
 

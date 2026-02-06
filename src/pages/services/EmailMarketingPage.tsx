@@ -71,6 +71,20 @@ const EmailMarketingPage = () => {
       company: "Wellness Hub Kenya",
       content: "Professional, data-driven approach to email marketing. They test everything and continuously optimize. Our newsletter is now our top converting channel.",
       rating: 5
+    },
+    {
+      name: "George Maina",
+      role: "Director",
+      company: "Maina Electronics",
+      content: "The abandoned cart emails alone recovered 28% of lost sales. Their email templates are beautiful and the automation saves us hours every week.",
+      rating: 5
+    },
+    {
+      name: "Lucy Njoki",
+      role: "Owner",
+      company: "Njoki Cosmetics",
+      content: "Our welcome email series converts 35% of new subscribers into first-time buyers. The segmentation strategy they implemented is incredibly effective.",
+      rating: 5
     }
   ];
 

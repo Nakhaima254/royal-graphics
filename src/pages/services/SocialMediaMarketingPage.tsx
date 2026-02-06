@@ -79,6 +79,20 @@ const SocialMediaMarketingPage = () => {
       company: "Green Earth Organics",
       content: "Professional, creative, and results-driven. They understand our audience and create content that truly resonates. Best decision we made for our marketing.",
       rating: 5
+    },
+    {
+      name: "Kevin Otieno",
+      role: "Director",
+      company: "Otieno Motors Ltd",
+      content: "Our Facebook page went from 500 likes to over 15,000 in 4 months. The quality of leads we get from social media has improved dramatically.",
+      rating: 5
+    },
+    {
+      name: "Esther Nyokabi",
+      role: "Owner",
+      company: "Nyokabi Beauty Parlor",
+      content: "The before/after content strategy they created for us went viral! We now have clients booking weeks in advance thanks to our social media presence.",
+      rating: 5
     }
   ];
 
