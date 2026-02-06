@@ -87,6 +87,21 @@ const Footer = () => {
             <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
           </div>
         </div>
+        
+        {/* Powered By */}
+        <div className="pt-6 text-center">
+          <p className="text-xs text-footer-foreground/50">
+            Powered by{" "}
+            <a 
+              href="https://www.waksdigital.co.ke" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary-light transition-smooth font-medium"
+            >
+              Waks Digital
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
