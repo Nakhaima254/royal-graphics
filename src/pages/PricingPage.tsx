@@ -723,6 +723,22 @@ const PricingPage = () => {
                       initial="hidden"
                       animate="visible"
                     >
+                      {/* 60% Upfront Payment Note for all services */}
+                      <div className="text-center mb-8">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>To secure your project slot and begin work, we require 60% of the total cost upfront. The remaining 40% is due upon project completion and your approval.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                          <span className="font-semibold text-primary">Note:</span>
+                          <span className="text-sm">We require 60% upfront payment for all projects</span>
+                        </div>
+                      </div>
+                      
                       <motion.div 
                         className="grid md:grid-cols-3 gap-6 lg:gap-8"
                         variants={staggerContainer}
