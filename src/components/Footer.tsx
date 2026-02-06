@@ -74,26 +74,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-sm text-footer-foreground/80 mb-4">
-              Subscribe to our newsletter for digital marketing tips and updates.
-            </p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Your email"
-                className="flex-1 px-3 py-2 rounded-lg bg-footer-foreground/10 border border-footer-foreground/20 text-footer-foreground placeholder:text-footer-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-              <button 
-                aria-label="Subscribe"
-                className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center hover:scale-105 transition-bounce"
-              >
-                <Icon icon={Mail} variant="foreground" size="sm" className="text-accent-foreground" />
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}
