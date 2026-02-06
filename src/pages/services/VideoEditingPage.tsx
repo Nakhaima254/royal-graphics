@@ -71,6 +71,20 @@ const VideoEditingPage = () => {
       company: "Startup Academy Kenya",
       content: "Quick turnaround, excellent communication, and the final videos are always perfect. They've edited over 100 videos for us and quality never drops.",
       rating: 5
+    },
+    {
+      name: "Nancy Wambui",
+      role: "CEO",
+      company: "Wambui Events",
+      content: "Our wedding highlight reels are now the talk of the town! Clients share them everywhere and we've doubled our bookings from referrals alone.",
+      rating: 5
+    },
+    {
+      name: "Samuel Kariuki",
+      role: "Marketing Manager",
+      company: "Kariuki Real Estate",
+      content: "Property tour videos they create for us sell homes faster. The drone shots and professional editing make every listing look premium.",
+      rating: 5
     }
   ];
 

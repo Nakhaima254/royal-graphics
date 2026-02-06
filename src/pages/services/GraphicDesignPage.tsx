@@ -77,6 +77,20 @@ const GraphicDesignPage = () => {
       company: "Bloom Wellness Kenya",
       content: "They completely redesigned our visual identity. The attention to detail and understanding of our brand values was remarkable. Highly recommend!",
       rating: 5
+    },
+    {
+      name: "Patrick Kiptoo",
+      role: "Owner",
+      company: "Kiptoo Enterprises",
+      content: "Our new business cards and letterheads make such a professional impression. Clients take us more seriously now and referrals have increased.",
+      rating: 5
+    },
+    {
+      name: "Winnie Adhiambo",
+      role: "Marketing Lead",
+      company: "Adhiambo Textiles",
+      content: "The catalog design they created showcases our products beautifully. It's become our most effective sales tool at trade shows and exhibitions.",
+      rating: 5
     }
   ];
 

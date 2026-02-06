@@ -79,6 +79,20 @@ const SMSMarketingPage = () => {
       company: "Fitness First Gym Kenya",
       content: "They helped us build an engaged SMS list of 10,000+ members. Our promotional messages get responses within minutes. Game changer for our business!",
       rating: 5
+    },
+    {
+      name: "Timothy Njuguna",
+      role: "CEO",
+      company: "Njuguna Pharmacy Chain",
+      content: "SMS reminders for prescription refills have been amazing. Customer retention is up 60% and our customers appreciate the personalized service.",
+      rating: 5
+    },
+    {
+      name: "Grace Kemunto",
+      role: "Owner",
+      company: "Kemunto Fashion House",
+      content: "Our VIP customer SMS list gets exclusive deals first. Sales from SMS campaigns alone account for 35% of our monthly revenue now!",
+      rating: 5
     }
   ];
 
