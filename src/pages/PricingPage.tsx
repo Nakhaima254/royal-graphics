@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, type LucideIcon } from "lucide-react";
+import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, Info, type LucideIcon } from "lucide-react";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -686,6 +687,18 @@ const PricingPage = () => {
                         <div className="text-center mb-8">
                           <h3 className="text-2xl font-bold text-primary mb-2">Build Your Own Bundle</h3>
                           <p className="text-muted-foreground">Select multiple services and see your savings in real-time</p>
+                          <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p>To secure your project slot and begin work, we require 60% of the total cost upfront. The remaining 40% is due upon project completion and your approval.</p>
+                              </TooltipContent>
+                            </Tooltip>
+                            <span className="font-semibold text-primary">Note:</span>
+                            <span className="text-sm">We require 60% upfront payment for all design projects</span>
+                          </div>
                         </div>
                         <div className="max-w-2xl mx-auto">
                           <SavingsCalculator services={graphicDesignServices} />
