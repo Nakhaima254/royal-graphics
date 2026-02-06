@@ -60,21 +60,21 @@ const SocialMediaMarketingPage = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Jessica Thompson",
+      name: "Janet Akinyi",
       role: "Owner",
-      company: "Bella Boutique",
+      company: "Akinyi Boutique",
       content: "Our Instagram following grew from 2K to 50K in just 6 months! The engagement on our posts has been incredible and we're seeing real sales from social media now.",
       rating: 5
     },
     {
-      name: "Michael Brooks",
+      name: "Michael Mutiso",
       role: "Marketing Manager",
-      company: "FitLife Gym",
+      company: "FitLife Gym Nairobi",
       content: "They completely transformed our social media presence. The content is engaging, on-brand, and our membership inquiries have tripled since we started working together.",
       rating: 5
     },
     {
-      name: "Amanda Foster",
+      name: "Agnes Muthoni",
       role: "Co-Founder",
       company: "Green Earth Organics",
       content: "Professional, creative, and results-driven. They understand our audience and create content that truly resonates. Best decision we made for our marketing.",

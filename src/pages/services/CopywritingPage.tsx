@@ -60,23 +60,23 @@ const CopywritingPage = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Andrew Peters",
+      name: "Andrew Kipruto",
       role: "Founder",
-      company: "Digital Nomad Pro",
+      company: "Digital Nomad Kenya",
       content: "The website copy they wrote doubled our conversion rate! Every word was crafted with intention. Our brand finally has a voice that resonates with our audience.",
       rating: 5
     },
     {
-      name: "Karen White",
+      name: "Caroline Chebet",
       role: "Marketing Director",
-      company: "Nexus Tech",
+      company: "Nexus Tech Nairobi",
       content: "Their blog content consistently ranks on page one of Google. Traffic has increased 300% and the leads are highly qualified. Outstanding copywriting team!",
       rating: 5
     },
     {
-      name: "Daniel Brooks",
+      name: "Daniel Otieno",
       role: "E-commerce Owner",
-      company: "Urban Style Co.",
+      company: "Urban Style Kenya",
       content: "Product descriptions that actually sell! Our average order value increased by 25% after they rewrote all our product pages. Worth every penny.",
       rating: 5
     }

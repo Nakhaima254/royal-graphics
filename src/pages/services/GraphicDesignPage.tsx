@@ -58,23 +58,23 @@ const GraphicDesignPage = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Sarah Mitchell",
+      name: "Susan Wanjiku",
       role: "Marketing Director",
-      company: "TechFlow Solutions",
+      company: "Masai Tech Solutions",
       content: "The logo and brand identity they created perfectly captures our company's innovative spirit. We've received countless compliments from clients and partners.",
       rating: 5
     },
     {
-      name: "David Chen",
+      name: "David Ochieng",
       role: "Founder",
-      company: "Artisan Coffee Co.",
+      company: "Ochieng Coffee Roasters",
       content: "From packaging design to marketing materials, every piece has been exceptional. Our products now stand out on shelves and our sales have increased significantly.",
       rating: 5
     },
     {
-      name: "Emily Rodriguez",
+      name: "Elizabeth Njeri",
       role: "CEO",
-      company: "Bloom Wellness",
+      company: "Bloom Wellness Kenya",
       content: "They completely redesigned our visual identity. The attention to detail and understanding of our brand values was remarkable. Highly recommend!",
       rating: 5
     }

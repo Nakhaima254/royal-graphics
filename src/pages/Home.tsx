@@ -33,9 +33,9 @@ const Home = () => {
   ];
 
   const testimonials = [
-    { name: "Sarah Johnson", role: "CEO, TechStart", content: "Royal Graphics helped us get more customers online. Our traffic increased by 300% in just 6 months!", rating: 5 },
-    { name: "Michael Chen", role: "Founder, GreenLeaf", content: "The team's creativity and professionalism exceeded our expectations. Highly recommended!", rating: 5 },
-    { name: "Emily Davis", role: "Marketing Director", content: "Best investment we made for our brand. The ROI has been incredible.", rating: 5 },
+    { name: "Mary Nkirote", role: "CEO, Nkirote Ventures", content: "Royal Graphics helped us get more customers online. Our traffic increased by 300% in just 6 months!", rating: 5 },
+    { name: "John Barasa", role: "Founder, Barasa Imports", content: "The team's creativity and professionalism exceeded our expectations. Highly recommended!", rating: 5 },
+    { name: "Faith Otieno", role: "Marketing Director", content: "Best investment we made for our brand. The ROI has been incredible.", rating: 5 },
   ];
 
   return (

@@ -60,23 +60,23 @@ const SMSMarketingPage = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Jennifer Lee",
+      name: "Jennifer Achieng",
       role: "Owner",
-      company: "Sweet Treats Bakery",
+      company: "Sweet Treats Bakery Nairobi",
       content: "Our SMS flash sales sell out within hours now! The response rate is incredible. We've seen a 40% increase in repeat customers since implementing their SMS strategy.",
       rating: 5
     },
     {
-      name: "Marcus Johnson",
+      name: "Marcus Omondi",
       role: "Operations Manager",
-      company: "QuickFix Auto",
+      company: "QuickFix Auto Mombasa",
       content: "Appointment reminders via SMS reduced our no-shows by 75%. The ROI on this service is unbelievable. Wish we had started SMS marketing sooner!",
       rating: 5
     },
     {
-      name: "Sophia Patel",
+      name: "Sophia Wanjala",
       role: "Marketing Manager",
-      company: "Fitness First Gym",
+      company: "Fitness First Gym Kenya",
       content: "They helped us build an engaged SMS list of 10,000+ members. Our promotional messages get responses within minutes. Game changer for our business!",
       rating: 5
     }

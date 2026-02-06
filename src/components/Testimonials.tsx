@@ -4,20 +4,20 @@ import Icon from "@/components/ui/icon";
 
 const testimonials = [
   {
-    name: "Arjun Sharma",
-    role: "Owner, Sharma Electronics",
-    content: "We were struggling to get customers from Google. After working with Royal Graphics for 8 months, we now rank on page 1 for 'electronics store Lucknow' and get 40+ calls a week from the website.",
+    name: "James Kamau",
+    role: "Owner, Kamau Electronics",
+    content: "We were struggling to get customers from Google. After working with Royal Graphics for 8 months, we now rank on page 1 for 'electronics store Nairobi' and get 40+ calls a week from the website.",
     rating: 5,
   },
   {
-    name: "Priya Mehta",
-    role: "Director, Mehta Textiles Pvt Ltd",
+    name: "Grace Onyango",
+    role: "Director, Onyango Textiles Ltd",
     content: "They redesigned our entire catalog and product photography. Our wholesale inquiries doubled within 3 months. Very professional team that understood our traditional business.",
     rating: 5,
   },
   {
-    name: "Rajesh Kumar",
-    role: "Manager, Krishna Sweets & Bakery",
+    name: "Peter Wambua",
+    role: "Manager, Wambua Sweets & Bakery",
     content: "Started with just Facebook posts and now we have 28K followers. Festival season orders increased significantly. They know how to reach local customers.",
     rating: 5,
   },
