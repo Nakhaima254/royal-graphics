@@ -7,7 +7,6 @@ import GraphicDesignPortfolioPage from "@/pages/services/GraphicDesignPortfolioP
 import SocialMediaMarketingPage from "@/pages/services/SocialMediaMarketingPage";
 import CopywritingPage from "@/pages/services/CopywritingPage";
 import VideoEditingPage from "@/pages/services/VideoEditingPage";
-import OnlineClassesPage from "@/pages/services/OnlineClassesPage";
 import EmailMarketingPage from "@/pages/services/EmailMarketingPage";
 import SMSMarketingPage from "@/pages/services/SMSMarketingPage";
 import AboutPage from "@/pages/AboutPage";
@@ -33,7 +32,6 @@ const AnimatedRoutes = () => {
         <Route path="/services/social-media-marketing" element={<PageTransition><SocialMediaMarketingPage /></PageTransition>} />
         <Route path="/services/copywriting" element={<PageTransition><CopywritingPage /></PageTransition>} />
         <Route path="/services/video-editing" element={<PageTransition><VideoEditingPage /></PageTransition>} />
-        <Route path="/services/online-classes" element={<PageTransition><OnlineClassesPage /></PageTransition>} />
         <Route path="/services/email-marketing" element={<PageTransition><EmailMarketingPage /></PageTransition>} />
         <Route path="/services/sms-marketing" element={<PageTransition><SMSMarketingPage /></PageTransition>} />
         <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
