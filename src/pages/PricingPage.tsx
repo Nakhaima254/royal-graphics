@@ -982,6 +982,10 @@ const PricingPage = () => {
                 a: "Absolutely! We offer bundle discounts when you combine multiple services. Contact us for a custom quote."
               },
               {
+                q: "What are your payment terms?",
+                a: "We require 60% upfront payment to secure your project slot and begin work. The remaining 40% is due upon project completion and your approval. This ensures commitment from both sides and allows us to dedicate resources to your project immediately."
+              },
+              {
                 q: "What payment methods do you accept?",
                 a: "We accept M-Pesa, bank transfers, PayPal, and credit/debit cards for your convenience."
               },
