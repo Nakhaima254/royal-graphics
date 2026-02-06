@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, GraduationCap, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, Info, type LucideIcon } from "lucide-react";
+import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, Stamp, CreditCard, FileText, BookOpen, Image, Megaphone, FileImage, Receipt, AtSign, UtensilsCrossed, Tag, BarChart3, Box, CalendarDays, Package, Sparkles, Crown, Info, type LucideIcon } from "lucide-react";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -93,15 +93,6 @@ const smsMarketingServices: ServiceItem[] = [
   { name: "Analytics Dashboard", price: "2,000", description: "Custom analytics and reporting", icon: BarChart3 },
 ];
 
-const onlineClassesServices: ServiceItem[] = [
-  { name: "Single Course", price: "5,000", description: "Access to one complete course", icon: GraduationCap, popular: true },
-  { name: "5 Course Bundle", price: "15,000", description: "Choose any 5 courses", icon: GraduationCap, popular: true },
-  { name: "1-on-1 Mentorship (1hr)", price: "3,000", description: "Personal coaching session", icon: GraduationCap },
-  { name: "Live Workshop", price: "2,000", description: "Interactive live training session", icon: GraduationCap },
-  { name: "Course Materials", price: "1,500", description: "Downloadable resources and templates", icon: FileText },
-  { name: "Certification Exam", price: "2,500", description: "Professional certification test", icon: Sparkles },
-];
-
 // Map category keys to their service arrays
 const categoryServices: Record<string, ServiceItem[]> = {
   videoEditing: videoEditingServices,
@@ -109,7 +100,6 @@ const categoryServices: Record<string, ServiceItem[]> = {
   copywriting: copywritingServices,
   emailMarketing: emailMarketingServices,
   smsMarketing: smsMarketingServices,
-  onlineClasses: onlineClassesServices,
 };
 
 const designBundles = [
@@ -474,59 +464,6 @@ const servicePricing = {
           "Real-time analytics",
           "Dedicated manager",
           "24/7 support"
-        ]
-      }
-    ]
-  },
-  onlineClasses: {
-    title: "Online Classes",
-    icon: GraduationCap,
-    description: "Learn digital marketing skills",
-    plans: [
-      {
-        name: "Single Course",
-        price: "KES 5,000",
-        period: "/course",
-        description: "Individual topic mastery",
-        features: [
-          "Full course access",
-          "Video tutorials",
-          "Downloadable resources",
-          "Certificate of completion",
-          "Community access",
-          "3 months access"
-        ]
-      },
-      {
-        name: "Bundle",
-        price: "KES 15,000",
-        period: "/5 courses",
-        description: "Multiple skill development",
-        popular: true,
-        features: [
-          "Choose any 5 courses",
-          "All course materials",
-          "Live Q&A sessions",
-          "1-on-1 mentorship (2 hrs)",
-          "Certificates",
-          "6 months access",
-          "Priority support"
-        ]
-      },
-      {
-        name: "Masterclass",
-        price: "KES 35,000",
-        period: "/lifetime",
-        description: "Complete digital marketing",
-        features: [
-          "All courses included",
-          "New courses free",
-          "Weekly live sessions",
-          "Unlimited mentorship",
-          "Job placement support",
-          "Lifetime access",
-          "Premium community",
-          "Private coaching"
         ]
       }
     ]

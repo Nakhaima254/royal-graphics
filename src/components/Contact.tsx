@@ -182,7 +182,6 @@ ${data.message}`;
     "Video Editing",
     "Email Marketing",
     "SMS Marketing",
-    "Online Classes",
     "Multiple Services",
   ];
 
