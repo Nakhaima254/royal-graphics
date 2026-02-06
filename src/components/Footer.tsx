@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-0 mb-8">
           {/* Company Info */}
-          <div>
+          <div className="lg:pr-8 lg:border-r lg:border-footer-foreground/20">
             <Link to="/" className="mb-2 block">
               <img src={footerLogo} alt="Royal Graphics" className="h-20 w-auto" />
             </Link>
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="lg:px-8 lg:border-r lg:border-footer-foreground/20">
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li><Link to="/services/graphic-design" className="hover:text-primary transition-smooth">Graphic Design</Link></li>
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div>
+          <div className="lg:pl-8">
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li><Link to="/about" className="hover:text-primary transition-smooth">About Us</Link></li>

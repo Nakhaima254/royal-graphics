@@ -52,23 +52,23 @@ const VideoEditingPage = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Ryan Martinez",
+      name: "Brian Kipchoge",
       role: "Content Creator",
-      company: "TravelVlog Pro",
+      company: "Safari Vlogs",
       content: "My YouTube videos have never looked better! The editing quality, color grading, and pacing are all top-notch. My watch time has increased by 40% since working with them.",
       rating: 5
     },
     {
-      name: "Lisa Wang",
+      name: "Lilian Wangari",
       role: "Brand Director",
-      company: "Luxe Fashion",
+      company: "Luxe Fashion Nairobi",
       content: "They created stunning promotional videos for our new collection. The attention to detail and cinematic quality exceeded our expectations. True professionals!",
       rating: 5
     },
     {
-      name: "Chris Johnson",
+      name: "Chris Munyasi",
       role: "Founder",
-      company: "Startup Academy",
+      company: "Startup Academy Kenya",
       content: "Quick turnaround, excellent communication, and the final videos are always perfect. They've edited over 100 videos for us and quality never drops.",
       rating: 5
     }
