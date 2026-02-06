@@ -596,6 +596,22 @@ const PricingPage = () => {
                       initial="hidden"
                       animate="visible"
                     >
+                      {/* 60% Upfront Payment Note for Graphic Design */}
+                      <div className="text-center mb-8">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>To secure your project slot and begin work, we require 60% of the total cost upfront. The remaining 40% is due upon project completion and your approval.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                          <span className="font-semibold text-primary">Note:</span>
+                          <span className="text-sm">We require 60% upfront payment for all design projects</span>
+                        </div>
+                      </div>
+                      
                       <div className="text-center mb-8">
                         <h3 className="text-2xl font-bold text-primary mb-2">Individual Service Prices</h3>
                         <p className="text-muted-foreground">Quality designs at affordable rates</p>
