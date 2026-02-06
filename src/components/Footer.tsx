@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8">
           {/* Company Info */}
           <div>
             <Link to="/" className="mb-2 block">
@@ -51,6 +51,7 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
@@ -60,9 +61,11 @@ const Footer = () => {
               <li><Link to="/services/copywriting" className="hover:text-primary transition-smooth">Copywriting</Link></li>
               <li><Link to="/services/email-marketing" className="hover:text-primary transition-smooth">Email Marketing</Link></li>
               <li><Link to="/services/video-editing" className="hover:text-primary transition-smooth">Video Editing</Link></li>
+              <li><Link to="/services/sms-marketing" className="hover:text-primary transition-smooth">SMS Marketing</Link></li>
             </ul>
           </div>
 
+          {/* Company */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-footer-foreground/80">
@@ -73,7 +76,6 @@ const Footer = () => {
               <li><Link to="/contact" className="hover:text-primary transition-smooth">Contact</Link></li>
             </ul>
           </div>
-
         </div>
 
         {/* Bottom Bar */}
