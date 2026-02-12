@@ -1,5 +1,21 @@
 Options -MultiViews
 RewriteEngine On
+
+# --- Prerender.io bot detection for OG meta tags ---
+# Replace YOUR_PRERENDER_TOKEN with your token from https://prerender.io
+<IfModule mod_headers.c>
+RequestHeader set X-Prerender-Token "YOUR_PRERENDER_TOKEN"
+</IfModule>
+
+# Detect social media and search engine bots
+RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp|Applebot|TelegramBot [NC,OR]
+RewriteCond %{QUERY_STRING} _escaped_fragment_
+# Don't prerender static files
+RewriteCond %{REQUEST_URI} !\.(js|css|xml|less|png|jpg|jpeg|gif|pdf|doc|txt|ico|rss|zip|mp3|rar|exe|wmv|doc|avi|ppt|mpg|mpeg|tif|wav|mov|psd|ai|xls|mp4|m4a|swf|dat|dmg|iso|flv|m4v|torrent|ttf|woff|woff2|svg|eot)$ [NC]
+# Proxy matching requests to Prerender.io
+RewriteRule ^(.*) https://service.prerender.io/https://royalgraphics.co.ke/$1 [P,L]
+
+# --- SPA fallback ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
