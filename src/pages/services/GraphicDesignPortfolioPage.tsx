@@ -82,6 +82,19 @@ import planetCareLetterhead from "@/assets/portfolio/letterheads/planet-care.png
 import sheltecLetterhead from "@/assets/portfolio/letterheads/sheltec.png";
 import systechManagementLetterhead from "@/assets/portfolio/letterheads/systech-management.png";
 import tekpathLetterhead from "@/assets/portfolio/letterheads/tekpath.png";
+
+// 3D Logo imports
+import aimoTravel3dLogo from "@/assets/portfolio/logos-3d/aimo-travel-3d.png";
+import accusafeAssociatesLogo from "@/assets/portfolio/logos-3d/accusafe-associates.png";
+import benafriqSafaris3dLogo from "@/assets/portfolio/logos-3d/benafriq-safaris-3d.png";
+import brightFutureLogo from "@/assets/portfolio/logos-3d/bright-future.png";
+import bitahonSecurityLogo from "@/assets/portfolio/logos-3d/bitahon-security.png";
+import cavinoInteriorLogo from "@/assets/portfolio/logos-3d/cavino-interior.png";
+import christianLifeLogo from "@/assets/portfolio/logos-3d/christian-life-ministries.png";
+import diasporaBusinessLogo from "@/assets/portfolio/logos-3d/diaspora-business-park.png";
+import dulyElectricalsLogo from "@/assets/portfolio/logos-3d/duly-electricals.png";
+import eagleEmporiumLogo from "@/assets/portfolio/logos-3d/eagle-emporium.png";
+
 interface PortfolioItem {
   title: string;
   image: string;
@@ -137,6 +150,23 @@ const GraphicDesignPortfolioPage = () => {
         { title: "DTech Solutions", image: dtechSolutionsLogo },
         { title: "Ew. LightUp Moments Broadcast", image: ewLightupLogo },
         { title: "Faraja Realtors", image: farajaRealtorsLogo }
+      ]
+    },
+    {
+      id: "3d-logos",
+      title: "3D Logos",
+      description: "Stunning three-dimensional logo designs with depth and realism",
+      items: [
+        { title: "Aimo Travel Agency", image: aimoTravel3dLogo },
+        { title: "Accusafe Associates CPA(K)", image: accusafeAssociatesLogo },
+        { title: "Benafriq Safaris", image: benafriqSafaris3dLogo },
+        { title: "Bright Future Co. Ltd", image: brightFutureLogo },
+        { title: "Bitahon Security Limited", image: bitahonSecurityLogo },
+        { title: "Cavino Interior & Exterior Designs", image: cavinoInteriorLogo },
+        { title: "Christian Life Ministries", image: christianLifeLogo },
+        { title: "Diaspora Business Park", image: diasporaBusinessLogo },
+        { title: "Duly Electricals & Electronics", image: dulyElectricalsLogo },
+        { title: "Eagle Emporium", image: eagleEmporiumLogo },
       ]
     },
     {
