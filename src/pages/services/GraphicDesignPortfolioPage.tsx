@@ -94,6 +94,16 @@ import christianLifeLogo from "@/assets/portfolio/logos-3d/christian-life-minist
 import diasporaBusinessLogo from "@/assets/portfolio/logos-3d/diaspora-business-park.png";
 import dulyElectricalsLogo from "@/assets/portfolio/logos-3d/duly-electricals.png";
 import eagleEmporiumLogo from "@/assets/portfolio/logos-3d/eagle-emporium.png";
+import filcoToursLogo from "@/assets/portfolio/logos-3d/filco-tours.png";
+import freshwayExportsLogo from "@/assets/portfolio/logos-3d/freshway-exports.png";
+import fullyPersuadedLogo from "@/assets/portfolio/logos-3d/fully-persuaded-ministries.png";
+import geconelBusinessLogo from "@/assets/portfolio/logos-3d/geconel-business.png";
+import glamourHubLogo from "@/assets/portfolio/logos-3d/glamour-hub.png";
+import happyHerdLogo from "@/assets/portfolio/logos-3d/happy-herd.png";
+import investaxCapitalLogo from "@/assets/portfolio/logos-3d/investax-capital.png";
+import jayWonderLogo from "@/assets/portfolio/logos-3d/jay-wonder.png";
+import koyamaPetroleumLogo from "@/assets/portfolio/logos-3d/koyama-petroleum.png";
+import lauenFarmsLogo from "@/assets/portfolio/logos-3d/lauen-farms.png";
 
 interface PortfolioItem {
   title: string;
@@ -167,6 +177,16 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Diaspora Business Park", image: diasporaBusinessLogo },
         { title: "Duly Electricals & Electronics", image: dulyElectricalsLogo },
         { title: "Eagle Emporium", image: eagleEmporiumLogo },
+        { title: "Filco Tours and Travel", image: filcoToursLogo },
+        { title: "Freshway Exports Limited", image: freshwayExportsLogo },
+        { title: "Fully Persuaded in Christ Ministries", image: fullyPersuadedLogo },
+        { title: "Geconel Business Advance", image: geconelBusinessLogo },
+        { title: "Glamour Hub", image: glamourHubLogo },
+        { title: "Happy Herd Animal Feeds", image: happyHerdLogo },
+        { title: "Investax Capital Limited", image: investaxCapitalLogo },
+        { title: "Jay Wonder Promotion & Events", image: jayWonderLogo },
+        { title: "Koyama Petroleum", image: koyamaPetroleumLogo },
+        { title: "Lauen Farms", image: lauenFarmsLogo },
       ]
     },
     {
