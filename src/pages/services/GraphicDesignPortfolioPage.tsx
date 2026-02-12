@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, Palette, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, Palette, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 import {
@@ -104,6 +105,13 @@ import investaxCapitalLogo from "@/assets/portfolio/logos-3d/investax-capital.pn
 import jayWonderLogo from "@/assets/portfolio/logos-3d/jay-wonder.png";
 import koyamaPetroleumLogo from "@/assets/portfolio/logos-3d/koyama-petroleum.png";
 import lauenFarmsLogo from "@/assets/portfolio/logos-3d/lauen-farms.png";
+import lauenFarms2Logo from "@/assets/portfolio/logos-3d/lauen-farms-2.png";
+import marketIntelLogo from "@/assets/portfolio/logos-3d/market-intel.png";
+import metaforgeHoldingsLogo from "@/assets/portfolio/logos-3d/metaforge-holdings.png";
+import milansAgrovetLogo from "@/assets/portfolio/logos-3d/milans-agrovet.png";
+import milesBuildersLogo from "@/assets/portfolio/logos-3d/miles-builders.png";
+import minpowerEnterpriseLogo from "@/assets/portfolio/logos-3d/minpower-enterprise.png";
+import mwegaMental3dLogo from "@/assets/portfolio/logos-3d/mwega-mental-3d.png";
 
 interface PortfolioItem {
   title: string;
@@ -120,6 +128,9 @@ interface PortfolioCategory {
 const GraphicDesignPortfolioPage = () => {
   const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const isMobile = useIsMobile();
 
   const toggleCategory = (categoryId: string) => {
     setExpandedCategories(prev => 
@@ -187,6 +198,13 @@ const GraphicDesignPortfolioPage = () => {
         { title: "Jay Wonder Promotion & Events", image: jayWonderLogo },
         { title: "Koyama Petroleum", image: koyamaPetroleumLogo },
         { title: "Lauen Farms", image: lauenFarmsLogo },
+        { title: "Lauen Farms (Alt)", image: lauenFarms2Logo },
+        { title: "Market Intel Investment Company", image: marketIntelLogo },
+        { title: "Metaforge Holdings Limited", image: metaforgeHoldingsLogo },
+        { title: "Milans Agrovet", image: milansAgrovetLogo },
+        { title: "Miles Builders Limited", image: milesBuildersLogo },
+        { title: "Minpower Enterprise Limited", image: minpowerEnterpriseLogo },
+        { title: "Mwega Mental Wellness & Psychotherapy", image: mwegaMental3dLogo },
       ]
     },
     {
@@ -258,6 +276,19 @@ const GraphicDesignPortfolioPage = () => {
     }
   ];
 
+  // Find the 3D logos category for carousel max pages
+  const threeDLogos = categories.find(c => c.id === '3d-logos');
+  const maxCarouselPages = threeDLogos ? Math.ceil(threeDLogos.items.length / (isMobile ? 1 : 3)) : 0;
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (!isAutoPlaying || maxCarouselPages <= 1) return;
+    const interval = setInterval(() => {
+      setCarouselIndex(prev => (prev + 1) % maxCarouselPages);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, maxCarouselPages, isMobile]);
+
 
   return (
     <div className="pt-16">
@@ -309,6 +340,87 @@ const GraphicDesignPortfolioPage = () => {
             </motion.div>
             
             {category.items.length > 0 ? (
+              category.id === '3d-logos' ? (
+                /* 3D Logos Carousel */
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setIsAutoPlaying(false)}
+                  onMouseLeave={() => setIsAutoPlaying(true)}
+                >
+                  <div className="overflow-hidden">
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.div
+                        key={carouselIndex}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                        initial={{ opacity: 0, x: 80 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -80 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                      >
+                        {category.items
+                          .slice(
+                            carouselIndex * (isMobile ? 1 : 3),
+                            carouselIndex * (isMobile ? 1 : 3) + (isMobile ? 1 : 3)
+                          )
+                          .map((item, index) => (
+                            <motion.div
+                              key={`3d-${carouselIndex}-${index}`}
+                              className="group relative overflow-hidden rounded-xl bg-card border shadow-sm hover:shadow-card transition-all duration-300 cursor-pointer"
+                              onClick={() => setSelectedImage(item)}
+                            >
+                              <div className="overflow-hidden aspect-square bg-muted">
+                                <img
+                                  src={item.image}
+                                  alt={item.title}
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </div>
+                              <div className="p-4">
+                                <h3 className="font-semibold">{item.title}</h3>
+                              </div>
+                            </motion.div>
+                          ))}
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  {/* Navigation */}
+                  <div className="flex items-center justify-center gap-4 mt-8">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                      onClick={() => setCarouselIndex(prev => Math.max(0, prev - 1))}
+                      disabled={carouselIndex === 0}
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </Button>
+                    <div className="flex gap-2">
+                      {Array.from({ length: Math.ceil(category.items.length / (isMobile ? 1 : 3)) }).map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCarouselIndex(i)}
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            i === carouselIndex 
+                              ? 'w-8 bg-primary' 
+                              : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                      onClick={() => setCarouselIndex(prev => Math.min(Math.ceil(category.items.length / (isMobile ? 1 : 3)) - 1, prev + 1))}
+                      disabled={carouselIndex >= Math.ceil(category.items.length / (isMobile ? 1 : 3)) - 1}
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </div>
+              ) : (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {(expandedCategories.includes(category.id) 
@@ -352,6 +464,7 @@ const GraphicDesignPortfolioPage = () => {
                   </div>
                 )}
               </>
+              )
             ) : (
               <div className="text-center py-12 bg-card rounded-xl border border-dashed">
                 <p className="text-muted-foreground">Portfolio items coming soon</p>
