@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const EmailMarketingPage = () => {
   const features = [
@@ -108,6 +109,7 @@ const EmailMarketingPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Email Marketing" description="Email marketing campaigns, automation sequences, and newsletter design to grow your business." image="/images/og-default.png" url="/services/email-marketing" />
       {/* Hero Section */}
       <div className="bg-primary py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

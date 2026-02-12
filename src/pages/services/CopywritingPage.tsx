@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const CopywritingPage = () => {
   const features = [
@@ -116,6 +117,7 @@ const CopywritingPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Copywriting" description="Professional copywriting services - SEO blogs, website copy, and compelling content that converts." image="/images/og-default.png" url="/services/copywriting" />
       {/* Hero Section */}
       <div className="bg-primary-dark py-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

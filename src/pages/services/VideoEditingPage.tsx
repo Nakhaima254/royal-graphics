@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const VideoEditingPage = () => {
   const features = [
@@ -108,6 +109,7 @@ const VideoEditingPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Video Editing" description="Professional video editing services - social media reels, corporate videos, and cinematic productions." image="/images/og-default.png" url="/services/video-editing" />
       {/* Hero Section */}
       <div className="bg-accent py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

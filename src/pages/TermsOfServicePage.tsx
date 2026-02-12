@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Scale, FileCheck, AlertCircle, CreditCard, Clock, XCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
 const TermsOfServicePage = () => {
@@ -69,6 +70,7 @@ const TermsOfServicePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Terms of Service" description="Royal Graphics Solutions terms of service - understand our service agreements and policies." image="/images/og-default.png" url="/terms-of-service" />
       <Navigation />
       
       <main className="pt-24 pb-16">

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Palette, X } from "lucide-react";
 import Icon from "@/components/ui/icon";
+import SEO from "@/components/SEO";
 import {
   Dialog,
   DialogContent,
@@ -210,6 +211,7 @@ const GraphicDesignPortfolioPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Graphic Design Portfolio" description="Browse our portfolio of logos, posters, flyers, and letterheads designed for businesses across Kenya." image="/images/og-design.jpg" url="/services/graphic-design/portfolio" />
       {/* Hero Section */}
       <div className="bg-primary py-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

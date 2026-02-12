@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const SocialMediaMarketingPage = () => {
   const features = [
@@ -116,6 +117,7 @@ const SocialMediaMarketingPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Social Media Marketing" description="Expert social media management - content creation, strategy, and growth for your brand." image="/images/og-social.jpg" url="/services/social-media-marketing" />
       {/* Hero Section */}
       <div className="bg-accent py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const SMSMarketingPage = () => {
   const features = [
@@ -116,6 +117,7 @@ const SMSMarketingPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="SMS Marketing" description="Bulk SMS marketing services - reach your customers directly with targeted campaigns." image="/images/og-default.png" url="/services/sms-marketing" />
       {/* Hero Section */}
       <div className="bg-accent py-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

@@ -4,6 +4,7 @@ import { Check, Palette, Share2, Video, PenTool, Mail, MessageSquare, Stamp, Cre
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -473,7 +474,12 @@ const servicePricing = {
 const PricingPage = () => {
   return (
     <div className="pt-16">
-      {/* Hero Section */}
+      <SEO 
+        title="Pricing"
+        description="Affordable digital marketing pricing. Logo design from KES 2,000, social media packages, video editing, and more."
+        image="/images/og-default.png"
+        url="/pricing"
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
