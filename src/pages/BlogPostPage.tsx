@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getBlogBySlug, getRelatedPosts, blogPosts } from "@/data/blogPosts";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 interface TocItem {
   id: string;
@@ -100,7 +101,13 @@ const BlogPostPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Reading Progress Bar */}
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        image={post.image || "/images/og-default.png"}
+        url={`/blogs/${slug}`}
+        type="article"
+      />
       <div className="fixed top-16 left-0 right-0 h-1 bg-muted z-50">
         <motion.div 
           className="h-full bg-primary"

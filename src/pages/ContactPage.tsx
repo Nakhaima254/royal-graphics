@@ -1,9 +1,16 @@
 import Contact from "@/components/Contact";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const ContactPage = () => {
   return (
     <div className="pt-16">
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with Royal Graphics Solutions. Let's discuss how we can help your business grow."
+        image="/images/og-default.png"
+        url="/contact"
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 

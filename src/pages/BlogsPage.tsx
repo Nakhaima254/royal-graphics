@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowRight, Search, ChevronLeft, ChevronRight } from "
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts } from "@/data/blogPosts";
+import SEO from "@/components/SEO";
 
 const POSTS_PER_PAGE = 6;
 
@@ -58,6 +59,12 @@ const BlogsPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO 
+        title="Blog"
+        description="Digital marketing tips, design insights, and business growth strategies from Royal Graphics Solutions."
+        image="/images/og-default.png"
+        url="/blogs"
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 

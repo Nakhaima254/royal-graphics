@@ -7,6 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import SEO from "@/components/SEO";
 
 const GraphicDesignPage = () => {
   const features = [
@@ -114,6 +115,7 @@ const GraphicDesignPage = () => {
 
   return (
     <div className="pt-16">
+      <SEO title="Graphic Design" description="Professional graphic design services - logos, branding, marketing materials. Starting from KES 2,000." image="/images/og-design.jpg" url="/services/graphic-design" />
       {/* Hero Section */}
       <div className="bg-primary py-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

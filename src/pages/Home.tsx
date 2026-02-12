@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Palette, TrendingUp, Share2, ArrowRight, Users, Award, Target, CheckCircle, Star, MessageSquare, Lightbulb, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -40,6 +41,12 @@ const Home = () => {
 
   return (
     <div>
+      <SEO 
+        title="Home"
+        description="Elevate your digital presence with Royal Graphics Solutions. Expert graphic design, social media marketing, and digital solutions for businesses in Kenya."
+        image="/images/og-home.jpg"
+        url="/"
+      />
       <Hero />
       
       {/* Stats Section */}

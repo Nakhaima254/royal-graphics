@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, Users, Bell, Cookie, Settings } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -180,6 +181,7 @@ const PrivacyPolicyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Privacy Policy" description="Royal Graphics Solutions privacy policy - how we collect, use, and protect your data." image="/images/og-default.png" url="/privacy-policy" />
       <Navigation />
       
       <main className="pt-24 pb-16">

@@ -2,6 +2,7 @@ import Services from "@/components/Services";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -11,6 +12,12 @@ const fadeInUp = {
 const ServicesPage = () => {
   return (
     <div className="pt-16">
+      <SEO 
+        title="Our Services"
+        description="Comprehensive digital marketing solutions: graphic design, social media marketing, copywriting, video editing, email & SMS marketing."
+        image="/images/og-design.jpg"
+        url="/services"
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
