@@ -11,6 +11,7 @@ import AnimatedRoutes from "@/components/AnimatedRoutes";
 import FloatingContact from "@/components/FloatingContact";
 import BackToTop from "@/components/BackToTop";
 import CookieConsent from "@/components/CookieConsent";
+import PromoBanner from "@/components/PromoBanner";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <div className="min-h-screen flex flex-col">
+            <PromoBanner />
             <Navigation />
             <main className="flex-1">
               <AnimatedRoutes />
