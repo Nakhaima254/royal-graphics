@@ -114,7 +114,7 @@ const GraphicDesignPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Graphic Design" description="Professional graphic design services - logos, branding, marketing materials. Starting from KES 2,000." image="/images/og-design.jpg" url="/services/graphic-design" />
       {/* Hero Section */}
       <div className="bg-primary py-20 relative overflow-hidden">

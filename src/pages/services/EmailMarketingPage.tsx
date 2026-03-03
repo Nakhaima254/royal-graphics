@@ -108,7 +108,7 @@ const EmailMarketingPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Email Marketing" description="Email marketing campaigns, automation sequences, and newsletter design to grow your business." image="/images/og-default.png" url="/services/email-marketing" />
       {/* Hero Section */}
       <div className="bg-primary py-20">

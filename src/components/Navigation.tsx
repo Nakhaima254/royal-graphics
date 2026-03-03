@@ -54,7 +54,7 @@ const Navigation = () => {
   const isServicesActive = location.pathname.startsWith("/services");
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border shadow-card">
+    <nav className="w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border shadow-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
