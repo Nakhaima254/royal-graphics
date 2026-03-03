@@ -116,7 +116,7 @@ const CopywritingPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Copywriting" description="Professional copywriting services - SEO blogs, website copy, and compelling content that converts." image="/images/og-default.png" url="/services/copywriting" />
       {/* Hero Section */}
       <div className="bg-primary-dark py-20 relative overflow-hidden">

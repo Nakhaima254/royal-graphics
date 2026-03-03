@@ -291,7 +291,7 @@ const GraphicDesignPortfolioPage = () => {
 
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Graphic Design Portfolio" description="Browse our portfolio of logos, posters, flyers, and letterheads designed for businesses across Kenya." image="/images/og-design.jpg" url="/services/graphic-design/portfolio" />
       {/* Hero Section */}
       <div className="bg-primary py-20 relative overflow-hidden">

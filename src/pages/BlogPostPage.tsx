@@ -100,7 +100,7 @@ const BlogPostPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title={post.title}
         description={post.excerpt}

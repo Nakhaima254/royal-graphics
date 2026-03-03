@@ -11,7 +11,7 @@ const fadeInUp = {
 
 const ServicesPage = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title="Our Services"
         description="Comprehensive digital marketing solutions: graphic design, social media marketing, copywriting, video editing, email & SMS marketing."

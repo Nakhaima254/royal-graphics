@@ -58,7 +58,7 @@ const BlogsPage = () => {
 
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title="Blog"
         description="Digital marketing tips, design insights, and business growth strategies from Royal Graphics Solutions."

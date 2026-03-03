@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 
 const ContactPage = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title="Contact Us"
         description="Get in touch with Royal Graphics Solutions. Let's discuss how we can help your business grow."

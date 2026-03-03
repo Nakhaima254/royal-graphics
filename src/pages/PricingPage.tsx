@@ -495,7 +495,7 @@ const servicePricing = {
 
 const PricingPage = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title="Pricing"
         description="Affordable digital marketing pricing. Logo design from KES 2,000, social media packages, video editing, and more."

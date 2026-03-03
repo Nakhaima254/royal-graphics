@@ -116,7 +116,7 @@ const SMSMarketingPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="SMS Marketing" description="Bulk SMS marketing services - reach your customers directly with targeted campaigns." image="/images/og-default.png" url="/services/sms-marketing" />
       {/* Hero Section */}
       <div className="bg-accent py-20 relative overflow-hidden">

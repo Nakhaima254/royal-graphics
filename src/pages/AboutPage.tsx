@@ -12,7 +12,7 @@ const fadeInUp = {
 
 const AboutPage = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO 
         title="About Us"
         description="Learn about Royal Graphics Solutions - your trusted digital marketing partner in Kenya with 10+ years of experience."

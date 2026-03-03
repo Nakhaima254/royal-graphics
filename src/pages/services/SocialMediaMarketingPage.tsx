@@ -116,7 +116,7 @@ const SocialMediaMarketingPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Social Media Marketing" description="Expert social media management - content creation, strategy, and growth for your brand." image="/images/og-social.jpg" url="/services/social-media-marketing" />
       {/* Hero Section */}
       <div className="bg-accent py-20">

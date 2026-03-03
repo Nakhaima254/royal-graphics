@@ -108,7 +108,7 @@ const VideoEditingPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-[5.5rem]">
       <SEO title="Video Editing" description="Professional video editing services - social media reels, corporate videos, and cinematic productions." image="/images/og-default.png" url="/services/video-editing" />
       {/* Hero Section */}
       <div className="bg-accent py-20">

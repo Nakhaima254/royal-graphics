@@ -24,8 +24,10 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <div className="min-h-screen flex flex-col">
-            <PromoBanner />
-            <Navigation />
+            <div className="fixed top-0 w-full z-50 flex flex-col">
+              <PromoBanner />
+              <Navigation />
+            </div>
             <main className="flex-1">
               <AnimatedRoutes />
             </main>
