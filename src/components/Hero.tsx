@@ -42,7 +42,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const headingText = "Elevating Your";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
