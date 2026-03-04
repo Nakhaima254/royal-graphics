@@ -7,24 +7,34 @@ import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
 
 const rotatingWords = ["Digital Presence", "Brand Identity", "Online Growth", "Creative Vision"];
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: -90 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      duration: 0.5,
-      delay: i * 0.04,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  }),
-};
+const headingText = "Elevating Your";
 
 const Hero = () => {
   const [wordIndex, setWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
 
+  // Typewriter effect
+  useEffect(() => {
+    let i = 0;
+    setDisplayedText("");
+    const type = () => {
+      if (i <= headingText.length) {
+        setDisplayedText(headingText.slice(0, i));
+        i++;
+        setTimeout(type, 100);
+      }
+    };
+    type();
+  }, []);
+
+  // Blinking cursor
+  useEffect(() => {
+    const blink = setInterval(() => setShowCursor((v) => !v), 530);
+    return () => clearInterval(blink);
+  }, []);
+
+  // Rotating words
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % rotatingWords.length);
