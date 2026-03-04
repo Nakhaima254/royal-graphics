@@ -30,7 +30,7 @@ const stats = [
   { value: 3, suffix: "+", label: "Years of Excellence" },
   { value: 500, suffix: "+", label: "Happy Clients" },
   { value: 1000, suffix: "+", label: "Projects Delivered" },
-  { value: 25, suffix: "+", label: "Team Members" },
+  { value: 5, suffix: "+", label: "Team Members" },
 ];
 
 // Animated counter component
