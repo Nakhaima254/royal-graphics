@@ -27,7 +27,7 @@ const values = [
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Years of Excellence" },
+  { value: 3, suffix: "+", label: "Years of Excellence" },
   { value: 500, suffix: "+", label: "Happy Clients" },
   { value: 1000, suffix: "+", label: "Projects Delivered" },
   { value: 25, suffix: "+", label: "Team Members" },
@@ -129,7 +129,7 @@ const About = () => {
             Your Trusted Digital Partner
           </h2>
           <p className="text-lg text-muted-foreground">
-            With over a decade of experience, we've helped hundreds of businesses grow online 
+            With over 3 years of experience, we've helped hundreds of businesses grow online 
             and reach more customers.
           </p>
         </motion.div>
@@ -146,7 +146,7 @@ const About = () => {
             <h3 className="text-2xl font-bold text-card-foreground mb-4">Our Story</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Founded in 2014, Royal Graphics Solutions was born from a simple vision: to provide businesses with 
+                Founded in 2023, Royal Graphics Solutions was born from a simple vision: to provide businesses with 
                 premium digital marketing services that deliver real, measurable results. What started as a small 
                 graphic design studio has evolved into a full-service digital marketing agency.
               </p>
