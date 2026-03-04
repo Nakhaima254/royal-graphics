@@ -13,26 +13,35 @@ const Hero = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   // Typewriter effect
   useEffect(() => {
     let i = 0;
     setDisplayedText("");
+    setIsTypingComplete(false);
     const type = () => {
       if (i <= headingText.length) {
         setDisplayedText(headingText.slice(0, i));
         i++;
         setTimeout(type, 100);
+      } else {
+        setIsTypingComplete(true);
+        setShowCursor(false);
       }
     };
     type();
   }, []);
 
-  // Blinking cursor
+  // Blinking cursor - only active during typewriter animation
   useEffect(() => {
+    if (isTypingComplete) {
+      setShowCursor(false);
+      return;
+    }
     const blink = setInterval(() => setShowCursor((v) => !v), 530);
     return () => clearInterval(blink);
-  }, []);
+  }, [isTypingComplete]);
 
   // Rotating words
   useEffect(() => {
@@ -139,7 +148,7 @@ const Hero = () => {
             <span className="text-sm font-medium text-primary-foreground/90">Premium Digital Solutions</span>
           </motion.div>
 
-          {/* Main Heading with per-letter animation */}
+          {/* Main Heading with typewriter effect */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             <span>{displayedText}</span>
             <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
