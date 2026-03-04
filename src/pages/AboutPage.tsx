@@ -15,7 +15,7 @@ const AboutPage = () => {
     <div className="pt-[5.5rem]">
       <SEO 
         title="About Us"
-        description="Learn about Royal Graphics Solutions - your trusted digital marketing partner in Kenya with 10+ years of experience."
+        description="Learn about Royal Graphics Solutions - your trusted digital marketing partner in Kenya with 3+ years of experience."
         image="/images/og-default.png"
         url="/about"
       />
