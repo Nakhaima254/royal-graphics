@@ -142,23 +142,8 @@ const Hero = () => {
 
           {/* Main Heading with per-letter animation */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            <motion.span
-              className="inline-flex flex-wrap justify-center"
-              initial="hidden"
-              animate="visible"
-            >
-              {headingText.split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  custom={i}
-                  variants={letterVariants}
-                  className={char === " " ? "mr-[0.3em]" : ""}
-                  style={{ display: "inline-block" }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.span>
+            <span>{displayedText}</span>
+            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
 
             {/* Rotating word */}
             <span className="block mt-2 h-[1.2em] relative overflow-hidden">
