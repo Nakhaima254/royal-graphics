@@ -21,7 +21,7 @@ const staggerContainer = {
 const Home = () => {
   const stats = [
     { number: "150+", label: "Happy Clients", icon: Users },
-    { number: "10+", label: "Years Experience", icon: Award },
+    { number: "3+", label: "Years Experience", icon: Award },
     { number: "98%", label: "Client Satisfaction", icon: Star },
     { number: "24/7", label: "Support Available", icon: Target },
   ];
