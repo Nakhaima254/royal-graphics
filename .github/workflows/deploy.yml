@@ -3,33 +3,39 @@ name: Deploy to cPanel
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install & Build
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: 📂 Sync files
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.CPANEL_SERVER }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
-          # Use the folder name exactly as it appears in your File Manager
-          server-dir: royalgraphics.co.ke/
-          local-dir: ./dist/
-          # Standard FTP settings
-          protocol: ftp
+          # Path from your File Manager screenshot
+          server-dir: royalgraphics.co.ke/ 
+          local-dir: dist/
+          # Port 21 is required since SSH is disabled
           port: 21
+          protocol: ftp
+          # Adding this helps with cPanel handshake issues
+          state-name: .ftp-deploy-sync-state.json
