@@ -2,14 +2,42 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
+
+const rotatingWords = ["Digital Presence", "Brand Identity", "Online Growth", "Creative Vision"];
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: -90 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.04,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  }),
+};
 
 const Hero = () => {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const headingText = "Elevating Your";
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${heroBg})`,
@@ -23,48 +51,25 @@ const Hero = () => {
 
       {/* Animated Particles */}
       <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none">
-        {/* Floating Circles */}
         <motion.div
           className="absolute w-64 h-64 rounded-full bg-primary/10 blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           style={{ top: "10%", left: "10%" }}
         />
         <motion.div
           className="absolute w-96 h-96 rounded-full bg-accent-light/10 blur-3xl"
-          animate={{
-            x: [0, -120, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, -120, 0], y: [0, 100, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           style={{ top: "50%", right: "5%" }}
         />
         <motion.div
           className="absolute w-48 h-48 rounded-full bg-primary-light/15 blur-2xl"
-          animate={{
-            x: [0, 80, 0],
-            y: [0, -80, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           style={{ bottom: "20%", left: "60%" }}
         />
 
-        {/* Floating Geometric Shapes */}
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
@@ -80,14 +85,10 @@ const Hero = () => {
               ease: "easeInOut",
               delay: i * 0.5,
             }}
-            style={{
-              top: `${20 + i * 10}%`,
-              left: `${10 + i * 10}%`,
-            }}
+            style={{ top: `${20 + i * 10}%`, left: `${10 + i * 10}%` }}
           />
         ))}
 
-        {/* Sparkle Effects */}
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={`sparkle-${i}`}
@@ -103,10 +104,7 @@ const Hero = () => {
               ease: "easeInOut",
               delay: i * 0.7,
             }}
-            style={{
-              top: `${15 + i * 15}%`,
-              right: `${10 + i * 12}%`,
-            }}
+            style={{ top: `${15 + i * 15}%`, right: `${10 + i * 12}%` }}
           >
             <Icon icon={Sparkles} variant="primary" size="sm" />
           </motion.div>
@@ -116,39 +114,80 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          {/* Main Heading */}
-          <motion.h1 
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+          {/* Animated Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-5 py-2 mb-8"
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Elevating Your
-            <motion.span 
-              className="block mt-2 text-primary"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+            <motion.div
+              animate={{ rotate: [0, 15, -15, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              Digital Presence
+              <Sparkles className="w-4 h-4 text-primary" />
+            </motion.div>
+            <span className="text-sm font-medium text-primary-foreground/90">Premium Digital Solutions</span>
+          </motion.div>
+
+          {/* Main Heading with per-letter animation */}
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+            <motion.span
+              className="inline-flex flex-wrap justify-center"
+              initial="hidden"
+              animate="visible"
+            >
+              {headingText.split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  custom={i}
+                  variants={letterVariants}
+                  className={char === " " ? "mr-[0.3em]" : ""}
+                  style={{ display: "inline-block" }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </motion.span>
-          </motion.h1>
+
+            {/* Rotating word */}
+            <span className="block mt-2 h-[1.2em] relative overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  className="text-primary inline-block"
+                  initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                  exit={{ y: -60, opacity: 0, filter: "blur(8px)" }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {rotatingWords[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </h1>
+
+          {/* Animated underline accent */}
+          <motion.div
+            className="w-24 h-1 bg-primary rounded-full mx-auto mb-8"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+          />
 
           {/* Subheading */}
-          <motion.p 
-            className="text-lg sm:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+          <motion.p
+            className="text-lg sm:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            Transform your brand with expert graphic design, data-driven SEO strategies, and engaging social media management. 
-            Where creativity meets strategy.
+            Transform your brand with expert graphic design, data-driven SEO strategies, and engaging social media management.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -163,9 +202,9 @@ const Hero = () => {
             </Link>
             <Link to="/services">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="w-full sm:w-auto bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur-sm"
                 >
                   View Our Work
@@ -173,7 +212,6 @@ const Hero = () => {
               </motion.div>
             </Link>
           </motion.div>
-
         </div>
       </div>
 
