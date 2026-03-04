@@ -174,31 +174,6 @@ const Hero = () => {
             </Link>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-primary-foreground/20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-          >
-            {[
-              { value: "500+", label: "Projects Completed" },
-              { value: "95%", label: "Client Satisfaction" },
-              { value: "10+", label: "Years Experience" },
-              { value: "24/7", label: "Support Available" },
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.3 + index * 0.1 }}
-              >
-                <div className="text-3xl sm:text-4xl font-bold text-primary mb-1">{stat.value}</div>
-                <div className="text-sm text-primary-foreground/80">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
