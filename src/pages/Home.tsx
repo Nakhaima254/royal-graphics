@@ -65,7 +65,9 @@ const Home = () => {
                 <div className="w-12 h-12 bg-accent-foreground/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <stat.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-accent-foreground mb-1">{stat.number}</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent-foreground mb-1">
+                  {stat.display ? stat.display : <AnimatedCounter value={stat.value!} suffix={stat.suffix} />}
+                </div>
                 <div className="text-accent-foreground/80 text-sm">{stat.label}</div>
               </motion.div>
             ))}
