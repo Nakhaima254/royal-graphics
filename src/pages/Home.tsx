@@ -21,10 +21,10 @@ const staggerContainer = {
 
 const Home = () => {
   const stats = [
-    { number: "150+", label: "Happy Clients", icon: Users },
-    { number: "3+", label: "Years Experience", icon: Award },
-    { number: "98%", label: "Client Satisfaction", icon: Star },
-    { number: "24/7", label: "Support Available", icon: Target },
+    { value: 150, suffix: "+", label: "Happy Clients", icon: Users },
+    { value: 3, suffix: "+", label: "Years Experience", icon: Award },
+    { value: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
+    { label: "Support Available", icon: Target, display: "24/7" },
   ];
 
   const process = [
