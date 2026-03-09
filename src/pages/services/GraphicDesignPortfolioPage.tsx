@@ -15,7 +15,7 @@ import {
 // Logo imports
 import jahaziLogo from "@/assets/portfolio/logos/jahazi-solutions.png";
 import hikersHavenLogo from "@/assets/portfolio/logos/hikers-haven.png";
-import moraraLogo from "@/assets/portfolio/logos/morara-furniture.png";
+
 import neoAfricaLogo from "@/assets/portfolio/logos/neo-africa.png";
 import subyTechLogo from "@/assets/portfolio/logos/suby-tech.png";
 import tekSavannahLogo from "@/assets/portfolio/logos/tek-savannah.png";
