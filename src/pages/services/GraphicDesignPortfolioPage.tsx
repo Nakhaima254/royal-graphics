@@ -149,7 +149,7 @@ const GraphicDesignPortfolioPage = () => {
       items: [
         { title: "Jahazi Solutions", image: jahaziLogo },
         { title: "Hikers Haven Community", image: hikersHavenLogo },
-        { title: "Morara Home Furniture", image: moraraLogo },
+        
         { title: "Neo Africa Safaris", image: neoAfricaLogo },
         { title: "Suby Tech", image: subyTechLogo },
         { title: "Tek Savannah Labs", image: tekSavannahLogo },
