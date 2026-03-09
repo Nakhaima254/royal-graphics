@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Palette, TrendingUp, Share2, ArrowRight, Users, Award, Target, CheckCircle, Star, MessageSquare, Lightbulb, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
