@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Palette, TrendingUp, Share2, ArrowRight, Users, Award, Target, CheckCircle, Star, MessageSquare, Lightbulb, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -20,10 +21,10 @@ const staggerContainer = {
 
 const Home = () => {
   const stats = [
-    { number: "150+", label: "Happy Clients", icon: Users },
-    { number: "3+", label: "Years Experience", icon: Award },
-    { number: "98%", label: "Client Satisfaction", icon: Star },
-    { number: "24/7", label: "Support Available", icon: Target },
+    { value: 150, suffix: "+", label: "Happy Clients", icon: Users },
+    { value: 3, suffix: "+", label: "Years Experience", icon: Award },
+    { value: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
+    { label: "Support Available", icon: Target, display: "24/7" },
   ];
 
   const process = [
@@ -64,7 +65,9 @@ const Home = () => {
                 <div className="w-12 h-12 bg-accent-foreground/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <stat.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-accent-foreground mb-1">{stat.number}</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent-foreground mb-1">
+                  {stat.display ? stat.display : <AnimatedCounter value={stat.value!} suffix={stat.suffix} />}
+                </div>
                 <div className="text-accent-foreground/80 text-sm">{stat.label}</div>
               </motion.div>
             ))}
