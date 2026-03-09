@@ -1,6 +1,18 @@
 Options -MultiViews
 RewriteEngine On
 
+# --- Prerender.io for Social Media Bots ---
+<IfModule mod_headers.c>
+    RequestHeader set X-Prerender-Token "YOUR_PRERENDER_TOKEN"
+</IfModule>
+
+# Redirect social/search bots to Prerender.io
+RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp|Applebot|TelegramBot [NC,OR]
+RewriteCond %{QUERY_STRING} _escaped_fragment_
+RewriteCond %{REQUEST_URI} !^/images/ [NC]
+RewriteCond %{REQUEST_URI} !^/favicon [NC]
+RewriteRule ^(.*)$ https://service.prerender.io/https://royalgraphics.co.ke/$1 [P,L]
+
 # --- SPA fallback ---
 # Serve index.html for all routes that don't have a file extension
 RewriteCond %{REQUEST_FILENAME} !-f
