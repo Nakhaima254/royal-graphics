@@ -98,7 +98,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-primary hover:text-primary-light transition-smooth font-medium"
             >
-              Waks Digital
+              Waks Digital Solutions
             </a>
           </p>
         </div>
