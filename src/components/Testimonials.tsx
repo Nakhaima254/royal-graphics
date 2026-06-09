@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import Icon from "@/components/ui/icon";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -23,55 +24,98 @@ const testimonials = [
   },
 ];
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
 const Testimonials = () => {
   return (
     <section className="py-20 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
             Testimonials
-          </div>
+          </motion.div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             What Our Clients Say
           </h2>
           <p className="text-lg text-muted-foreground">
             Don't just take our word for it. Here's what our clients have to say about working with us.
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {testimonials.map((testimonial, index) => (
-            <Card 
+            <motion.div
               key={index}
-              className="p-6 border-border hover:shadow-card transition-smooth bg-card"
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -6 }}
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Icon key={i} icon={Star} variant="accent" size="md" className="fill-accent text-accent" />
-                ))}
-              </div>
-
-              {/* Content */}
-              <p className="text-card-foreground mb-6 leading-relaxed">
-                "{testimonial.content}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
-                  {testimonial.name.split(' ').map(n => n[0]).join('')}
+              <Card className="p-6 border-border hover:shadow-card transition-shadow duration-300 bg-card h-full">
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 + 0.2, type: "spring", stiffness: 300 }}
+                    >
+                      <Icon icon={Star} variant="accent" size="md" className="fill-accent text-accent" />
+                    </motion.div>
+                  ))}
                 </div>
-                <div>
-                  <div className="font-semibold text-card-foreground">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+
+                {/* Content */}
+                <p className="text-card-foreground mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
+                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-card-foreground">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

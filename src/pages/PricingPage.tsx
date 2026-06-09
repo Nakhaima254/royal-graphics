@@ -8,27 +8,6 @@ import SEO from "@/components/SEO";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
-const DISCOUNT = 0.20;
-
-const applyDiscount = (priceStr: string): { original: string; discounted: string } => {
-  // Handle prices like "650/page", "500/page"
-  const match = priceStr.match(/^([\d,]+)(\/.*)?$/);
-  if (!match) return { original: priceStr, discounted: priceStr };
-  const numericStr = match[1].replace(/,/g, '');
-  const suffix = match[2] || '';
-  const original = parseInt(numericStr);
-  const discounted = Math.round(original * (1 - DISCOUNT));
-  const formatNum = (n: number) => n.toLocaleString();
-  return { original: formatNum(original) + suffix, discounted: formatNum(discounted) + suffix };
-};
-
-const applyDiscountToKES = (kesPrice: string): { original: string; discounted: string } => {
-  const match = kesPrice.match(/KES\s+([\d,]+)/);
-  if (!match) return { original: kesPrice, discounted: kesPrice };
-  const num = parseInt(match[1].replace(/,/g, ''));
-  const discounted = Math.round(num * (1 - DISCOUNT));
-  return { original: kesPrice, discounted: `KES ${discounted.toLocaleString()}` };
-};
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -510,7 +489,7 @@ const PricingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Transparent Pricing — <span className="text-accent">20% OFF</span>
+            Transparent Pricing
           </motion.h1>
           <motion.p 
             className="text-primary-foreground/90 max-w-2xl mx-auto text-lg"
@@ -518,7 +497,7 @@ const PricingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            All prices discounted by 20% until March 31, 2026. No hidden fees.
+            Affordable rates with no hidden fees.
           </motion.p>
         </div>
       </div>
@@ -593,18 +572,17 @@ const PricingPage = () => {
                                   Popular
                                 </div>
                               )}
-                              <div className="flex items-start gap-3 mb-3">
-                                <div className={`p-2 rounded-lg transition-colors ${item.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'}`}>
-                                  <item.icon className="w-5 h-5" />
-                                </div>
-                                <div className="flex-1 flex items-start justify-between">
-                                  <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
-                                  <div className="text-right ml-2">
-                                    <span className="text-xs text-muted-foreground line-through block">KES {item.price}</span>
-                                    <span className="text-lg font-bold text-primary whitespace-nowrap">KES {applyDiscount(item.price).discounted}</span>
+                                <div className="flex items-start gap-3 mb-3">
+                                  <div className={`p-2 rounded-lg transition-colors ${item.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'}`}>
+                                    <item.icon className="w-5 h-5" />
+                                  </div>
+                                  <div className="flex-1 flex items-start justify-between">
+                                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
+                                    <div className="text-right ml-2">
+                                      <span className="text-lg font-bold text-primary whitespace-nowrap">KES {item.price}</span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
                               <p className="text-sm text-muted-foreground leading-relaxed pl-12">{item.description}</p>
                             </Card>
                           </motion.div>
@@ -634,16 +612,12 @@ const PricingPage = () => {
                                   </div>
                                   <div>
                                     <h4 className="font-bold text-lg">{bundle.name}</h4>
-                                    <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
-                                      Save {bundle.savings}
-                                    </span>
                                   </div>
                                 </div>
                                 <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                 <div className="mb-4">
                                   <div className="flex items-baseline gap-2 mb-2">
-                                    <span className="text-2xl font-bold text-primary">KES {applyDiscount(bundle.bundlePrice).discounted}</span>
-                                    <span className="text-muted-foreground line-through text-sm">KES {bundle.bundlePrice}</span>
+                                    <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                   </div>
                                 </div>
                                 <div className="space-y-2 mb-6">
@@ -655,7 +629,7 @@ const PricingPage = () => {
                                     </div>
                                   ))}
                                 </div>
-                                <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Graphic Design&discount=${bundle.savings.replace("%", "")}`}>
+                                <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Graphic Design`}>
                                   <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
                                     Get This Bundle
                                   </Button>
@@ -758,12 +732,8 @@ const PricingPage = () => {
                               </div>
 
                               <div className="mb-6">
-                                <span className={`text-sm line-through ${plan.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
-                                  {plan.price}
-                                </span>
-                                <br />
                                 <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
-                                  {applyDiscountToKES(plan.price).discounted}
+                                  {plan.price}
                                 </span>
                                 <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                                   {plan.period}
@@ -821,16 +791,12 @@ const PricingPage = () => {
                                     </div>
                                     <div>
                                       <h4 className="font-bold text-lg">{bundle.name}</h4>
-                                      <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
-                                        Save {bundle.savings}
-                                      </span>
                                     </div>
                                   </div>
                                   <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
-                                      <span className="text-2xl font-bold text-primary">KES {applyDiscount(bundle.bundlePrice).discounted}</span>
-                                      <span className="text-muted-foreground line-through text-sm">KES {bundle.bundlePrice}</span>
+                                      <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
@@ -842,7 +808,7 @@ const PricingPage = () => {
                                       </div>
                                     ))}
                                   </div>
-                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Video Editing&discount=${bundle.savings.replace("%", "")}`}>
+                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Video Editing`}>
                                     <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
                                       Get This Bundle
                                     </Button>
@@ -879,16 +845,12 @@ const PricingPage = () => {
                                     </div>
                                     <div>
                                       <h4 className="font-bold text-lg">{bundle.name}</h4>
-                                      <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">
-                                        Save {bundle.savings}
-                                      </span>
                                     </div>
                                   </div>
                                   <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
-                                      <span className="text-2xl font-bold text-primary">KES {applyDiscount(bundle.bundlePrice).discounted}</span>
-                                      <span className="text-muted-foreground line-through text-sm">KES {bundle.bundlePrice}</span>
+                                      <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
@@ -900,7 +862,7 @@ const PricingPage = () => {
                                       </div>
                                     ))}
                                   </div>
-                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Social Media Marketing&discount=${bundle.savings.replace("%", "")}`}>
+                                  <Link to={`/contact?services=${encodeURIComponent(bundle.includes.join(","))}&total=${bundle.bundlePrice.replace(/,/g, "")}&category=Social Media Marketing`}>
                                     <Button className="w-full" variant={bundle.popular ? "default" : "outline"}>
                                       Get This Bundle
                                     </Button>
@@ -995,7 +957,7 @@ const PricingPage = () => {
               },
               {
                 q: "Do you offer discounts for long-term contracts?",
-                a: "Yes! We offer 10% off for 3-month contracts, 15% off for 6-month contracts, and 20% off for annual contracts."
+                a: "Yes! We offer special rates for long-term partnerships. Contact us for a custom quote based on your project scope and duration."
               },
               {
                 q: "What's your refund policy?",
