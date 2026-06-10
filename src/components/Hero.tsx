@@ -107,25 +107,46 @@ const Hero = () => {
           />
         ))}
 
-        {[...Array(6)].map((_, i) => (
+        {/* Tiny square "bits" floating */}
+        {[...Array(14)].map((_, i) => (
           <motion.div
-            key={`sparkle-${i}`}
-            className="absolute"
+            key={`bit-${i}`}
+            className="absolute w-1.5 h-1.5 bg-primary/50 rounded-[2px]"
             animate={{
-              scale: [0, 1, 0],
-              rotate: [0, 180, 360],
+              y: [0, -40, 0],
               opacity: [0, 1, 0],
+              rotate: [0, 90, 0],
             }}
             transition={{
-              duration: 4,
+              duration: 5 + (i % 4),
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.7,
+              delay: i * 0.4,
             }}
-            style={{ top: `${15 + i * 15}%`, right: `${10 + i * 12}%` }}
-          >
-            <Icon icon={Sparkles} variant="primary" size="sm" />
-          </motion.div>
+            style={{
+              top: `${(i * 47) % 90 + 5}%`,
+              left: `${(i * 31) % 95 + 2}%`,
+            }}
+          />
+        ))}
+
+        {/* Tiny ring bits */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`ring-${i}`}
+            className="absolute w-3 h-3 border border-primary/40 rounded-full"
+            animate={{
+              scale: [0.6, 1.4, 0.6],
+              opacity: [0, 0.7, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.9,
+            }}
+            style={{ top: `${15 + i * 13}%`, right: `${8 + i * 11}%` }}
+          />
         ))}
       </div>
 
@@ -134,18 +155,31 @@ const Hero = () => {
         <div className="text-center max-w-4xl mx-auto">
           {/* Animated Badge */}
           <motion.div
-            className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-5 py-2 mb-8"
+            className="relative inline-flex items-center bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-5 py-2 mb-8 overflow-hidden"
             initial={{ opacity: 0, y: -20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 15, -15, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Sparkles className="w-4 h-4 text-primary" />
-            </motion.div>
-            <span className="text-sm font-medium text-primary-foreground/90">Premium Digital Solutions</span>
+            {/* Shimmer sweep */}
+            <motion.span
+              aria-hidden
+              className="absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-primary-foreground/30 to-transparent"
+              animate={{ x: ["0%", "400%"] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
+            />
+            <span className="relative text-sm font-medium text-primary-foreground/90 flex">
+              {"Premium Digital Solutions".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 + i * 0.03 }}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </span>
           </motion.div>
 
           {/* Main Heading with typewriter effect */}
