@@ -111,7 +111,7 @@ const Navigation = () => {
                                 >
                                   <currentFeatured.icon className="w-6 h-6" />
                                 </motion.div>
-                                <span className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-1"><Sparkles className="w-3 h-3" /> Featured</span>
+                                <span className="text-xs font-bold text-primary uppercase tracking-widest">Featured</span>
                                 <h3 className="font-bold text-base text-foreground mt-1.5 group-hover:text-primary transition-colors duration-300">
                                   {currentFeatured.label}
                                 </h3>
