@@ -188,42 +188,71 @@ const Hero = () => {
                 transition={{ duration: 2.4, repeat: Infinity }}
               />
 
-              {/* Floating stat card */}
+              {/* Floating Instagram-style image card (glassmorphism) */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="absolute -bottom-2 left-0 bg-background border border-border rounded-xl shadow-premium p-4 w-[200px]"
+                initial={{ opacity: 0, y: 20, rotate: -6 }}
+                animate={{ opacity: 1, y: 0, rotate: -4 }}
+                transition={{ duration: 0.7, delay: 1 }}
+                whileHover={{ rotate: 0, scale: 1.04 }}
+                className="absolute -bottom-4 -left-2 w-[220px] rounded-2xl overflow-hidden border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-xl shadow-premium"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                    99%
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">Client Growth</div>
-                    <div className="text-sm font-bold text-foreground">Success Rate</div>
+                <div className="relative h-32 overflow-hidden">
+                  <img
+                    src={socialImg}
+                    alt="Social media campaign preview"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2 left-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm text-[10px] font-bold text-foreground">
+                    <Icon icon={Instagram} variant="primary" size="xs" />
+                    @royalgraphics
                   </div>
                 </div>
-                <div className="mt-3 h-1.5 w-full bg-muted rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "92%" }}
-                    transition={{ duration: 1.2, delay: 1.3, ease: "easeOut" }}
-                    className="h-full bg-primary"
-                  />
+                <div className="p-3 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs shrink-0">
+                    99%
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[9px] uppercase font-bold text-primary-foreground/60 tracking-wider">Engagement</div>
+                    <div className="text-xs font-bold text-primary-foreground truncate">Above industry avg</div>
+                  </div>
                 </div>
               </motion.div>
 
-              {/* Floating tag card */}
+              {/* Floating design preview card (glassmorphism) */}
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
-                className="absolute top-2 right-0 bg-accent-light/60 backdrop-blur-sm border border-primary-foreground/10 rounded-lg p-3"
+                initial={{ opacity: 0, y: -20, rotate: 8 }}
+                animate={{ opacity: 1, y: 0, rotate: 5 }}
+                transition={{ duration: 0.7, delay: 1.1 }}
+                whileHover={{ rotate: 0, scale: 1.04 }}
+                className="absolute -top-4 -right-2 w-[180px] rounded-2xl overflow-hidden border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-xl shadow-premium"
               >
-                <div className="w-10 h-1.5 bg-primary rounded mb-2" />
-                <div className="w-20 h-1.5 bg-primary-foreground/30 rounded" />
+                <div className="relative h-24 overflow-hidden">
+                  <img
+                    src={designImg}
+                    alt="Brand design preview"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <Icon icon={TrendingUp} variant="primary" size="xs" />
+                    <div className="text-[9px] uppercase font-bold text-primary-foreground/70 tracking-wider">
+                      Brand Reach
+                    </div>
+                  </div>
+                  <div className="h-1.5 w-full bg-primary-foreground/15 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: "85%" }}
+                      transition={{ duration: 1.2, delay: 1.5, ease: "easeOut" }}
+                      className="h-full bg-primary"
+                    />
+                  </div>
+                </div>
               </motion.div>
+
             </div>
           </div>
         </div>
