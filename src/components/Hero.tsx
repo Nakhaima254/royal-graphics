@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
+import socialImg from "@/assets/service-social.jpg";
+import designImg from "@/assets/service-design.jpg";
 
 const rotatingWords = ["Digital Presence", "Brand Identity", "Online Growth", "Creative Vision"];
 
