@@ -24,7 +24,27 @@ const Hero = () => {
       id="home"
       className="relative bg-accent overflow-hidden h-[78vh] min-h-[560px] max-h-[820px] flex items-center"
     >
-      {/* Dot grid */}
+      {/* Glassmorphism background blobs */}
+      <motion.div
+        aria-hidden
+        className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary/25 blur-3xl pointer-events-none"
+        animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="absolute top-1/3 right-[-6rem] w-[32rem] h-[32rem] rounded-full bg-primary-foreground/10 blur-3xl pointer-events-none"
+        animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="absolute bottom-[-8rem] left-1/3 w-[24rem] h-[24rem] rounded-full bg-primary/15 blur-3xl pointer-events-none"
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Dot grid overlay */}
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -36,6 +56,7 @@ const Hero = () => {
 
       {/* Decorative bottom accent bar */}
       <div className="absolute bottom-0 left-0 w-1/3 h-1 bg-primary z-20" />
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-center">
