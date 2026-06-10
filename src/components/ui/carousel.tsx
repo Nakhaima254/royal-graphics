@@ -1,6 +1,7 @@
 import * as React from "react";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,11 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
+  scrollTo: (index: number) => void;
+  selectedIndex: number;
+  slideCount: number;
+  isPlaying: boolean;
+  toggleAutoplay: () => void;
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -40,15 +46,23 @@ function useCarousel() {
 
 const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & CarouselProps>(
   ({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
+    const autoplayPlugin = React.useMemo(
+      () => Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true }),
+      []
+    );
+    
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-      plugins,
+      plugins ? [...plugins, autoplayPlugin] : [autoplayPlugin],
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    const [isPlaying, setIsPlaying] = React.useState(true);
+    const slideCount = api?.scrollSnapList().length || 0;
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
@@ -57,6 +71,7 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 
       setCanScrollPrev(api.canScrollPrev());
       setCanScrollNext(api.canScrollNext());
+      setSelectedIndex(api.selectedScrollSnap());
     }, []);
 
     const scrollPrev = React.useCallback(() => {
@@ -65,6 +80,21 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 
     const scrollNext = React.useCallback(() => {
       api?.scrollNext();
+    }, [api]);
+
+    const scrollTo = React.useCallback((index: number) => {
+      api?.scrollTo(index);
+    }, [api]);
+
+    const toggleAutoplay = React.useCallback(() => {
+      const autoplay = api?.plugins()?.autoplay;
+      if (autoplay?.isPlaying()) {
+        api?.plugins()?.autoplay?.stop();
+        setIsPlaying(false);
+      } else {
+        api?.plugins()?.autoplay?.play();
+        setIsPlaying(true);
+      }
     }, [api]);
 
     const handleKeyDown = React.useCallback(
@@ -113,6 +143,11 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
           scrollNext,
           canScrollPrev,
           canScrollNext,
+          scrollTo,
+          selectedIndex,
+          slideCount,
+          isPlaying,
+          toggleAutoplay,
         }}
       >
         <div
@@ -221,4 +256,67 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 );
 CarouselNext.displayName = "CarouselNext";
 
-export { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext };
+const CarouselPagination = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { selectedIndex, slideCount, scrollTo } = useCarousel();
+
+    return (
+      <div
+        ref={ref}
+        className={cn("flex justify-center gap-2 mt-4", className)}
+        {...props}
+      >
+        {Array.from({ length: slideCount }, (_, index) => (
+          <button
+            key={index}
+            className={cn(
+              "h-2 w-2 rounded-full transition-all duration-300",
+              selectedIndex === index
+                ? "bg-primary w-6"
+                : "bg-primary-foreground/30 hover:bg-primary/50"
+            )}
+            onClick={() => scrollTo(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    );
+  },
+);
+CarouselPagination.displayName = "CarouselPagination";
+
+const CarouselAutoplayToggle = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
+  ({ className, variant = "ghost", size = "icon", ...props }, ref) => {
+    const { toggleAutoplay, isPlaying } = useCarousel();
+
+    return (
+      <Button
+        ref={ref}
+        variant={variant}
+        size={size}
+        className={cn("h-8 w-8 rounded-full", className)}
+        onClick={toggleAutoplay}
+        {...props}
+      >
+        {isPlaying ? (
+          <Pause className="h-4 w-4" />
+        ) : (
+          <Play className="h-4 w-4" />
+        )}
+        <span className="sr-only">{isPlaying ? "Pause autoplay" : "Play autoplay"}</span>
+      </Button>
+    );
+  },
+);
+CarouselAutoplayToggle.displayName = "CarouselAutoplayToggle";
+
+export { 
+  type CarouselApi, 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext,
+  CarouselPagination,
+  CarouselAutoplayToggle
+};

@@ -11,6 +11,8 @@ import AnimatedRoutes from "@/components/AnimatedRoutes";
 import FloatingContact from "@/components/FloatingContact";
 import BackToTop from "@/components/BackToTop";
 import CookieConsent from "@/components/CookieConsent";
+import HexBackground from "@/components/HexBackground";
+import "@/components/HexBackground.css";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <HexBackground />
           <ScrollToTop />
           <div className="min-h-screen flex flex-col">
             <div className="fixed top-0 w-full z-50 flex flex-col">

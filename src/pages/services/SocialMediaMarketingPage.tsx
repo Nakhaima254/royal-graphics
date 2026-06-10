@@ -8,6 +8,7 @@ import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
+import TypewriterText from "@/components/TypewriterText";
 
 const SocialMediaMarketingPage = () => {
   const features = [
@@ -137,7 +138,7 @@ const SocialMediaMarketingPage = () => {
               <Icon icon={Share2} size="xl" className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
-              Social Media Marketing
+              <TypewriterText text="Social Media Marketing" speed={40} />
             </h1>
             <p className="text-accent-foreground/90 max-w-2xl mx-auto text-lg mb-8">
               Build your online presence and engage with your audience across all platforms
@@ -154,7 +155,7 @@ const SocialMediaMarketingPage = () => {
       </div>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -164,11 +165,11 @@ const SocialMediaMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Grow Your Social Presence</h2>
-              <p className="text-muted-foreground mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-white">Grow Your Social Presence</h2>
+              <p className="text-white/80 mb-6">
                 We help you build meaningful connections with your audience through strategic social media marketing. From content creation to community management, we handle it all so you can focus on running your business.
               </p>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/80 mb-6">
                 Our team of social media experts stays ahead of the latest trends and algorithm changes to ensure your brand stays visible and relevant in the ever-evolving digital landscape.
               </p>
               <ul className="space-y-4">
@@ -181,8 +182,8 @@ const SocialMediaMarketingPage = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Icon icon={CheckCircle} variant="accent" size="md" className="flex-shrink-0 text-accent" />
-                    <span>{feature}</span>
+                    <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0 text-primary" />
+                    <span className="text-white">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -244,7 +245,7 @@ const SocialMediaMarketingPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -252,8 +253,8 @@ const SocialMediaMarketingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Our Process</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Our Process</h2>
+            <p className="text-white/70 max-w-2xl mx-auto">
               A proven methodology that delivers consistent results for your social media campaigns.
             </p>
           </motion.div>
@@ -267,9 +268,9 @@ const SocialMediaMarketingPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="text-4xl font-bold text-accent mb-2">{item.step}</div>
-                <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <div className="text-4xl font-bold text-primary mb-2">{item.step}</div>
+                <h3 className="font-semibold mb-2 text-white">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -342,15 +343,15 @@ const SocialMediaMarketingPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-20 bg-secondary/20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Go Viral?</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Go Viral?</h2>
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
               Let's create a social media strategy that drives real results and helps your brand stand out in the crowded digital landscape.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

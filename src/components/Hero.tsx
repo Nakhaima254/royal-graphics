@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
+import TypewriterText from "@/components/TypewriterText";
+import { Carousel, CarouselContent, CarouselItem, CarouselPagination } from "@/components/ui/carousel";
 import socialImg from "@/assets/service-social.jpg";
 import designImg from "@/assets/service-design.jpg";
+import seoImg from "@/assets/service-seo.jpg";
+
+const socialImages = [
+  { src: socialImg, alt: "Social media campaign preview", handle: "@royalgraphics", engagement: "99%" },
+  { src: designImg, alt: "Brand design preview", handle: "@royalgraphics", engagement: "99%" },
+  { src: seoImg, alt: "SEO performance preview", handle: "@royalgraphics", engagement: "95%" }
+];
 
 const rotatingWords = ["Digital Presence", "Brand Identity", "Online Growth", "Creative Vision"];
 
@@ -27,22 +36,28 @@ const Hero = () => {
       {/* Glassmorphism background blobs */}
       <motion.div
         aria-hidden
-        className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary/25 blur-3xl pointer-events-none"
+        className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary/25 blur-3xl pointer-events-none z-0 xl:-top-28 xl:-left-28 xl:w-[30rem] xl:h-[30rem]"
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="absolute top-1/3 right-[-6rem] w-[32rem] h-[32rem] rounded-full bg-primary-foreground/10 blur-3xl pointer-events-none"
+        className="absolute top-1/3 right-[-6rem] w-[32rem] h-[32rem] rounded-full bg-primary-foreground/10 blur-3xl pointer-events-none z-0 xl:right-[-8rem] xl:w-[34rem] xl:h-[34rem]"
         animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="absolute bottom-[-8rem] left-1/3 w-[24rem] h-[24rem] rounded-full bg-primary/15 blur-3xl pointer-events-none"
+        className="absolute bottom-[-8rem] left-1/3 w-[24rem] h-[24rem] rounded-full bg-primary/15 blur-3xl pointer-events-none z-0 sm:left-1/4 sm:bottom-[-6rem] lg:left-1/3"
         animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
+
+      {/* Hero glass gradient and animated noise */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left_top,rgba(255,255,255,0.18),transparent_28%),radial-gradient(circle_at_right_bottom,rgba(255,255,255,0.12),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 glass-noise opacity-70" />
+      </div>
 
       {/* Dot grid overlay */}
       <div
@@ -136,6 +151,53 @@ const Hero = () => {
                 </motion.div>
               </Link>
             </motion.div>
+
+            <div className="md:hidden mt-8 grid grid-cols-2 gap-3">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-primary-foreground/10 glass-surface shadow-card">
+                <div className="relative h-24 overflow-hidden">
+                  <img
+                    src={socialImg}
+                    alt="Social media campaign preview"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2 left-2 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/80 backdrop-blur-sm text-[10px] font-semibold text-slate-900">
+                    <Icon icon={Instagram} variant="primary" size="xs" />
+                    @royalgraphics
+                  </div>
+                </div>
+                <div className="p-3 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-[10px] font-bold">
+                    99%
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[9px] uppercase font-semibold text-primary-foreground/60 tracking-wider">Engagement</div>
+                    <div className="text-[10px] font-bold text-primary-foreground truncate">Above industry avg</div>
+                  </div>
+                </div>
+              </div>
+              <div className="relative w-full rounded-2xl overflow-hidden border border-primary-foreground/10 glass-surface shadow-card">
+                <div className="relative h-24 overflow-hidden">
+                  <img
+                    src={designImg}
+                    alt="Brand design preview"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <Icon icon={TrendingUp} variant="primary" size="xs" />
+                    <div className="text-[9px] uppercase font-semibold text-primary-foreground/70 tracking-wider">
+                      Brand Reach
+                    </div>
+                  </div>
+                  <div className="h-1.5 w-full bg-primary-foreground/15 rounded-full overflow-hidden">
+                    <div className="h-full bg-primary w-[85%]" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT: Geometric motion graphic */}
@@ -188,44 +250,48 @@ const Hero = () => {
                 transition={{ duration: 2.4, repeat: Infinity }}
               />
 
-              {/* Floating Instagram-style image card (glassmorphism) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, rotate: -6 }}
-                animate={{ opacity: 1, y: 0, rotate: -4 }}
-                transition={{ duration: 0.7, delay: 1 }}
-                whileHover={{ rotate: 0, scale: 1.04 }}
-                className="absolute -bottom-4 -left-2 w-[220px] rounded-2xl overflow-hidden border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-xl shadow-premium"
-              >
-                <div className="relative h-32 overflow-hidden">
-                  <img
-                    src={socialImg}
-                    alt="Social media campaign preview"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2 left-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm text-[10px] font-bold text-foreground">
-                    <Icon icon={Instagram} variant="primary" size="xs" />
-                    @royalgraphics
-                  </div>
-                </div>
-                <div className="p-3 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs shrink-0">
-                    99%
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[9px] uppercase font-bold text-primary-foreground/60 tracking-wider">Engagement</div>
-                    <div className="text-xs font-bold text-primary-foreground truncate">Above industry avg</div>
-                  </div>
-                </div>
-              </motion.div>
+{/* Floating Instagram-style image cards (auto-rotating carousel) */}
+               <Carousel
+                 opts={{ loop: true }}
+                 className="absolute -bottom-4 -left-2 w-[220px] rounded-2xl overflow-hidden border border-primary-foreground/20 glass-surface shadow-premium transition-smooth"
+               >
+                 <CarouselContent>
+                   {socialImages.map((item, index) => (
+                     <CarouselItem key={index} className="p-0">
+                       <div className="relative h-32 overflow-hidden">
+                         <img
+                           src={item.src}
+                           alt={item.alt}
+                           className="w-full h-full object-cover"
+                           loading="lazy"
+                         />
+                         <div className="absolute top-2 left-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm text-[10px] font-bold text-foreground">
+                           <Icon icon={Instagram} variant="primary" size="xs" />
+                           {item.handle}
+                         </div>
+                       </div>
+                       <div className="p-3 flex items-center gap-3">
+                         <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs shrink-0">
+                           {item.engagement}
+                         </div>
+                         <div className="min-w-0">
+                           <div className="text-[9px] uppercase font-bold text-primary-foreground/60 tracking-wider">Engagement</div>
+                           <div className="text-xs font-bold text-primary-foreground truncate">Above industry avg</div>
+                         </div>
+                       </div>
+                     </CarouselItem>
+                   ))}
+                 </CarouselContent>
+                 <CarouselPagination className="pb-2" />
+               </Carousel>
 
               {/* Floating design preview card (glassmorphism) */}
               <motion.div
-                initial={{ opacity: 0, y: -20, rotate: 8 }}
-                animate={{ opacity: 1, y: 0, rotate: 5 }}
-                transition={{ duration: 0.7, delay: 1.1 }}
-                whileHover={{ rotate: 0, scale: 1.04 }}
-                className="absolute -top-4 -right-2 w-[180px] rounded-2xl overflow-hidden border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-xl shadow-premium"
+                initial={{ opacity: 0, y: -34, x: 20, rotate: 10 }}
+                animate={{ opacity: 1, y: 0, x: 0, rotate: 5 }}
+                transition={{ duration: 0.95, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ rotate: 0, scale: 1.05, x: -6, y: 4 }}
+                className="absolute -top-4 -right-2 w-[180px] rounded-2xl overflow-hidden border border-primary-foreground/20 glass-surface shadow-premium transition-smooth"
               >
                 <div className="relative h-24 overflow-hidden">
                   <img

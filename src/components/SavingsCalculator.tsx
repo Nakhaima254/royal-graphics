@@ -94,7 +94,7 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
   };
 
   return (
-    <Card className="p-6 lg:p-8 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
+    <Card className="p-6 lg:p-8 bg-white border-primary/20">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-xl bg-primary text-primary-foreground">
           <Icon icon={Calculator} variant="foreground" size="lg" className="text-primary-foreground" />

@@ -8,6 +8,7 @@ import Icon from "@/components/ui/icon";
 import ServiceTestimonials, { Testimonial } from "@/components/ServiceTestimonials";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
+import TypewriterText from "@/components/TypewriterText";
 
 const EmailMarketingPage = () => {
   const features = [
@@ -129,7 +130,7 @@ const EmailMarketingPage = () => {
               <Icon icon={Mail} size="xl" className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              Email Marketing
+              <TypewriterText text="Email Marketing" speed={40} />
             </h1>
             <p className="text-primary-foreground/90 max-w-2xl mx-auto text-lg">
               Strategic email campaigns that nurture leads and drive conversions
@@ -139,7 +140,7 @@ const EmailMarketingPage = () => {
       </div>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -149,11 +150,11 @@ const EmailMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Connect Directly With Your Audience</h2>
-              <p className="text-muted-foreground mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-white">Connect Directly With Your Audience</h2>
+              <p className="text-white/80 mb-6">
                 Email marketing remains one of the most effective digital marketing channels. We create personalized email campaigns that engage your subscribers and drive measurable results for your business.
               </p>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/80 mb-6">
                 From welcome sequences to complex automation workflows, we design email strategies that nurture relationships and convert prospects into loyal customers.
               </p>
               <ul className="space-y-4">
@@ -167,7 +168,7 @@ const EmailMarketingPage = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0" />
-                    <span>{feature}</span>
+                    <span className="text-white">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -229,7 +230,7 @@ const EmailMarketingPage = () => {
       </section>
 
       {/* Email Types */}
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -237,8 +238,8 @@ const EmailMarketingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Email Campaigns We Create</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Email Campaigns We Create</h2>
+            <p className="text-white/70 max-w-2xl mx-auto">
               Strategic email sequences designed for every stage of the customer journey.
             </p>
           </motion.div>
@@ -246,14 +247,14 @@ const EmailMarketingPage = () => {
             {emailTypes.map((type, index) => (
               <motion.div
                 key={index}
-                className="p-6 border border-border rounded-xl hover:border-primary hover:shadow-premium transition-all duration-300"
+                className="p-6 border border-white/20 rounded-xl hover:border-primary hover:shadow-premium transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="font-semibold text-lg mb-2">{type.name}</h3>
-                <p className="text-sm text-muted-foreground">{type.description}</p>
+                <h3 className="font-semibold text-lg mb-2 text-white">{type.name}</h3>
+                <p className="text-sm text-white/60">{type.description}</p>
               </motion.div>
             ))}
           </div>
@@ -326,15 +327,15 @@ const EmailMarketingPage = () => {
       />
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-20 bg-secondary/20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Boost Your Email ROI?</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Boost Your Email ROI?</h2>
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
               Let's create email campaigns that your subscribers actually want to open and engage with.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts } from "@/data/blogPosts";
 import SEO from "@/components/SEO";
+import TypewriterText from "@/components/TypewriterText";
 
 const POSTS_PER_PAGE = 6;
 
@@ -73,7 +74,7 @@ const BlogsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Blog & Insights
+            <TypewriterText text="Blog & Insights" speed={40} />
           </motion.h1>
           <motion.p 
             className="text-primary-foreground/90 max-w-2xl mx-auto"
@@ -127,7 +128,7 @@ const BlogsPage = () => {
         </div>
       </motion.section>
 
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -139,7 +140,7 @@ const BlogsPage = () => {
             {paginatedPosts.map((post, index) => (
               <motion.article
                 key={post.slug}
-                className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-premium transition-smooth group"
+                className="bg-card rounded-xl overflow-hidden border border-white/20 hover:shadow-premium transition-smooth group"
                 variants={fadeInUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -5 }}
@@ -157,7 +158,7 @@ const BlogsPage = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <div className="flex items-center gap-4 text-sm text-white/60 mb-3">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       {post.date}
@@ -167,10 +168,10 @@ const BlogsPage = () => {
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-smooth">
+<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-smooth text-card-foreground">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-card-foreground/80 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   <Link to={`/blogs/${post.slug}`}>
@@ -186,7 +187,7 @@ const BlogsPage = () => {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No articles found in this category.</p>
+              <p className="text-white/60">No articles found in this category.</p>
             </div>
           )}
 
@@ -238,7 +239,7 @@ const BlogsPage = () => {
 
           {/* Results info */}
           {filteredPosts.length > 0 && (
-            <p className="text-center text-sm text-muted-foreground mt-6">
+            <p className="text-center text-sm text-white/50 mt-6">
               Showing {(currentPage - 1) * POSTS_PER_PAGE + 1} - {Math.min(currentPage * POSTS_PER_PAGE, filteredPosts.length)} of {filteredPosts.length} articles
             </p>
           )}
@@ -246,7 +247,7 @@ const BlogsPage = () => {
       </section>
 
       <motion.section 
-        className="py-20 bg-secondary/20"
+        className="py-20 bg-secondary/20 text-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -254,7 +255,7 @@ const BlogsPage = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
-            className="text-3xl font-bold mb-4"
+            className="text-3xl font-bold mb-4 text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -263,7 +264,7 @@ const BlogsPage = () => {
             Stay Updated
           </motion.h2>
           <motion.p 
-            className="text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-white/70 mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

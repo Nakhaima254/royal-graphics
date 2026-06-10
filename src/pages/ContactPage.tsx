@@ -1,6 +1,7 @@
 import Contact from "@/components/Contact";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import TypewriterText from "@/components/TypewriterText";
 
 const ContactPage = () => {
   return (
@@ -19,7 +20,7 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Get In Touch
+            <TypewriterText text="Get In Touch" speed={40} />
           </motion.h1>
           <motion.p 
             className="text-primary-foreground/90 max-w-2xl mx-auto"
