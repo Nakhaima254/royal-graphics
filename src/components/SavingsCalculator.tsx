@@ -49,20 +49,41 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
     setSelectedServices([]);
   };
 
+  const getBundleDiscount = (count: number): number => {
+    if (count >= 6) return 0.15;
+    if (count >= 4) return 0.1;
+    if (count >= 2) return 0.05;
+    return 0;
+  };
+
   const calculations = useMemo(() => {
     const selectedItems = services.filter((s) =>
       selectedServices.includes(s.name)
     );
-    const total = selectedItems.reduce(
+    const subtotal = selectedItems.reduce(
       (sum, s) => sum + parsePrice(s.price),
       0
     );
+    const discountRate = getBundleDiscount(selectedItems.length);
+    const discountAmount = Math.round(subtotal * discountRate);
+    const total = subtotal - discountAmount;
 
     return {
       itemCount: selectedItems.length,
+      subtotal,
+      discountRate,
+      discountAmount,
       total,
     };
   }, [selectedServices, services]);
+
+  const nextTier = useMemo(() => {
+    const count = calculations.itemCount;
+    if (count < 2) return { needed: 2 - count, rate: 0.05 };
+    if (count < 4) return { needed: 4 - count, rate: 0.1 };
+    if (count < 6) return { needed: 6 - count, rate: 0.15 };
+    return null;
+  }, [calculations.itemCount]);
 
   const handleGetQuote = () => {
     const params = new URLSearchParams();
@@ -156,7 +177,31 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
                 {calculations.itemCount} service
                 {calculations.itemCount > 1 ? "s" : ""} selected
               </span>
+              <span className="font-medium">
+                KES {formatPrice(calculations.subtotal)}
+              </span>
             </div>
+
+            {calculations.discountRate > 0 && (
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex justify-between text-sm text-primary"
+              >
+                <span>
+                  Bundle discount ({Math.round(calculations.discountRate * 100)}%)
+                </span>
+                <span className="font-semibold">
+                  − KES {formatPrice(calculations.discountAmount)}
+                </span>
+              </motion.div>
+            )}
+
+            {nextTier && (
+              <p className="text-xs text-muted-foreground italic">
+                Add {nextTier.needed} more service{nextTier.needed > 1 ? "s" : ""} to unlock {Math.round(nextTier.rate * 100)}% bundle discount
+              </p>
+            )}
 
             <div className="flex justify-between text-lg font-bold pt-2 border-t border-dashed border-border">
               <span>Your Total</span>
