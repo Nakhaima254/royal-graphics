@@ -177,7 +177,31 @@ export const SavingsCalculator = ({ services, categoryName = "services" }: Savin
                 {calculations.itemCount} service
                 {calculations.itemCount > 1 ? "s" : ""} selected
               </span>
+              <span className="font-medium">
+                KES {formatPrice(calculations.subtotal)}
+              </span>
             </div>
+
+            {calculations.discountRate > 0 && (
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex justify-between text-sm text-primary"
+              >
+                <span>
+                  Bundle discount ({Math.round(calculations.discountRate * 100)}%)
+                </span>
+                <span className="font-semibold">
+                  − KES {formatPrice(calculations.discountAmount)}
+                </span>
+              </motion.div>
+            )}
+
+            {nextTier && (
+              <p className="text-xs text-muted-foreground italic">
+                Add {nextTier.needed} more service{nextTier.needed > 1 ? "s" : ""} to unlock {Math.round(nextTier.rate * 100)}% bundle discount
+              </p>
+            )}
 
             <div className="flex justify-between text-lg font-bold pt-2 border-t border-dashed border-border">
               <span>Your Total</span>
