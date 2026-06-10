@@ -859,7 +859,7 @@ const PricingPage = () => {
                                     {bundle.includes.map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span>{item}</span>
+                                        <span className="text-white">{item}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -906,7 +906,7 @@ const PricingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Need a Custom Package?</h2>
-            <p className="text-white/90 mb-8">
+            <p className="text-white mb-8">
               We understand every business is unique. Contact us for a tailored solution that perfectly fits your needs and budget.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
