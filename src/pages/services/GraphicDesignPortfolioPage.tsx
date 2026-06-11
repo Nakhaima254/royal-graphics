@@ -335,8 +335,8 @@ const GraphicDesignPortfolioPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-2">{category.title}</h2>
-              <p className="text-muted-foreground">{category.description}</p>
+              <h2 className="text-3xl font-bold mb-2 text-white">{category.title}</h2>
+              <p className="text-white/80">{category.description}</p>
             </motion.div>
             
             {category.items.length > 0 ? (
