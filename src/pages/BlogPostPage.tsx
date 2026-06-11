@@ -166,7 +166,7 @@ const BlogPostPage = () => {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">{post.title}</h1>
 
               <div className="flex items-center justify-between flex-wrap gap-4 mb-8 pb-8 border-b border-border">
                 <div className="flex items-center gap-4">
