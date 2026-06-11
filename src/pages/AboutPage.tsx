@@ -37,7 +37,7 @@ const AboutPage = () => {
       <Testimonials />
       
 <motion.section 
-         className="py-20 bg-secondary/20 text-white"
+         className="py-20 bg-footer text-white"
          initial={{ opacity: 0 }}
          whileInView={{ opacity: 1 }}
          viewport={{ once: true }}
