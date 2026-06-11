@@ -273,8 +273,8 @@ const BlogPostPage = () => {
                     <AvatarFallback><User /></AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">About {post.author.name}</h3>
-                    <p className="text-muted-foreground mb-3">{post.author.bio}</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">About {post.author.name}</h3>
+                    <p className="text-white/80 mb-3">{post.author.bio}</p>
                     <p className="text-sm font-semibold text-primary">{post.author.role}</p>
                   </div>
                 </div>
