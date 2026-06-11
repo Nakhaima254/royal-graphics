@@ -249,7 +249,7 @@ const BlogPostPage = () => {
               />
 
               <div className="border-t border-b border-border py-8 mb-12">
-                <h3 className="text-lg font-semibold mb-4">Share this article</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">Share this article</h3>
                 <div className="flex gap-3 flex-wrap">
                   <Button variant="outline" size="sm" onClick={() => handleShare('facebook')} className="gap-2">
                     <Facebook className="w-4 h-4" /> Facebook
