@@ -134,7 +134,7 @@ const BlogPostPage = () => {
             {tableOfContents.length > 0 && (
               <aside className="hidden lg:block w-64 flex-shrink-0">
                 <div className="sticky top-24">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-4">
                     Table of Contents
                   </h3>
                   <nav className="space-y-2">
