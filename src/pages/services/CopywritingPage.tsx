@@ -321,7 +321,7 @@ const CopywritingPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-secondary/30 text-white">
+      <section className="py-20 bg-footer text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -368,7 +368,7 @@ const CopywritingPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20 text-white">
+      <section className="py-20 bg-footer text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
