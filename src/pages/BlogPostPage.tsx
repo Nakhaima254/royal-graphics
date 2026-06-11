@@ -243,9 +243,9 @@ const BlogPostPage = () => {
               </div>
 
               <div 
-                className="prose prose-lg max-w-none mb-12"
+                className="prose prose-lg prose-invert max-w-none mb-12"
                 dangerouslySetInnerHTML={{ __html: contentWithIds }}
-                style={{ color: 'hsl(var(--foreground))' }}
+                style={{ color: 'hsl(0 0% 100%)' }}
               />
 
               <div className="border-t border-b border-border py-8 mb-12">
