@@ -207,8 +207,8 @@ const VideoEditingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Why Choose Our Video Editing?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Why Choose Our Video Editing?</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               We combine technical expertise with creative vision to deliver videos that exceed expectations.
             </p>
           </motion.div>

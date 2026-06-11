@@ -110,8 +110,8 @@ const ServiceTestimonials = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-4">{title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+          <h2 className="text-3xl font-bold mb-4 text-white">{title}</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">{subtitle}</p>
         </motion.div>
 
         {/* Testimonials Carousel */}

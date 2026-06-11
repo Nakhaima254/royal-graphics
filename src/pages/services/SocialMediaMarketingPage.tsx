@@ -214,8 +214,8 @@ const SocialMediaMarketingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Why Social Media Marketing?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Why Social Media Marketing?</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               In today's digital world, social media is where your customers spend their time. Here's how we help you capitalize on that.
             </p>
           </motion.div>

@@ -930,7 +930,7 @@ const PricingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
             <p className="text-white max-w-2xl mx-auto">
               Common questions about our pricing and services
             </p>
