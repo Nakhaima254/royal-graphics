@@ -205,8 +205,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Why Professional Design Matters</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Why Professional Design Matters</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               Great design is more than aesthetics—it's a powerful business tool that builds trust and drives engagement.
             </p>
           </motion.div>
@@ -244,8 +244,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">Our Work</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Our Work</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               A glimpse of the creative solutions we've delivered for our clients.
             </p>
           </motion.div>
