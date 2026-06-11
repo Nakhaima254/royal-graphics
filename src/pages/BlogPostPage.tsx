@@ -286,7 +286,7 @@ const BlogPostPage = () => {
 
       <section className="py-12 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">Related Articles</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-white">Related Articles</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {relatedPosts.map((relatedPost) => (
               <Link key={relatedPost.slug} to={`/blogs/${relatedPost.slug}`}>
