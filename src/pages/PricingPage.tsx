@@ -612,7 +612,7 @@ const PricingPage = () => {
                                     <bundle.icon className="w-6 h-6" />
                                   </div>
                                   <div>
-                                    <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                    <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
                                   </div>
                                 </div>
                                 <p className="text-sm text-white mb-4">{bundle.description}</p>
@@ -626,7 +626,7 @@ const PricingPage = () => {
                                   {bundle.includes.map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-sm">
                                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                      <span>{item}</span>
+                                      <span className="text-white">{item}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -791,7 +791,7 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
                                     </div>
                                   </div>
                                   <p className="text-sm text-white mb-4">{bundle.description}</p>
@@ -805,7 +805,7 @@ const PricingPage = () => {
                                     {(bundle.displayIncludes || bundle.includes).map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span>{item}</span>
+                                        <span className="text-white">{item}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -845,7 +845,7 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
                                     </div>
                                   </div>
                                   <p className="text-sm text-white mb-4">{bundle.description}</p>
