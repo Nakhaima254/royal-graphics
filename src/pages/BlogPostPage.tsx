@@ -175,8 +175,8 @@ const BlogPostPage = () => {
                     <AvatarFallback><User /></AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold">{post.author.name}</p>
-                    <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                    <p className="font-semibold text-white">{post.author.name}</p>
+                    <p className="text-sm text-white/70">{post.author.role}</p>
                   </div>
                 </div>
                 
