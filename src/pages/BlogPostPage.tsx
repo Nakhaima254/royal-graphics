@@ -298,7 +298,7 @@ const BlogPostPage = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-white/80 mb-3">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                       <span className="flex items-center gap-1"><Calendar className="w-4 h-4" />{relatedPost.date}</span>
                       <span className="flex items-center gap-1"><Clock className="w-4 h-4" />{relatedPost.readTime}</span>
                     </div>
