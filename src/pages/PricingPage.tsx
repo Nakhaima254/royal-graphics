@@ -578,13 +578,13 @@ const PricingPage = () => {
                                     <item.icon className="w-5 h-5" />
                                   </div>
                                   <div className="flex-1 flex items-start justify-between">
-                                    <h4 className="font-bold text-white group-hover:text-primary transition-colors">{item.name}</h4>
+                                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
                                     <div className="text-right ml-2">
                                       <span className="text-lg font-bold text-primary whitespace-nowrap">KES {item.price}</span>
                                     </div>
                                   </div>
                                 </div>
-                              <p className="text-sm text-white leading-relaxed pl-12">{item.description}</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed pl-12">{item.description}</p>
                             </Card>
                           </motion.div>
                         ))}
@@ -612,21 +612,21 @@ const PricingPage = () => {
                                     <bundle.icon className="w-6 h-6" />
                                   </div>
                                   <div>
-                                    <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                    <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                   </div>
                                 </div>
-                                <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                 <div className="mb-4">
                                   <div className="flex items-baseline gap-2 mb-2">
                                     <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                   </div>
                                 </div>
                                 <div className="space-y-2 mb-6">
-                                  <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                   {bundle.includes.map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-sm">
                                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                      <span className="text-white">{item}</span>
+                                      <span className="text-foreground">{item}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -724,19 +724,19 @@ const PricingPage = () => {
                               )}
                               
                               <div className="mb-6">
-                                <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-white"}`}>
+                                <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                                   {plan.name}
                                 </h3>
-                                <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-white"}`}>
+                                <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                                   {plan.description}
                                 </p>
                               </div>
 
                               <div className="mb-6">
-                                <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-white"}`}>
+                                <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                                   {plan.price}
                                 </span>
-                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-white"}`}>
+                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                                   {plan.period}
                                 </span>
                               </div>
@@ -747,7 +747,7 @@ const PricingPage = () => {
                                     <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
                                       plan.popular ? "text-primary-foreground" : "text-primary"
                                     }`} />
-                                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-white"}`}>
+                                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-foreground"}`}>
                                       {feature}
                                     </span>
                                   </li>
@@ -791,21 +791,21 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                     </div>
                                   </div>
-                                  <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                  <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
                                       <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
-                                    <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                     {(bundle.displayIncludes || bundle.includes).map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span className="text-white">{item}</span>
+                                        <span className="text-foreground">{item}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -845,21 +845,21 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                     </div>
                                   </div>
-                                  <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                  <p className="text-sm text-muted-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
                                       <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
-                                    <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                     {bundle.includes.map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span className="text-white">{item}</span>
+                                        <span className="text-foreground">{item}</span>
                                       </div>
                                     ))}
                                   </div>
