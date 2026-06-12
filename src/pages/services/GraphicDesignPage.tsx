@@ -226,7 +226,7 @@ const GraphicDesignPage = () => {
                       <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-white/80">{benefit.description}</p>
+                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
                   </Card>
                 </motion.div>
               );
