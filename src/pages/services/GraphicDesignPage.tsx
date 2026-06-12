@@ -146,7 +146,7 @@ const GraphicDesignPage = () => {
       </div>
 
       {/* Features Section */}
-      <section className="py-20 text-white">
+      <section className="py-20 text-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -156,11 +156,11 @@ const GraphicDesignPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-white">Professional Design Services</h2>
-              <p className="text-white/80 mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Professional Design Services</h2>
+              <p className="text-muted-foreground mb-6">
                 Our graphic design services bring your ideas to life with creative solutions that resonate with your target audience. From brand identity to marketing materials, we create designs that stand out and communicate your message effectively.
               </p>
-              <p className="text-white/80 mb-6">
+              <p className="text-muted-foreground mb-6">
                 With over 10 years of experience, our designers combine artistic creativity with strategic thinking to deliver visuals that not only look beautiful but also drive results for your business.
               </p>
               <ul className="space-y-4">
@@ -174,7 +174,7 @@ const GraphicDesignPage = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0" />
-                    <span className="text-white">{feature}</span>
+                    <span className="text-foreground">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -205,8 +205,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Why Professional Design Matters</h2>
-            <p className="text-white/80 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Why Professional Design Matters</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Great design is more than aesthetics—it's a powerful business tool that builds trust and drives engagement.
             </p>
           </motion.div>
@@ -244,8 +244,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Our Work</h2>
-            <p className="text-white/80 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Our Work</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               A glimpse of the creative solutions we've delivered for our clients.
             </p>
           </motion.div>
@@ -265,7 +265,7 @@ const GraphicDesignPage = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white font-semibold">{item.title}</span>
+                  <span className="text-foreground font-semibold">{item.title}</span>
                 </div>
               </motion.div>
             ))}
@@ -337,7 +337,7 @@ const GraphicDesignPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-secondary/30 text-white">
+      <section className="py-20 bg-secondary/30 text-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -345,8 +345,8 @@ const GraphicDesignPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Our Design Process</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Our Design Process</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               A structured approach that ensures quality and meets your expectations every time.
             </p>
           </motion.div>
@@ -361,8 +361,8 @@ const GraphicDesignPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="text-4xl font-bold text-primary/50 mb-2">{item.step}</div>
-                <h3 className="font-semibold mb-2 text-white">{item.title}</h3>
-                <p className="text-sm text-white/60">{item.description}</p>
+                <h3 className="font-semibold mb-2 text-foreground">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -384,15 +384,15 @@ const GraphicDesignPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20 text-white">
+      <section className="py-20 bg-secondary/20 text-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Start Your Project?</h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Ready to Start Your Project?</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's create stunning visuals that make your brand unforgettable and help you stand out from the competition.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

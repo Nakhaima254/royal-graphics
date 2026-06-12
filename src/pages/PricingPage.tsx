@@ -531,8 +531,8 @@ const PricingPage = () => {
                   transition={{ duration: 0.4 }}
                 >
                   <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold mb-2 text-white">{service.title}</h2>
-                    <p className="text-white">{service.description}</p>
+                    <h2 className="text-3xl font-bold mb-2 text-foreground">{service.title}</h2>
+                    <p className="text-foreground">{service.description}</p>
                   </div>
 
                   {'isRateCard' in service && service.isRateCard ? (
@@ -543,7 +543,7 @@ const PricingPage = () => {
                     >
                       {/* 60% Upfront Payment Note for Graphic Design */}
                       <div className="text-center mb-8">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-white px-4 py-2 rounded-lg">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
@@ -558,8 +558,8 @@ const PricingPage = () => {
                       </div>
                       
                       <div className="text-center mb-8">
-                        <h3 className="text-2xl font-bold text-white mb-2">Individual Service Prices</h3>
-                        <p className="text-white">Quality designs at affordable rates</p>
+                        <h3 className="text-2xl font-bold text-foreground mb-2">Individual Service Prices</h3>
+                        <p className="text-foreground">Quality designs at affordable rates</p>
                       </div>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {graphicDesignServices.map((item, index) => (
@@ -578,13 +578,13 @@ const PricingPage = () => {
                                     <item.icon className="w-5 h-5" />
                                   </div>
                                   <div className="flex-1 flex items-start justify-between">
-                                    <h4 className="font-bold text-white group-hover:text-primary transition-colors">{item.name}</h4>
+                                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.name}</h4>
                                     <div className="text-right ml-2">
                                       <span className="text-lg font-bold text-primary whitespace-nowrap">KES {item.price}</span>
                                     </div>
                                   </div>
                                 </div>
-                              <p className="text-sm text-white leading-relaxed pl-12">{item.description}</p>
+                              <p className="text-sm text-foreground leading-relaxed pl-12">{item.description}</p>
                             </Card>
                           </motion.div>
                         ))}
@@ -592,8 +592,8 @@ const PricingPage = () => {
                       {/* Bundle Deals Section */}
                       <div className="mt-16">
                         <div className="text-center mb-8">
-                          <h3 className="text-2xl font-bold text-white mb-2">Bundle & Save</h3>
-                          <p className="text-white">Get more value with our discounted package deals</p>
+                          <h3 className="text-2xl font-bold text-foreground mb-2">Bundle & Save</h3>
+                          <p className="text-foreground">Get more value with our discounted package deals</p>
                         </div>
                         <div className="grid md:grid-cols-3 gap-6">
                           {designBundles.map((bundle, index) => (
@@ -612,21 +612,21 @@ const PricingPage = () => {
                                     <bundle.icon className="w-6 h-6" />
                                   </div>
                                   <div>
-                                    <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                    <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                   </div>
                                 </div>
-                                <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                <p className="text-sm text-foreground mb-4">{bundle.description}</p>
                                 <div className="mb-4">
                                   <div className="flex items-baseline gap-2 mb-2">
                                     <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                   </div>
                                 </div>
                                 <div className="space-y-2 mb-6">
-                                  <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                   {bundle.includes.map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-sm">
                                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                      <span className="text-white">{item}</span>
+                                      <span className="text-foreground">{item}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -644,9 +644,9 @@ const PricingPage = () => {
                       {/* Custom Savings Calculator */}
                       <div className="mt-16">
                         <div className="text-center mb-8">
-                          <h3 className="text-2xl font-bold text-white mb-2">Build Your Own Bundle</h3>
-                          <p className="text-white">Select multiple services and see your savings in real-time</p>
-                          <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-white px-4 py-2 rounded-lg">
+                          <h3 className="text-2xl font-bold text-foreground mb-2">Build Your Own Bundle</h3>
+                          <p className="text-foreground">Select multiple services and see your savings in real-time</p>
+                          <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
                             <Tooltip>
                               <TooltipTrigger asChild>
                                 <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
@@ -665,7 +665,7 @@ const PricingPage = () => {
                       </div>
                       
                       <div className="mt-10 text-center">
-                        <p className="text-white mb-4">Need a custom package? Contact us for a personalized quote!</p>
+                        <p className="text-foreground mb-4">Need a custom package? Contact us for a personalized quote!</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                           <Link to="/contact">
                             <Button variant="default" size="lg">Request Quote</Button>
@@ -684,7 +684,7 @@ const PricingPage = () => {
                     >
                       {/* 60% Upfront Payment Note for all services */}
                       <div className="text-center mb-8">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-white px-4 py-2 rounded-lg">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-foreground px-4 py-2 rounded-lg">
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <Info className="w-4 h-4 text-primary flex-shrink-0 cursor-help" />
@@ -724,19 +724,19 @@ const PricingPage = () => {
                               )}
                               
                               <div className="mb-6">
-                                <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-white"}`}>
+                                <h3 className={`text-xl font-bold mb-1 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                                   {plan.name}
                                 </h3>
-                                <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-white"}`}>
+                                <p className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-foreground"}`}>
                                   {plan.description}
                                 </p>
                               </div>
 
                               <div className="mb-6">
-                                <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-white"}`}>
+                                <span className={`text-3xl lg:text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                                   {plan.price}
                                 </span>
-                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-white"}`}>
+                                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-foreground"}`}>
                                   {plan.period}
                                 </span>
                               </div>
@@ -747,7 +747,7 @@ const PricingPage = () => {
                                     <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
                                       plan.popular ? "text-primary-foreground" : "text-primary"
                                     }`} />
-                                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-white"}`}>
+                                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-foreground"}`}>
                                       {feature}
                                     </span>
                                   </li>
@@ -771,8 +771,8 @@ const PricingPage = () => {
                       {key === 'videoEditing' && (
                         <div className="mt-16">
                           <div className="text-center mb-8">
-                            <h3 className="text-2xl font-bold text-white mb-2">Bundle & Save</h3>
-                            <p className="text-white">Get more value with our discounted video editing packages</p>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">Bundle & Save</h3>
+                            <p className="text-foreground">Get more value with our discounted video editing packages</p>
                           </div>
                           <div className="grid md:grid-cols-3 gap-6">
                             {videoEditingBundles.map((bundle, index) => (
@@ -791,21 +791,21 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                     </div>
                                   </div>
-                                  <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                  <p className="text-sm text-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
                                       <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
-                                    <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                     {(bundle.displayIncludes || bundle.includes).map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span className="text-white">{item}</span>
+                                        <span className="text-foreground">{item}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -825,8 +825,8 @@ const PricingPage = () => {
                       {key === 'socialMedia' && (
                         <div className="mt-16">
                           <div className="text-center mb-8">
-                            <h3 className="text-2xl font-bold text-white mb-2">Bundle & Save</h3>
-                            <p className="text-white">Get more value with our discounted social media packages</p>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">Bundle & Save</h3>
+                            <p className="text-foreground">Get more value with our discounted social media packages</p>
                           </div>
                           <div className="grid md:grid-cols-3 gap-6">
                             {socialMediaBundles.map((bundle, index) => (
@@ -845,21 +845,21 @@ const PricingPage = () => {
                                       <bundle.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                      <h4 className="font-bold text-lg text-white">{bundle.name}</h4>
+                                      <h4 className="font-bold text-lg text-foreground">{bundle.name}</h4>
                                     </div>
                                   </div>
-                                  <p className="text-sm text-white mb-4">{bundle.description}</p>
+                                  <p className="text-sm text-foreground mb-4">{bundle.description}</p>
                                   <div className="mb-4">
                                     <div className="flex items-baseline gap-2 mb-2">
                                       <span className="text-2xl font-bold text-primary">KES {bundle.bundlePrice}</span>
                                     </div>
                                   </div>
                                   <div className="space-y-2 mb-6">
-                                    <p className="text-xs font-semibold text-white uppercase tracking-wide">Includes:</p>
+                                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Includes:</p>
                                     {bundle.includes.map((item, i) => (
                                       <div key={i} className="flex items-center gap-2 text-sm">
                                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                                        <span className="text-white">{item}</span>
+                                        <span className="text-foreground">{item}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -879,8 +879,8 @@ const PricingPage = () => {
                       {categoryServices[key] && (
                         <div className="mt-16">
                           <div className="text-center mb-8">
-                            <h3 className="text-2xl font-bold text-white mb-2">Build Your Own Bundle</h3>
-                            <p className="text-white">Select individual services and see your savings in real-time</p>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">Build Your Own Bundle</h3>
+                            <p className="text-foreground">Select individual services and see your savings in real-time</p>
                           </div>
                           <div className="max-w-2xl mx-auto">
                             <SavingsCalculator services={categoryServices[key]} categoryName={service.title} />
@@ -897,7 +897,7 @@ const PricingPage = () => {
       </section>
 
       {/* Custom Quote Section */}
-       <section className="py-16 bg-[#0a0c3d] text-white shadow-[0_0_15px_#fff]">
+       <section className="py-16 bg-[#0a0c3d] text-foreground shadow-[0_0_15px_#fff]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center max-w-3xl mx-auto"
@@ -905,8 +905,8 @@ const PricingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Need a Custom Package?</h2>
-            <p className="text-white mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Need a Custom Package?</h2>
+            <p className="text-foreground mb-8">
               We understand every business is unique. Contact us for a tailored solution that perfectly fits your needs and budget.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -930,8 +930,8 @@ const PricingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
-            <p className="text-white max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
+            <p className="text-foreground max-w-2xl mx-auto">
               Common questions about our pricing and services
             </p>
           </motion.div>
