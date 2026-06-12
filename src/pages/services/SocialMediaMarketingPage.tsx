@@ -145,7 +145,7 @@ const SocialMediaMarketingPage = () => {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               {platforms.map((platform) => (
-                <span key={platform.name} className={`${platform.color} text-foreground px-4 py-2 rounded-full text-sm font-medium`}>
+                <span key={platform.name} className={`${platform.color} text-white px-4 py-2 rounded-full text-sm font-medium`}>
                   {platform.name}
                 </span>
               ))}
@@ -155,7 +155,7 @@ const SocialMediaMarketingPage = () => {
       </div>
 
       {/* Features Section */}
-      <section className="py-20 text-foreground">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -165,11 +165,11 @@ const SocialMediaMarketingPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Grow Your Social Presence</h2>
-              <p className="text-muted-foreground mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-white">Grow Your Social Presence</h2>
+              <p className="text-white/80 mb-6">
                 We help you build meaningful connections with your audience through strategic social media marketing. From content creation to community management, we handle it all so you can focus on running your business.
               </p>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/80 mb-6">
                 Our team of social media experts stays ahead of the latest trends and algorithm changes to ensure your brand stays visible and relevant in the ever-evolving digital landscape.
               </p>
               <ul className="space-y-4">
@@ -183,7 +183,7 @@ const SocialMediaMarketingPage = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0 text-primary" />
-                    <span className="text-foreground">{feature}</span>
+                    <span className="text-white">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -214,8 +214,8 @@ const SocialMediaMarketingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Why Social Media Marketing?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Why Social Media Marketing?</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               In today's digital world, social media is where your customers spend their time. Here's how we help you capitalize on that.
             </p>
           </motion.div>
@@ -235,7 +235,7 @@ const SocialMediaMarketingPage = () => {
                       <Icon className="w-6 h-6 text-accent group-hover:text-accent-foreground transition-colors" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                    <p className="text-sm text-white/80">{benefit.description}</p>
                   </Card>
                 </motion.div>
               );
@@ -245,7 +245,7 @@ const SocialMediaMarketingPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 text-foreground">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -253,8 +253,8 @@ const SocialMediaMarketingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Our Process</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Our Process</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
               A proven methodology that delivers consistent results for your social media campaigns.
             </p>
           </motion.div>
@@ -269,8 +269,8 @@ const SocialMediaMarketingPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="text-4xl font-bold text-primary mb-2">{item.step}</div>
-                <h3 className="font-semibold mb-2 text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="font-semibold mb-2 text-white">{item.title}</h3>
+                <p className="text-sm text-white/80">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -343,15 +343,15 @@ const SocialMediaMarketingPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20 text-foreground">
+      <section className="py-20 bg-secondary/20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Ready to Go Viral?</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Go Viral?</h2>
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Let's create a social media strategy that drives real results and helps your brand stand out in the crowded digital landscape.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

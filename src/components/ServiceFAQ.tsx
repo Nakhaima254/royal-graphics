@@ -32,10 +32,10 @@ const ServiceFAQ = ({
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             {title}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             {subtitle}
           </p>
         </motion.div>
@@ -60,10 +60,10 @@ const ServiceFAQ = ({
                   value={`item-${index}`} 
                   className="bg-background border border-border rounded-lg px-6 shadow-sm"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary transition-colors">
+                  <AccordionTrigger className="text-left font-semibold text-white hover:text-primary transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="text-white/80 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

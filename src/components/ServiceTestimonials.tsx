@@ -110,8 +110,8 @@ const ServiceTestimonials = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-foreground">{title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+          <h2 className="text-3xl font-bold mb-4 text-white">{title}</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">{subtitle}</p>
         </motion.div>
 
         {/* Testimonials Carousel */}
@@ -198,7 +198,7 @@ const ServiceTestimonials = ({
                       </div>
 
                       {/* Content */}
-                      <p className="text-muted-foreground mb-6 relative z-10 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
+                      <p className="text-white/80 mb-6 relative z-10 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
                         "{testimonial.content}"
                       </p>
 
@@ -217,7 +217,7 @@ const ServiceTestimonials = ({
                         </motion.div>
                         <div>
                           <p className="font-semibold group-hover:text-primary transition-colors duration-300">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
+                          <p className="text-sm text-white/80">{testimonial.role}, {testimonial.company}</p>
                         </div>
                       </motion.div>
 
@@ -269,7 +269,7 @@ const ServiceTestimonials = ({
               </div>
               
               {/* Page Counter */}
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/80">
                 {currentIndex + 1} / {totalPages}
               </p>
             </div>

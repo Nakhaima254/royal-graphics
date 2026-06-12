@@ -37,7 +37,7 @@ const AboutPage = () => {
       <Testimonials />
       
 <motion.section 
-         className="py-20 bg-secondary/20 text-foreground"
+         className="py-20 bg-secondary/20 text-white"
          initial={{ opacity: 0 }}
          whileInView={{ opacity: 1 }}
          viewport={{ once: true }}
@@ -45,7 +45,7 @@ const AboutPage = () => {
        >
          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <motion.h2 
-             className="text-3xl font-bold mb-4 text-foreground"
+             className="text-3xl font-bold mb-4 text-white"
              variants={fadeInUp}
              initial="hidden"
              whileInView="visible"
@@ -55,7 +55,7 @@ const AboutPage = () => {
              Let's Work Together
            </motion.h2>
            <motion.p 
-             className="text-muted-foreground mb-8 max-w-2xl mx-auto"
+             className="text-white/80 mb-8 max-w-2xl mx-auto"
              variants={fadeInUp}
              initial="hidden"
              whileInView="visible"

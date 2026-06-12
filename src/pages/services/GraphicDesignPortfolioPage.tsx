@@ -335,8 +335,8 @@ const GraphicDesignPortfolioPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-2 text-foreground">{category.title}</h2>
-              <p className="text-muted-foreground">{category.description}</p>
+              <h2 className="text-3xl font-bold mb-2 text-white">{category.title}</h2>
+              <p className="text-white/80">{category.description}</p>
             </motion.div>
             
             {category.items.length > 0 ? (
@@ -467,7 +467,7 @@ const GraphicDesignPortfolioPage = () => {
               )
             ) : (
               <div className="text-center py-12 bg-card rounded-xl border border-dashed">
-                <p className="text-muted-foreground">Portfolio items coming soon</p>
+                <p className="text-white/80">Portfolio items coming soon</p>
               </div>
             )}
           </div>

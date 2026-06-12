@@ -134,7 +134,7 @@ const BlogPostPage = () => {
             {tableOfContents.length > 0 && (
               <aside className="hidden lg:block w-64 flex-shrink-0">
                 <div className="sticky top-24">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-4">
                     Table of Contents
                   </h3>
                   <nav className="space-y-2">
@@ -147,7 +147,7 @@ const BlogPostPage = () => {
                         } ${
                           activeSection === item.id 
                             ? 'text-primary font-medium border-l-2 border-primary pl-3' 
-                            : 'text-muted-foreground'
+                            : 'text-white/80'
                         }`}
                       >
                         {item.text}
@@ -166,7 +166,7 @@ const BlogPostPage = () => {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{post.title}</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">{post.title}</h1>
 
               <div className="flex items-center justify-between flex-wrap gap-4 mb-8 pb-8 border-b border-border">
                 <div className="flex items-center gap-4">
@@ -175,12 +175,12 @@ const BlogPostPage = () => {
                     <AvatarFallback><User /></AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold text-foreground">{post.author.name}</p>
-                    <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                    <p className="font-semibold text-white">{post.author.name}</p>
+                    <p className="text-sm text-white/80">{post.author.role}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 text-sm text-white/80">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {post.date}
@@ -205,7 +205,7 @@ const BlogPostPage = () => {
                       <List className="w-4 h-4" />
                       Table of Contents
                     </span>
-                    <span className="text-xs text-muted-foreground">{tableOfContents.length} sections</span>
+                    <span className="text-xs text-white/80">{tableOfContents.length} sections</span>
                   </Button>
                   {showToc && (
                     <motion.div
@@ -223,7 +223,7 @@ const BlogPostPage = () => {
                           } ${
                             activeSection === item.id 
                               ? 'text-primary font-medium' 
-                              : 'text-muted-foreground'
+                              : 'text-white/80'
                           }`}
                         >
                           {item.text}
@@ -249,7 +249,7 @@ const BlogPostPage = () => {
               />
 
               <div className="border-t border-b border-border py-8 mb-12">
-                <h3 className="text-lg font-semibold mb-4 text-foreground">Share this article</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">Share this article</h3>
                 <div className="flex gap-3 flex-wrap">
                   <Button variant="outline" size="sm" onClick={() => handleShare('facebook')} className="gap-2">
                     <Facebook className="w-4 h-4" /> Facebook
@@ -273,8 +273,8 @@ const BlogPostPage = () => {
                     <AvatarFallback><User /></AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">About {post.author.name}</h3>
-                    <p className="text-muted-foreground mb-3">{post.author.bio}</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">About {post.author.name}</h3>
+                    <p className="text-white/80 mb-3">{post.author.bio}</p>
                     <p className="text-sm font-semibold text-primary">{post.author.role}</p>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ const BlogPostPage = () => {
 
       <section className="py-12 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Related Articles</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-white">Related Articles</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {relatedPosts.map((relatedPost) => (
               <Link key={relatedPost.slug} to={`/blogs/${relatedPost.slug}`}>
@@ -298,7 +298,7 @@ const BlogPostPage = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                    <div className="flex items-center gap-4 text-sm text-white/80 mb-3">
                       <span className="flex items-center gap-1"><Calendar className="w-4 h-4" />{relatedPost.date}</span>
                       <span className="flex items-center gap-1"><Clock className="w-4 h-4" />{relatedPost.readTime}</span>
                     </div>
