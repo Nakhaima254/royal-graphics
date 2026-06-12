@@ -60,10 +60,10 @@ const ServiceFAQ = ({
                   value={`item-${index}`} 
                   className="bg-background border border-border rounded-lg px-6 shadow-sm"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-white hover:text-primary transition-colors">
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80 leading-relaxed">
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
