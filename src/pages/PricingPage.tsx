@@ -897,7 +897,7 @@ const PricingPage = () => {
       </section>
 
       {/* Custom Quote Section */}
-       <section className="py-16 bg-[#0a0c3d] text-foreground shadow-[0_0_15px_#fff]">
+       <section className="py-16 bg-[#0a0c3d] text-white shadow-[0_0_15px_#fff]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center max-w-3xl mx-auto"
@@ -905,8 +905,8 @@ const PricingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Need a Custom Package?</h2>
-            <p className="text-foreground mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-white">Need a Custom Package?</h2>
+            <p className="text-white/90 mb-8">
               We understand every business is unique. Contact us for a tailored solution that perfectly fits your needs and budget.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
