@@ -134,7 +134,7 @@ const BlogPostPage = () => {
             {tableOfContents.length > 0 && (
               <aside className="hidden lg:block w-64 flex-shrink-0">
                 <div className="sticky top-24">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-4">
                     Table of Contents
                   </h3>
                   <nav className="space-y-2">
@@ -147,7 +147,7 @@ const BlogPostPage = () => {
                         } ${
                           activeSection === item.id 
                             ? 'text-primary font-medium border-l-2 border-primary pl-3' 
-                            : 'text-muted-foreground'
+                            : 'text-white/80'
                         }`}
                       >
                         {item.text}
@@ -176,11 +176,11 @@ const BlogPostPage = () => {
                   </Avatar>
                   <div>
                     <p className="font-semibold text-white">{post.author.name}</p>
-                    <p className="text-sm text-white/70">{post.author.role}</p>
+                    <p className="text-sm text-white/80">{post.author.role}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4 text-sm text-white/70">
+                <div className="flex items-center gap-4 text-sm text-white/80">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {post.date}
@@ -205,7 +205,7 @@ const BlogPostPage = () => {
                       <List className="w-4 h-4" />
                       Table of Contents
                     </span>
-                    <span className="text-xs text-muted-foreground">{tableOfContents.length} sections</span>
+                    <span className="text-xs text-white/80">{tableOfContents.length} sections</span>
                   </Button>
                   {showToc && (
                     <motion.div
@@ -223,7 +223,7 @@ const BlogPostPage = () => {
                           } ${
                             activeSection === item.id 
                               ? 'text-primary font-medium' 
-                              : 'text-muted-foreground'
+                              : 'text-white/80'
                           }`}
                         >
                           {item.text}

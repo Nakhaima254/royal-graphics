@@ -43,7 +43,7 @@ const ServicesPage = () => {
       <Services />
       
 <motion.section 
-         className="py-20 bg-secondary/20 text-white"
+         className="py-20 text-white"
          initial={{ opacity: 0 }}
          whileInView={{ opacity: 1 }}
          viewport={{ once: true }}
@@ -61,7 +61,7 @@ const ServicesPage = () => {
              Ready to Get Started?
            </motion.h2>
            <motion.p 
-             className="text-white/70 mb-8 max-w-2xl mx-auto"
+             className="text-white/80 mb-8 max-w-2xl mx-auto"
              variants={fadeInUp}
              initial="hidden"
              whileInView="visible"

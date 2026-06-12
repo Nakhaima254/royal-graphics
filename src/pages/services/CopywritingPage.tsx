@@ -199,7 +199,7 @@ const CopywritingPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -247,7 +247,7 @@ const CopywritingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Types of Copy We Create</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-white/80 max-w-2xl mx-auto">
               From websites to emails, we create compelling copy for every channel.
             </p>
           </motion.div>
@@ -262,7 +262,7 @@ const CopywritingPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <h3 className="font-semibold text-lg mb-2 text-white">{type.title}</h3>
-                <p className="text-white/60">{type.description}</p>
+                <p className="text-white/80">{type.description}</p>
               </motion.div>
             ))}
           </div>
@@ -321,7 +321,7 @@ const CopywritingPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-secondary/30 text-white">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -330,7 +330,7 @@ const CopywritingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Our Copywriting Process</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-white/80 max-w-2xl mx-auto">
               A strategic approach that ensures your copy delivers results.
             </p>
           </motion.div>
@@ -346,7 +346,7 @@ const CopywritingPage = () => {
               >
                 <div className="text-4xl font-bold text-primary/50 mb-2">{item.step}</div>
                 <h3 className="font-semibold mb-2 text-white">{item.title}</h3>
-                <p className="text-sm text-white/60">{item.description}</p>
+                <p className="text-sm text-white/80">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -368,7 +368,7 @@ const CopywritingPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20 text-white">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -376,7 +376,7 @@ const CopywritingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Ready for Copy That Converts?</h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Let's create compelling content that drives your business forward
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

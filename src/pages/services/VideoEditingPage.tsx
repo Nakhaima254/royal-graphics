@@ -199,7 +199,7 @@ const VideoEditingPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -247,7 +247,7 @@ const VideoEditingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Videos We Create</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-white/80 max-w-2xl mx-auto">
               From short social clips to full-length productions, we handle it all.
             </p>
           </motion.div>
@@ -262,7 +262,7 @@ const VideoEditingPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <h3 className="font-semibold text-lg mb-2 text-white">{type.name}</h3>
-                <p className="text-sm text-white/60">{type.description}</p>
+                <p className="text-sm text-white/80">{type.description}</p>
               </motion.div>
             ))}
           </div>
@@ -335,7 +335,7 @@ const VideoEditingPage = () => {
       />
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/20 text-white">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -343,7 +343,7 @@ const VideoEditingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Ready to Create Amazing Videos?</h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Let's turn your footage into professional content that engages and converts your audience.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

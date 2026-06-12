@@ -206,7 +206,7 @@ const SocialMediaMarketingPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -254,7 +254,7 @@ const SocialMediaMarketingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Our Process</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-white/80 max-w-2xl mx-auto">
               A proven methodology that delivers consistent results for your social media campaigns.
             </p>
           </motion.div>
@@ -270,7 +270,7 @@ const SocialMediaMarketingPage = () => {
               >
                 <div className="text-4xl font-bold text-primary mb-2">{item.step}</div>
                 <h3 className="font-semibold mb-2 text-white">{item.title}</h3>
-                <p className="text-sm text-white/60">{item.description}</p>
+                <p className="text-sm text-white/80">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -343,7 +343,7 @@ const SocialMediaMarketingPage = () => {
       />
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/20 text-white">
+      <section className="py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -351,7 +351,7 @@ const SocialMediaMarketingPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4 text-white">Ready to Go Viral?</h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Let's create a social media strategy that drives real results and helps your brand stand out in the crowded digital landscape.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

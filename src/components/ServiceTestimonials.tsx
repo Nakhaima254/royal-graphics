@@ -269,7 +269,7 @@ const ServiceTestimonials = ({
               </div>
               
               {/* Page Counter */}
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/80">
                 {currentIndex + 1} / {totalPages}
               </p>
             </div>

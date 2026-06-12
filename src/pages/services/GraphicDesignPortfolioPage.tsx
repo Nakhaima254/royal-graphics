@@ -467,7 +467,7 @@ const GraphicDesignPortfolioPage = () => {
               )
             ) : (
               <div className="text-center py-12 bg-card rounded-xl border border-dashed">
-                <p className="text-muted-foreground">Portfolio items coming soon</p>
+                <p className="text-white/80">Portfolio items coming soon</p>
               </div>
             )}
           </div>
