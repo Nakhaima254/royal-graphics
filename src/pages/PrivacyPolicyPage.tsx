@@ -178,11 +178,10 @@ const PrivacyPolicyPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-[5.5rem]">
       <SEO title="Privacy Policy" description="Royal Graphics Solutions privacy policy - how we collect, use, and protect your data." image="/images/og-default.png" url="/privacy-policy" />
-      <Navigation />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-8 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
