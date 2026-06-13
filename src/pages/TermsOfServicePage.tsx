@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Scale, FileCheck, AlertCircle, CreditCard, Clock, XCircle } from "lucide-react";
-import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
-import Footer from "@/components/Footer";
 
 const TermsOfServicePage = () => {
   const sections = [
