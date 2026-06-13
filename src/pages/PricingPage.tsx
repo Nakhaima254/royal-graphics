@@ -978,8 +978,8 @@ const PricingPage = () => {
                 className="bg-card border border-border rounded-xl p-6"
                 variants={fadeInUp}
               >
-                <h3 className="font-semibold mb-2">{faq.q}</h3>
-                <p className="text-white/80 text-sm">{faq.a}</p>
+                <h3 className="font-semibold mb-2 text-foreground">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm">{faq.a}</p>
               </motion.div>
             ))}
           </motion.div>
