@@ -567,7 +567,7 @@ const PricingPage = () => {
                             key={index}
                             variants={fadeInUp}
                           >
-                            <Card className={`p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group relative ${item.popular ? 'border-primary/50 bg-primary/5' : ''}`}>
+                            <Card className={`p-5 h-full hover:shadow-premium transition-all duration-300 hover:-translate-y-1 group relative ${item.popular ? 'border-primary/50 ring-2 ring-primary/20' : ''}`}>
                               {item.popular && (
                                 <div className="absolute -top-2.5 right-3 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
                                   Popular
@@ -978,8 +978,8 @@ const PricingPage = () => {
                 className="bg-card border border-border rounded-xl p-6"
                 variants={fadeInUp}
               >
-                <h3 className="font-semibold mb-2">{faq.q}</h3>
-                <p className="text-white/80 text-sm">{faq.a}</p>
+                <h3 className="font-semibold mb-2 text-foreground">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm">{faq.a}</p>
               </motion.div>
             ))}
           </motion.div>
