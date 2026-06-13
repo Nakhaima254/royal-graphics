@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, Users, Bell, Cookie, Settings } from "lucide-react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
