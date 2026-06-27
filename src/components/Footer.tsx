@@ -79,19 +79,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-footer-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-footer-foreground/70">
+        <div className="pt-8 border-t border-footer-foreground/20 flex flex-row flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-footer-foreground/70 text-center">
           <p>© {currentYear} Royal Graphics Solutions. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/privacy-policy" className="hover:text-primary transition-smooth">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-primary transition-smooth">Terms of Service</Link>
-            <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
-          </div>
-        </div>
-        
-        {/* Powered By */}
-        <div className="pt-6 text-center">
-          <p className="text-xs text-footer-foreground/50">
-            Powered by{" "}
+          <Link to="/privacy-policy" className="hover:text-primary transition-smooth">Privacy Policy</Link>
+          <Link to="/terms-of-service" className="hover:text-primary transition-smooth">Terms of Service</Link>
+          <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
+          <span className="hidden sm:inline">|</span>
+          <p className="text-xs">Powered by{" "}
             <a 
               href="https://www.waksdigital.co.ke" 
               target="_blank" 
