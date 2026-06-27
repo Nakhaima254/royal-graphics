@@ -83,7 +83,14 @@ const WebDevelopmentPage = () => {
               </a>
             </motion.div>
             <motion.div className="relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-              <img src="https://images.unsplash.com/photo-1467232014886-a23bdb84ab18?w=800&q=80" alt="Web Development" className="rounded-2xl shadow-card" />
+              <img 
+                src="https://images.unsplash.com/photo-1555066931-4365d1db7776?w=800&q=80"
+                alt="Web Development" 
+                className="rounded-2xl shadow-card w-full h-auto object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1504639992288-96157a7858bc?w=800&q=80";
+                }}
+              />
             </motion.div>
           </div>
         </div>
@@ -96,15 +103,18 @@ const WebDevelopmentPage = () => {
             <p className="text-white/80 max-w-2xl mx-auto">Modern web solutions that perform, convert, and scale with your business.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6 h-full hover:shadow-card transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
-              </Card>
-            ))}
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <Card key={index} className="p-6 h-full hover:shadow-card transition-all duration-300">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
