@@ -45,7 +45,7 @@ const WebDevelopmentPage = () => {
 
   return (
     <div className="pt-[5.5rem]">
-      <SEO title="Web Development" description="Professional web development services - custom websites, e-commerce, mobile apps. Fast, secure, SEO-optimized solutions." image="/hero-bg.png" url="/services/web-development" />
+      <SEO title="Web Development" description="Professional web development services - custom websites, e-commerce, mobile apps. Fast, secure, SEO-optimized solutions." image="/web-dev.png" url="/services/web-development" />
       <div className="bg-primary py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/services">
@@ -84,7 +84,7 @@ const WebDevelopmentPage = () => {
             </motion.div>
             <motion.div className="relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
               <img 
-                src="/hero-bg.png"
+                src="/web-dev.png"
                 alt="Web Development" 
                 className="rounded-2xl shadow-card w-full h-auto object-cover"
               />
