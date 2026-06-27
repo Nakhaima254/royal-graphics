@@ -70,7 +70,7 @@ const WebDevelopmentPage = () => {
             <motion.div variants={fadeInUp} initial="initial" whileInView="animate" viewport={{ once: true }}>
               <h2 className="text-3xl font-bold mb-6 text-white">Professional Web Development</h2>
               <p className="text-white/80 mb-6">Custom-built websites using modern frameworks and best practices for optimal performance, security, and user experience.</p>
-              <ul className="space-y-4">
+              <ul className="space-y-4 mb-8">
                 {features.map((feature, index) => (
                   <motion.li key={index} className="flex items-center gap-3" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
@@ -78,9 +78,12 @@ const WebDevelopmentPage = () => {
                   </motion.li>
                 ))}
               </ul>
+              <a href="https://www.waksdigital.co.ke/pricing" target="_blank" rel="noopener noreferrer">
+                <Button variant="accent" size="lg">View Pricing</Button>
+              </a>
             </motion.div>
             <motion.div className="relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-              <img src="https://images.unsplash.com/photo-1547658719-da2b51169f9d?w=800&q=80" alt="Web Development" className="rounded-2xl shadow-card" />
+              <img src="https://images.unsplash.com/photo-1467232014886-a23bdb84ab18?w=800&q=80" alt="Web Development" className="rounded-2xl shadow-card" />
             </motion.div>
           </div>
         </div>
