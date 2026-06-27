@@ -79,22 +79,24 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-footer-foreground/20 flex flex-row flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-footer-foreground/70 text-center">
+        <div className="pt-8 border-t border-footer-foreground/20 flex flex-row flex-wrap justify-between items-center gap-x-6 gap-y-2 text-sm text-footer-foreground/70">
           <p>© {currentYear} Royal Graphics Solutions. All rights reserved.</p>
-          <Link to="/privacy-policy" className="hover:text-primary transition-smooth">Privacy Policy</Link>
-          <Link to="/terms-of-service" className="hover:text-primary transition-smooth">Terms of Service</Link>
-          <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
-          <span className="hidden sm:inline">|</span>
-          <p className="text-xs">Powered by{" "}
-            <a 
-              href="https://www.waksdigital.co.ke" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary-light transition-smooth font-medium"
-            >
-              Waks Digital Solutions
-            </a>
-          </p>
+          <div className="flex gap-x-6 items-center">
+            <Link to="/privacy-policy" className="hover:text-primary transition-smooth">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary transition-smooth">Terms of Service</Link>
+            <Link to="/contact" className="hover:text-primary transition-smooth">Contact Us</Link>
+            <span className="hidden sm:inline mx-2">|</span>
+            <p className="text-xs">Powered by{" "}
+              <a 
+                href="https://www.waksdigital.co.ke" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary-light transition-smooth font-medium"
+              >
+                Waks Digital Solutions
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
