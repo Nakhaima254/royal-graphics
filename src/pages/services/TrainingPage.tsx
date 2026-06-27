@@ -79,7 +79,7 @@ const TrainingPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4 text-primary-foreground">Download Course Outlines</h2>
           <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">Get detailed syllabus for all our training programs and start learning today.</p>
-          <a href="/training-course-outline.pdf" download>
+          <a href="/GRAPHIC%20DESIGN%20COURSE%20OUTLINE.pdf" download>
             <Button variant="accent" size="lg">
               <FileDown className="w-5 h-5 mr-2" />
               Download Course Outline (PDF)

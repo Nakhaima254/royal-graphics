@@ -153,61 +153,72 @@ const Navigation = () => {
                           </div>
                         </div>
 
-                        {/* Services Grid */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between mb-3 xl:mb-4">
-                            <div>
-                              <h4 className="font-bold text-sm xl:text-base text-foreground">Our Services</h4>
-                              <p className="text-xs text-muted-foreground">Complete digital marketing solutions</p>
-                            </div>
-                            <Link 
-                              to="/services" 
-                              className="px-3 py-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap"
-                            >
-                              View all <ArrowRight className="w-3 h-3 inline ml-1" />
-                            </Link>
-                          </div>
-                          <div className="grid grid-cols-2 gap-1.5 xl:gap-2 max-h-[45vh] overflow-y-auto pr-1">
-                            {serviceLinks.map((service, index) => {
-                              const Icon = service.icon;
-                              return (
-                                <motion.div
-                                  key={service.href}
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: index * 0.03, duration: 0.2 }}
-                                >
-                                  <Link
-                                    to={service.href}
-                                    className="flex items-center gap-2 xl:gap-3 p-2 xl:p-2.5 rounded-lg hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
-                                  >
-                                    <motion.div 
-                                      className="p-1.5 xl:p-2 rounded-lg bg-primary/15 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm shrink-0"
-                                      whileHover={{ scale: 1.1, rotate: 5 }}
-                                    >
-                                      <Icon className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-                                    </motion.div>
-                                    <div className="flex-1 min-w-0">
-                                      <span className="font-medium text-xs xl:text-sm text-foreground group-hover:text-primary transition-colors duration-300 block truncate">
-                                        {service.label}
-                                      </span>
-                                      <span className="text-[10px] xl:text-xs text-muted-foreground line-clamp-1 hidden lg:block">
-                                        {service.description}
-                                      </span>
-                                    </div>
-                                    <motion.span 
-                                      className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
-                                      initial={{ x: -5 }}
-                                      whileHover={{ x: 0 }}
-                                    >
-                                      <ArrowRight className="w-3 h-3" />
-                                    </motion.span>
-                                  </Link>
-                                </motion.div>
-                              );
-                            })}
-                          </div>
-                        </div>
+{/* Services Grid */}
+                         <div className="flex-1 min-w-0">
+                           <div className="flex items-center justify-between mb-3 xl:mb-4">
+                             <div>
+                               <h4 className="font-bold text-sm xl:text-base text-foreground">Our Services</h4>
+                               <p className="text-xs text-muted-foreground">Complete digital marketing solutions</p>
+                             </div>
+                             <Link 
+                               to="/services" 
+                               className="px-3 py-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap"
+                             >
+                               View all <ArrowRight className="w-3 h-3 inline ml-1" />
+                             </Link>
+                           </div>
+                           
+                           {/* Quick Links */}
+                           <div className="flex gap-2 mb-3 xl:mb-4">
+                             <Link to="/pricing" className="flex-1 text-center py-2 px-3 text-xs font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                               Pricing
+                             </Link>
+                             <a href="https://www.waksdigital.co.ke/pricing" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-2 px-3 text-xs font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                               Web Dev Pricing
+                             </a>
+                           </div>
+                           
+                           <div className="grid grid-cols-2 gap-1.5 xl:gap-2 max-h-[45vh] overflow-y-auto pr-1">
+                             {serviceLinks.map((service, index) => {
+                               const Icon = service.icon;
+                               return (
+                                 <motion.div
+                                   key={service.href}
+                                   initial={{ opacity: 0, y: 10 }}
+                                   animate={{ opacity: 1, y: 0 }}
+                                   transition={{ delay: index * 0.03, duration: 0.2 }}
+                                 >
+                                   <Link
+                                     to={service.href}
+                                     className="flex items-center gap-2 xl:gap-3 p-2 xl:p-2.5 rounded-lg hover:bg-secondary/70 border border-transparent hover:border-border/50 transition-all duration-300 group"
+                                   >
+                                     <motion.div 
+                                       className="p-1.5 xl:p-2 rounded-lg bg-primary/15 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm shrink-0"
+                                       whileHover={{ scale: 1.1, rotate: 5 }}
+                                     >
+                                       <Icon className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+                                     </motion.div>
+                                     <div className="flex-1 min-w-0">
+                                       <span className="font-medium text-xs xl:text-sm text-foreground group-hover:text-primary transition-colors duration-300 block truncate">
+                                         {service.label}
+                                       </span>
+                                       <span className="text-[10px] xl:text-xs text-muted-foreground line-clamp-1 hidden lg:block">
+                                         {service.description}
+                                       </span>
+                                     </div>
+                                     <motion.span 
+                                       className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
+                                       initial={{ x: -5 }}
+                                       whileHover={{ x: 0 }}
+                                     >
+                                       <ArrowRight className="w-3 h-3" />
+                                     </motion.span>
+                                   </Link>
+                                 </motion.div>
+                               );
+                             })}
+                           </div>
+                         </div>
                       </div>
                     </motion.div>
                   </NavigationMenuContent>
