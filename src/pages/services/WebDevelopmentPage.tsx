@@ -84,12 +84,9 @@ const WebDevelopmentPage = () => {
             </motion.div>
             <motion.div className="relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
               <img 
-                src="https://images.unsplash.com/photo-1555066931-4365d1db7776?w=800&q=80"
+                src="https://source.unsplash.com/800x600/?web,development,coding"
                 alt="Web Development" 
                 className="rounded-2xl shadow-card w-full h-auto object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1504639992288-96157a7858bc?w=800&q=80";
-                }}
               />
             </motion.div>
           </div>
