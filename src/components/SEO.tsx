@@ -11,7 +11,7 @@ interface SEOProps {
 const SITE_URL = "https://royalgraphics.co.ke";
 const DEFAULT_TITLE = "Royal Graphics Solutions - Digital Marketing Agency";
 const DEFAULT_DESCRIPTION = "Elevate your digital presence with Royal Graphics Solutions. Expert graphic design, SEO services, and social media management for businesses.";
-const DEFAULT_IMAGE = "/images/og-home.jpg";
+const DEFAULT_IMAGE = "/hero-bg.png";
 
 const SEO = ({
   title,

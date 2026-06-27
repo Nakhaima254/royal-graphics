@@ -45,7 +45,7 @@ const Home = () => {
       <SEO 
         title="Home"
         description="Elevate your digital presence with Royal Graphics Solutions. Expert graphic design, social media marketing, and digital solutions for businesses in Kenya."
-        image="/images/og-home.jpg"
+        image="/hero-bg.png"
         url="/"
       />
       <Hero />
