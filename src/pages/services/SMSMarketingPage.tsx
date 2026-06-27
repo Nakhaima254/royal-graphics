@@ -165,21 +165,24 @@ const SMSMarketingPage = () => {
               <p className="text-white/80 mb-6">
                 With years of experience in mobile marketing, we know how to craft messages that get read and drive results for your business.
               </p>
-              <ul className="space-y-4">
-                {features.map((feature, index) => (
-                  <motion.li 
-                    key={index}
-                    className="flex items-center gap-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0" />
-                    <span className="text-white">{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
+<ul className="space-y-4 mb-8">
+                 {features.map((feature, index) => (
+                   <motion.li 
+                     key={index}
+                     className="flex items-center gap-3"
+                     initial={{ opacity: 0, x: -20 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ delay: index * 0.1 }}
+                   >
+                     <Icon icon={CheckCircle} variant="primary" size="md" className="flex-shrink-0" />
+                     <span className="text-white">{feature}</span>
+                   </motion.li>
+                 ))}
+               </ul>
+               <Link to="/pricing">
+                 <Button variant="accent" size="lg">View Pricing</Button>
+               </Link>
             </motion.div>
             <motion.div
               className="relative"
