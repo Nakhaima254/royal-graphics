@@ -45,7 +45,7 @@ const WebDevelopmentPage = () => {
 
   return (
     <div className="pt-[5.5rem]">
-      <SEO title="Web Development" description="Professional web development services - custom websites, e-commerce, mobile apps. Fast, secure, SEO-optimized solutions." image="/web-dev.png" url="/services/web-development" />
+      <SEO title="Web Development" description="Professional web development services - custom websites, e-commerce, mobile apps. Fast, secure, SEO-optimized solutions." image="/hero-bg.png" url="/services/web-development" />
       <div className="bg-primary py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/services">
