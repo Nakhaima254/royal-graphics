@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, Mail, MessageSquare, Home, Users, DollarSign, BookOpen, Phone, Sparkles, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Palette, Share2, PenTool, Video, Mail, MessageSquare, Home, Users, DollarSign, BookOpen, Phone, Sparkles, ArrowRight, Code, GraduationCap } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,6 +20,8 @@ const serviceLinks = [
   { label: "Video Editing", href: "/services/video-editing", icon: Video, description: "Professional video production" },
   { label: "Email Marketing", href: "/services/email-marketing", icon: Mail, description: "Targeted email campaigns" },
   { label: "SMS Marketing", href: "/services/sms-marketing", icon: MessageSquare, description: "Direct mobile engagement" },
+  { label: "Web Development", href: "/services/web-development", icon: Code, description: "Custom websites & web apps" },
+  { label: "Training", href: "/services/training", icon: GraduationCap, description: "Design & tech courses" },
 ];
 
 const featuredServices = [
