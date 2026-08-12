@@ -2,32 +2,47 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, ArrowLeft, FileDown } from "lucide-react";
+import { GraduationCap, ArrowLeft, FileDown, CalendarDays, Clock, Wallet, CheckCircle } from "lucide-react";
 import SEO from "@/components/SEO";
+import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 
 const TrainingPage = () => {
   const courses = [
     {
       title: "Adobe Photoshop",
-      description: "Master photo editing, digital art, and graphic design fundamentals with industry-leading software.",
-      level: "Beginner to Advanced"
+      description: "Interface walkthrough and tool-by-tool study.",
+      level: "Beginner to Advanced",
+      projects: "Posters, business cards, mockups, letterheads, brochures, photo blending & more"
     },
     {
       title: "Adobe Illustrator",
-      description: "Create vector graphics, logos, icons, and illustrations with professional design workflows.",
-      level: "Beginner to Advanced"
+      description: "Interface walkthrough and tool-by-tool study.",
+      level: "Beginner to Advanced",
+      projects: "Logos, illustrations, infographics, company profiles, portfolios, catalogs & more"
     },
     {
       title: "Adobe InDesign",
-      description: "Learn professional desktop publishing for magazines, brochures, and marketing materials.",
-      level: "Beginner to Intermediate"
+      description: "Interface walkthrough and tool-by-tool study.",
+      level: "Beginner to Intermediate",
+      projects: "Company profiles, portfolios, simple magazine/newspaper layouts & more"
     },
     {
       title: "Adobe Premiere Pro",
-      description: "Video editing mastery for YouTube, social media, and professional productions.",
-      level: "Beginner to Advanced"
+      description: "Interface, timeline and sequence, effects and resources.",
+      level: "Beginner to Advanced",
+      projects: "Social media ad videos, YouTube videos & more"
     }
   ];
+
+  const highlights = [
+    { icon: CalendarDays, label: "Classes Start", value: "9th Sep 2026" },
+    { icon: Clock, label: "Duration", value: "12 Weeks (3 Months)" },
+    { icon: Wallet, label: "Course Fee", value: "KES 13,500" },
+    { icon: CheckCircle, label: "Certification", value: "Certificate on completion" }
+  ];
+
+  const addOns = ["Free software", "Social media marketing training"];
+
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
