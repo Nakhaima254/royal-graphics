@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import ClassesAdBanner from "@/components/ClassesAdBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Palette, TrendingUp, Share2, ArrowRight, Users, Award, Target, CheckCircle, Star, MessageSquare, Lightbulb, Rocket } from "lucide-react";
@@ -49,6 +50,10 @@ const Home = () => {
         url="/"
       />
       <Hero />
+
+      {/* Classes Ad Banner */}
+      <ClassesAdBanner />
+
       
       {/* Stats Section */}
       <section className="py-16 bg-accent">
