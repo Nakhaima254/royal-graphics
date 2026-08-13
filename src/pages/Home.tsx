@@ -49,6 +49,10 @@ const Home = () => {
         url="/"
       />
       <Hero />
+
+      {/* Classes Ad Banner */}
+      <ClassesAdBanner />
+
       
       {/* Stats Section */}
       <section className="py-16 bg-accent">
